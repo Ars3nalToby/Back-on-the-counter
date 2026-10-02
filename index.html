@@ -288,7 +288,7 @@
 <footer>Reference scripts for your own use — clinical judgement and current protocols always override. Built for JingLiang.</footer>
 
 <script>
-const CATS = ["All","Counselling","Back counter & flow","Quick handover","中文 Bilingual","Leading the team","Tricky ones","Empathy","Business & Regs","Quiz & Viva"];
+const CATS = ["All","Counselling","Back counter & flow","Quick handover","中文 Bilingual","Leading the team","Tricky ones","Empathy","Business & Regs","S3 Shelf","Bowel prep","Quiz & Viva"];
 
 const DATA = [
 /* ---------- COUNSELLING ---------- */
@@ -1100,6 +1100,185 @@ const DATA = [
   `Teach it back — to you, to a student, to a family member. If they can't explain it simply, they don't know it yet.`,
   `Read one trade-press item a day (Pharmacy Daily, Australian Pharmacist). It's how they hear about changes before patients ask.`
  ],flag:"Don't miss: the habit matters more than the volume — one drug a day compounds."},
+
+/* ---------- NEW: S3 SHELF (from the Pharmacist Only bay photo) ---------- */
+{cat:"S3 Shelf",quick:true,title:"Shelf 1 · Salbutamol & NSAID pain relief",scen:"Top shelf, left to right",
+ points:[
+  `<b>Ventolin CFC-free · Zempreon CFC-free</b> — salbutamol reliever inhalers. Ask how often they reach for it: needing a reliever more than about twice a week means asthma is not controlled — GP review, check technique, offer a spacer. Never-diagnosed wheeze or breathlessness → refer, don't sell.`,
+  `<b>Nuromol</b> — ibuprofen + paracetamol in one tablet. Both actives are already inside — do not stack extra Panadol or Nurofen on top.`,
+  `<b>Nurofen 12 Hour · Nurofen Double Strength</b> — ibuprofen (modified-release, and a higher-strength immediate-release). Full NSAID screen: ulcer/GI bleed, asthma triggered by NSAIDs, kidney disease, heart failure/uncontrolled BP, pregnancy, anticoagulants, ACE-I/ARB + diuretic ("triple whammy").`,
+  `<b>Voltaren Rapid Extra Strength · Viclofen 25 mg</b> — diclofenac potassium 25 mg — same active, generic vs brand. Full NSAID screen PLUS cardiovascular risk: not for established heart disease, stroke or peripheral artery disease. Shortest time, lowest dose.`,
+  `<b>Maxigesic</b> — paracetamol 500 mg + ibuprofen 150 mg per tablet. Every tablet carries both — check the pack's daily maximum and that they aren't also taking another paracetamol or NSAID product.`,
+  `<b>Mersynofen · MersynoNight <span style="color:var(--seal);font-weight:600">(confirm)</span></b> — Mersyndol-family combination analgesics. Read the actives off the box. The night-time one contains a sedating antihistamine → drowsiness, no driving or alcohol, caution in the elderly.`
+ ],flag:"Don't miss: S3 means YOU make the supply decision — ask who it's for, what symptoms, how long, what else they take, and what they've already tried."},
+{cat:"S3 Shelf",quick:true,title:"Shelf 2 · Paracetamol line-up",scen:"Pack size and formulation are the whole story",
+ points:[
+  `<b>Osteomol 665 · Paramyl Osteo</b> — paracetamol 665 mg modified-release (the "osteo" products — same idea as Panadol Osteo). For ongoing arthritis-type pain: 2 tablets up to three times a day, maximum 6 tablets (3.99 g) in 24 hours, swallow whole, never crush.`,
+  `<b>Paramyl Tablets · Panamax 500 mg · Panadol Tablets (large packs)</b> — paracetamol 500 mg immediate-release: maximum 8 tablets (4 g) in 24 hours, at least 4 hours apart. Lower the ceiling or send to the GP if they're under about 50 kg, drink heavily, are malnourished or have liver disease.`,
+  `<b>Panadol Rapid · Panadol Mini Caps</b> — paracetamol 500 mg in a faster-dissolving / smaller-to-swallow format. Same 4 g ceiling, same hidden-paracetamol trap.`,
+  `<b>The trap to check every time:</b> paracetamol hides in cold &amp; flu products, night-time products and some combination analgesics. Ask what ELSE they're taking before you sell the 100-pack.`,
+  `Why it sits behind the counter: pack size. A big pack is a different risk from a small pack of the same tablet — ask who it's for and how long they plan to use it.`
+ ],flag:"Don't miss: 4 g/day is the ceiling for 500 mg tablets and 3.99 g for the 665 mg MR — and the question that matters is what else they've swallowed today."},
+{cat:"S3 Shelf",quick:true,title:"Shelf 3 · Thrush, Hiprex & friends",scen:"Antifungals and UTI prevention",
+ points:[
+  `<b>Canesten (1-day, 3-day, 6-day cream; pessaries; pessary + external cream combo) · Clonea 3-day &amp; 6-day cream</b> — clotrimazole vaginal treatments. Safe to treat only a recognised, uncomplicated thrush. Refer: first-ever episode, 4+ episodes a year, pregnancy, under 16, diabetes/immunosuppression, fever, abdominal or pelvic pain, foul or bloody discharge, possible STI exposure. Oil-based creams weaken latex condoms and diaphragms.`,
+  `<b>Flufeme</b> — fluconazole 150 mg single capsule for vaginal thrush. Not in pregnancy. Interaction check: warfarin, statins (myopathy), QT-prolonging medicines, some other CYP-metabolised drugs. Liver disease → refer.`,
+  `<b>Hiprex</b> — methenamine hippurate 1 g — prevention of recurrent UTI, not treatment of an active infection. Works through acidic urine: avoid urinary alkalinisers (citrate, bicarbonate), avoid with sulfonamides (crystal risk), not in severe kidney or liver disease. Active UTI symptoms → needs treating first.`,
+  `<b>Uramet <span style="color:var(--seal);font-weight:600">(confirm)</span></b> — bottles sit beside Hiprex. Read the actives off the label before you counsel — I could read the name but not the ingredient from the photo.`
+ ],flag:"Don't miss: first-time, recurrent, pregnant, diabetic, fever or flank pain — that's a refer, not a sell."},
+{cat:"S3 Shelf",quick:true,title:"Shelf 4 · Nystatin, vitamin D, celecoxib, mild steroids",scen:"Second-last row, left to right",
+ points:[
+  `<b>Fleurstat <span style="color:var(--seal);font-weight:600">(confirm)</span> · Decozol <span style="color:var(--seal);font-weight:600">(confirm)</span></b> — antifungal-type products at the far left; I couldn't read the actives from the photo. Treat as a "read the box first" item.`,
+  `<b>Nilstat Vaginal Cream · Nilstat Oral Drops</b> — nystatin. Vaginal cream: same thrush screen as clotrimazole. Oral drops: for oral thrush, usually held in the mouth then swallowed, after feeds in babies, and continued about 2 days after the patches clear.`,
+  `<b>OsteVit-D One-A-Week · Ostelin Vitamin D 7000 IU</b> — colecalciferol 175 mcg (7000 IU) taken once a WEEK, not daily. Take with a meal containing some fat. Check they aren't doubling up with another vitamin D or high-dose calcium; kidney disease, sarcoidosis, hypercalcaemia or kidney stones → GP first.`,
+  `<b>Celebrex Relief</b> — celecoxib (a COX-2 NSAID — same cautions as other NSAIDs for heart disease, kidney disease and blood thinners; lower GI-bleed risk is not zero). Confirm strength and pack on the box.`,
+  `<b>Cortic-DS 1% · DermAid 1% (cream, soft cream, solution, spray)</b> — hydrocortisone 1%. Short course for mild inflammatory skin problems: thin layer, usually no longer than about a week, not on infected, weepy or broken skin, not near the eyes. Not improved in a week → GP.`,
+  `Green Aspen boxes beside Celebrex: <span style="color:var(--seal);font-weight:600">(confirm)</span> — name not legible in the photo.`
+ ],flag:"Don't miss: vitamin D 7000 IU is WEEKLY. A patient who takes it daily is the near-miss waiting to happen."},
+{cat:"S3 Shelf",quick:true,title:"Shelf 5 · PPIs, antihistamines, steroid-antifungal creams",scen:"Middle shelf",
+ points:[
+  `<b>Kloxima <span style="color:var(--seal);font-weight:600">(confirm)</span> · Resolve Plus <span style="color:var(--seal);font-weight:600">(confirm)</span> · CandaDerm <span style="color:var(--seal);font-weight:600">(confirm)</span></b> — topical antifungal / steroid-type creams. Read the actives from the box before counselling.`,
+  `<b>Hydrozole</b> — hydrocortisone + clotrimazole (a steroid-antifungal combination). Only for inflamed fungal skin rashes; the steroid component means short courses, not on the face or broken skin, and not for undiagnosed rashes.`,
+  `<b>Canesten Extra</b> — a stronger topical antifungal (bifonazole) in the Canesten range — confirm on the box. Once-daily tinea-type use.`,
+  `<b>Pantoleze · Somac Heartburn Relief</b> — pantoprazole 20 mg, once daily, short course (about 2 weeks) for frequent heartburn. Alarm features → refer: trouble swallowing, unintentional weight loss, vomiting blood, black stools, anaemia, new symptoms over about 50-55, symptoms needing PPIs beyond the labelled course.`,
+  `<b>Phenergan Elixir · Phenergan 10 mg &amp; 25 mg · Histoten 10 &amp; 25 <span style="color:var(--seal);font-weight:600">(confirm)</span></b> — promethazine (sedating first-generation antihistamine). Drowsiness: no driving or alcohol. Not for children under 2. Be careful in the elderly (confusion, constipation, urinary retention), glaucoma and prostate enlargement.`,
+  `<b>Polaramine tablets &amp; syrup</b> — dexchlorpheniramine — another sedating antihistamine. Same sedation cautions; the non-sedating alternative is usually the better first suggestion for hay fever.`
+ ],flag:"Don't miss: sedating antihistamines are the elderly-patient and driving catch; PPIs are the alarm-feature catch."},
+{cat:"S3 Shelf",quick:true,title:"Shelf 6 · Migraine, mouth care, one-dose treatments",scen:"Lower-middle shelf",
+ points:[
+  `<b>Maxalt Migraine Relief</b> — rizatriptan. Only for someone with a previously diagnosed migraine. Screen: heart disease, stroke/TIA, uncontrolled blood pressure, hemiplegic or basilar migraine, MAO inhibitors, and check the pack's propranolol warning. Maximum doses per 24 hours are on the pack — know them.`,
+  `<b>Cold-sore one-dose pack <span style="color:var(--seal);font-weight:600">(confirm)</span></b> — the box shows a lip on the front — a single-dose cold sore product. Read the active and the "start at the first tingle" timing off the box.`,
+  `<b>Neutrafluor 5000 Plus</b> — high-concentration fluoride toothpaste (5000 ppm) for people at high risk of tooth decay. Spit, don't rinse; check the pack's age limit before supplying to a child.`,
+  `<b>Kenalog in Orabase</b> — triamcinolone dental paste for mouth ulcers. Dab, don't rub; after meals and at bedtime; not on infected-looking ulcers. An ulcer that has not healed in about 2-3 weeks needs dental or GP review.`,
+  `<b>Rapigel <span style="color:var(--seal);font-weight:600">(confirm)</span> · Pollenol <span style="color:var(--seal);font-weight:600">(confirm)</span></b> — names read from the box only; actives not confirmed from the photo. Check before counselling.`,
+  `Left-hand Aspen tubes (purple and orange) and the small white bottles: <span style="color:var(--seal);font-weight:600">(confirm)</span> — not legible.`
+ ],flag:"Don't miss: triptan = diagnosed migraine only, and always the cardiovascular screen first."},
+{cat:"S3 Shelf",quick:true,title:"Shelf 7 · Weight, sleep, diarrhoea, acne",scen:"Bottom shelf, the \"specific purpose\" items",
+ points:[
+  `<b>Xenical</b> — orlistat 120 mg with each main meal that contains fat (skip the dose if you skip the meal). Expect oily spotting and urgency on a high-fat meal. Take a multivitamin at a different time of day (fat-soluble vitamins). Interactions to check: ciclosporin, warfarin, levothyroxine, anti-epileptics, amiodarone.`,
+  `<b>Circadin</b> — melatonin 2 mg modified-release for short-term insomnia in older adults. Check the age and duration limits on the pack. Fluvoxamine markedly raises melatonin levels; take after food, avoid alcohol and driving if drowsy.`,
+  `<b>Restavit · Dozatin <span style="color:var(--seal);font-weight:600">(confirm)</span> · Dozavit <span style="color:var(--seal);font-weight:600">(confirm)</span></b> — sleep aids — most are sedating antihistamines (e.g. doxylamine). Short-term only; no driving next morning; not for the elderly or for ongoing insomnia. Confirm the active on each box.`,
+  `<b>Lomotil</b> — diphenoxylate + atropine for short-term diarrhoea in adults. Not with blood in the stool, fever, suspected infection or after recent antibiotics; sedating; opioid-type so supply carefully; keep fluids up. Diarrhoea beyond a day or two → GP.`,
+  `<b>Differin</b> — adapalene 0.1% topical retinoid for acne. Not in pregnancy; dryness and irritation settle over the first weeks; sunscreen daily; apply a pea-sized amount to the whole area, not just spots. Results take 8-12 weeks.`
+ ],flag:"Don't miss: orlistat with food, melatonin with fluvoxamine, and Lomotil never with blood or fever."},
+
+/* ---------- NEW: BOWEL PREP (Glycoprep) ---------- */
+{cat:"Bowel prep",quick:true,title:"Glycoprep — who is actually buying it",scen:"The patient picture",
+ points:[
+  `<b>What it is.</b> Glycoprep-C Orange is an oral bowel-cleansing powder: macrogol 3350 (a PEG) + sodium sulfate + sodium chloride + potassium chloride + ascorbic acid. Pack: 3 × 70 g sachets, each dissolved in 1 litre of water — 3 litres in all. It's a pharmacist-only (S3) item. Product information lists bowel cleansing before IVP, abdominal X-ray, surgery and colonoscopy.`,
+  `<b>Who is behind the counter with it.</b> Almost always someone booked for a <b>colonoscopy</b>: a positive bowel-screening (FIT) result (national program now invites from age 45 to 74), surveillance after polyps or bowel cancer, inflammatory bowel disease surveillance, or investigation of bleeding, a change in bowel habit or iron-deficiency anaemia.`,
+  `<b>The typical person.</b> Middle-aged to elderly, often with polypharmacy (blood pressure, diabetes, cholesterol, blood thinners), often anxious about the procedure — and often more worried about the prep than the test itself.`,
+  `<b>Why it matters to get this right.</b> A poor prep means the doctor can't see the bowel lining, so polyps get missed and the procedure may be repeated. Dehydration and electrolyte upset are the real safety risks, especially in the elderly and anyone on diuretics, ACE-inhibitors/ARBs or with kidney or heart disease.`,
+  `<b>Reality at the counter.</b> They normally arrive with an endoscopy-unit instruction sheet. That sheet — timing, diet, diabetes and blood-thinner instructions — beats anything you say. Your job: read it, run the safety screen, flag the medicine problems the sheet may have missed, and make the experience tolerable.`,
+  `<b>What I could not check from here:</b> PBS/price status, the exact current pack contents and full PI wording — the Fresenius, NPS and Medsafe sites were blocked from this build environment. Confirm in the current PI before relying on a specific number.`
+ ],flag:"Don't miss: it's the unit's instruction sheet that drives the timing — your job is the safety screen and the medicine flags."},
+{cat:"Bowel prep",quick:true,title:"Glycoprep — the safety screen",scen:"Before you hand it over",
+ points:[
+  `<b>Do not supply, refer to the doctor/endoscopy unit:</b> known or suspected bowel obstruction, ileus, gastric retention, bowel perforation, toxic colitis or toxic megacolon, severe dehydration, hypersensitivity to an ingredient, or body weight under 20 kg (product information).`,
+  `<b>Kidney and heart disease.</b> The Glycoprep-C <i>Kit</i> consumer leaflet tells people not to take it with kidney failure or disease, and heart failure is also listed; the <i>powder</i> information words these as cautions. Wording differs by product — read the leaflet in the box you're holding, and treat either as "call the proceduralist first", never a casual sale.`,
+  `<b>Caution groups:</b> the elderly and frail (dehydration, electrolyte depletion), diabetes, impaired kidney function, heart conditions, severe constipation, swallowing difficulty or a tendency to vomit, active severe colitis.`,
+  `<b>Questions to ask, in this order:</b> (1) Do you have the unit's instruction sheet? (2) Any kidney, heart or bowel problems? (3) Diabetes? (4) Every medicine — blood thinners, iron, the pill, water tablets, BP tablets, GLP-1 injections? (5) Any swallowing trouble or previous bad experiences with prep?`,
+  `<b>Don't swap preps on your own.</b> The unit chose this product for this patient — kidney function, heart status and volume tolerance all drive the choice. If they're holding a different prep from the one named on the sheet, ring the unit.`
+ ],flag:"Don't miss: kidney or heart failure with a bowel prep = a phone call to the proceduralist before anything leaves the shop."},
+{cat:"Bowel prep",quick:true,title:"Glycoprep — their other medicines",scen:"The part the instruction sheet often misses",
+ points:[
+  `<b>Diabetes.</b> Insulin and sulfonylureas: hypo risk while on clear fluids. <b>SGLT2 inhibitors</b> (dapagliflozin, empagliflozin): high priority — fasting plus dehydration raises euglycaemic ketoacidosis risk, and units typically have them held in the days beforehand. <b>GLP-1 / dual agonists</b> (semaglutide, tirzepatide): slow stomach emptying, an increasingly recognised cause of retained food, aspiration risk and poor prep — the unit decides what to do, so make sure they have been told. Don't improvise numbers; if there is no written diabetes plan, ring the unit.`,
+  `<b>Anticoagulants and antiplatelets</b> (warfarin, apixaban, rivaroxaban, dabigatran, clopidogrel, ticagrelor): never tell a patient to stop or keep going yourself — check the proceduralist has given a plan.`,
+  `<b>Iron tablets, fibre supplements, anti-diarrhoeals:</b> usually held in the days before, per the unit's sheet (iron darkens stool and clouds the view).`,
+  `<b>Water tablets, ACE-inhibitors/ARBs, NSAIDs, lithium, digoxin:</b> dehydration and electrolyte shifts raise the risk of kidney injury, lithium toxicity and digoxin toxicity. The prescriber, not the pharmacist, decides on holding — but flag them.`,
+  `<b>Oral contraceptive, antibiotics, diabetes tablets:</b> the consumer leaflet warns that absorption can be unreliable with watery diarrhoea. For the pill, treat it like severe diarrhoea — use backup contraception per the pill's own leaflet.`,
+  `<b>Time-critical oral medicines</b> (anti-epileptics, Parkinson's medicines, transplant immunosuppressants, thyroid): ask the unit how to time them against the prep; the usual class advice is to avoid taking other oral medicines close to starting the prep.`,
+  `<b>Poor-prep risk drugs:</b> opioids, anticholinergics, tricyclics, iron, verapamil — plus chronic constipation. Mention it kindly: you're more likely to need the full volume, so don't cut it short.`
+ ],flag:"Don't miss: SGLT2 inhibitors, GLP-1 injections and blood thinners — the three the instruction sheet most often gets wrong or leaves vague."},
+{cat:"Bowel prep",title:"Handing over Glycoprep-C",scen:"First-time colonoscopy patient",
+ lines:[
+  {r:"cust",rc:"r-cust",t:`The hospital told me to get Glycoprep. What do I do with it?`},
+  {r:"you",rc:"r-you",t:`Of course. Before I hand it over, did the endoscopy unit give you an instruction sheet? The timing and the diet rules differ between hospitals, and their sheet beats anything I say. Can I have a look?`},
+  {r:"cust",rc:"r-cust",t:`Here you go.`},
+  {r:"you",rc:"r-you",t:`Thanks. A few quick safety questions — any kidney or heart problems, diabetes, or bowel blockage or severe constipation? And what medicines do you take, including blood thinners, iron tablets, water tablets, or the pill?`},
+  {r:"cust",rc:"r-cust",t:`Just metformin and a blood pressure tablet.`},
+  {r:"you",rc:"r-you",t:`Good. Two things I want to flag: the unit should have told you what to do with the diabetes tablet on prep day, and your blood pressure tablet matters for dehydration. If the sheet doesn't say, we'll ring them now rather than guess.`},
+  {r:"you",rc:"r-you",t:`How it works: each sachet is mixed into a litre of water — three litres in total — and you drink it steadily, not all at once, following the timing on your sheet. Clear fluids only the day before: no solid food, no milk, and avoid red or purple colouring. Chilling it and using a straw helps.`},
+  {r:"cust",rc:"r-cust",t:`What if I feel sick?`},
+  {r:"you",rc:"r-you",t:`Pause for half an hour, then start again slowly. Sip cold, and keep going if you can. If you vomit repeatedly, have severe pain or bloating, or feel faint, ring the unit or seek urgent help — don't push through it.`},
+  {r:"you",rc:"r-you",t:`One more tip: stay near a toilet, and a barrier cream around the area helps. It's an unpleasant evening, but a good prep is what makes the test worthwhile.`}
+ ],
+ key:[
+  `Ask for the unit's sheet FIRST — it drives timing, diet and the diabetes and blood-thinner plan.`,
+  `Three litres in total, one litre per sachet, sipped steadily — and clear fluids only the day before.`,
+  `Give them a plan for nausea and a clear 'call the unit' threshold: repeated vomiting, severe pain or bloating, faintness.`
+ ]},
+{cat:"Bowel prep",title:"Diabetic booked for colonoscopy",scen:"Insulin plus an SGLT2 tablet",
+ lines:[
+  {r:"cust",rc:"r-cust",t:`I'm on insulin and Jardiance, and the prep says clear fluids all day. What do I take?`},
+  {r:"you",rc:"r-you",t:`Good that you're asking before, not during. Did the unit or your diabetes team give you a written plan? Insulin is usually reduced on a clear-fluid day, and SGLT2 tablets like Jardiance are generally held beforehand because of the ketoacidosis risk — but the exact timing is theirs, not mine.`},
+  {r:"cust",rc:"r-cust",t:`Nobody told me anything.`},
+  {r:"you",rc:"r-you",t:`Then let's ring the endoscopy unit together now rather than guess. In the meantime, check your sugars more often than usual, and know the signs of a low.`},
+  {r:"cust",rc:"r-cust",t:`What do I have if I go low? I can't eat.`},
+  {r:"you",rc:"r-you",t:`Treat a hypo with a clear sugary drink — clear apple juice is on most clear-fluid lists — but confirm that with your sheet. Don't skip treating a low because of the prep.`},
+  {r:"you",rc:"r-you",t:`And if you're ever vomiting, very drowsy, breathing fast or feel very unwell on prep day, even with normal sugars, get urgent medical help.`}
+ ],
+ key:[
+  `No written diabetes plan = ring the unit before you supply, don't improvise.`,
+  `SGLT2 inhibitors are the ones to flag: dehydration + fasting → euglycaemic ketoacidosis.`,
+  `A hypo is treated, prep or no prep — clear sugary fluid, and the unit's sheet wins.`
+ ]},
+{cat:"Bowel prep",title:"'I can't keep it down'",scen:"Phone call the evening of the prep",
+ lines:[
+  {r:"cust",rc:"r-cust",t:`I've had one litre and I'm vomiting. Can I stop?`},
+  {r:"you",rc:"r-you",t:`Don't stop yet — pause for 30 to 60 minutes, then try again with smaller sips, cold through a straw. A bit of nausea is common. How many times have you vomited?`},
+  {r:"cust",rc:"r-cust",t:`Twice. And I'm quite bloated now.`},
+  {r:"you",rc:"r-you",t:`Thanks. Any severe belly pain, or is the bloating getting worse? Any dizziness, fainting, or have you passed less urine?`},
+  {r:"cust",rc:"r-cust",t:`Some cramping, no fainting.`},
+  {r:"you",rc:"r-you",t:`Cramping is expected. If it turns into constant severe pain, a hard swollen belly, or you can't keep any fluid down at all, call the endoscopy unit or go to Emergency — that can mean an obstruction or serious dehydration, and the prep must stop.`},
+  {r:"you",rc:"r-you",t:`If you're managing small sips, keep going slowly and let the unit know in the morning how much you finished — they'll tell you whether it was enough.`}
+ ],
+ key:[
+  `Pause, then restart slowly and cold — but severe pain, a hard swollen belly or no fluid staying down means stop and get help.`,
+  `Dizziness, fainting or passing little urine are dehydration signals — don't push on.`,
+  `Always route a prep that wasn't finished back to the unit; they decide if it's adequate.`
+ ]},
+{cat:"Bowel prep",quick:true,title:"Glycoprep — sources and gaps",scen:"What this section is built on",
+ points:[
+  `Consumer medicine information (NPS MedicineWise): <a href="https://www.nps.org.au/medicine-finder/glycoprep-c-powder-for-oral-solution" target="_blank" style="color:var(--c);text-decoration:underline">Glycoprep-C powder</a> · <a href="https://www.nps.org.au/medicine-finder/glycoprep-c-kit-combination-pack" target="_blank" style="color:var(--c);text-decoration:underline">Glycoprep-C Kit</a>. Manufacturer product information: Fresenius Kabi Australia (Glycoprep Orange PI).`,
+  `<b>Confirmed from the leaflets/search summaries:</b> ingredients; 3 × 70 g sachets in 1 litre each; the indications; the contraindications and caution groups; the oral-contraceptive/antibiotic/diabetes-tablet absorption warning; the clear-fluid diet advice.`,
+  `<b>Class knowledge, not sourced here:</b> the SGLT2 inhibitor, GLP-1 agonist, anticoagulant, iron and lithium/digoxin points, and the practical nausea advice. They are standard bowel-prep medicine-management issues, but each endoscopy unit has its own protocol.`,
+  `<b>Not checked:</b> PBS listing, price, and the full current PI. I couldn't open the Fresenius, NPS or Medsafe documents from the build environment. Verify numbers and wording on the current PI before using any specific figure with a patient.`
+ ],flag:"Don't miss: this is a counselling aid, not a protocol — the endoscopy unit's written instructions and the current PI always win."},
+
+/* ---------- NEW: QUIZ — S3 SHELF RECALL ---------- */
+{cat:"Quiz & Viva",quick:true,title:"S3 shelf recall",scen:"The Pharmacist Only bay — brand, active, screen",
+ points:[
+  `<details><summary style="cursor:pointer;font-weight:600;list-style:none">▸ Maxigesic and Nuromol — what is in each?</summary><div style="margin-top:7px;color:var(--muted);line-height:1.5">Maxigesic: paracetamol 500 mg + ibuprofen 150 mg per tablet. Nuromol: ibuprofen 200 mg + paracetamol 500 mg per tablet. The catch is that both contain both — so no extra Panadol, no extra Nurofen. Follow-up: what's the NSAID screen before you sell either?</div></details>`,
+  `<details><summary style="cursor:pointer;font-weight:600;list-style:none">▸ Voltaren Rapid Extra Strength vs Viclofen 25 mg — what's the difference, and what's the extra warning?</summary><div style="margin-top:7px;color:var(--muted);line-height:1.5">Same active — diclofenac potassium 25 mg (brand vs generic). On top of the usual NSAID screen, diclofenac carries a cardiovascular warning: avoid in established heart disease, stroke or peripheral artery disease. Shortest time, lowest dose.</div></details>`,
+  `<details><summary style="cursor:pointer;font-weight:600;list-style:none">▸ A customer wants the 665 mg 'osteo' paracetamol (Osteomol 665, Paramyl Osteo). Dose and ceiling?</summary><div style="margin-top:7px;color:var(--muted);line-height:1.5">Paracetamol 665 mg modified-release: 2 tablets up to three times a day, maximum 6 tablets (3.99 g) in 24 hours, swallowed whole. Ask what else contains paracetamol, and about liver disease, alcohol and low body weight.</div></details>`,
+  `<details><summary style="cursor:pointer;font-weight:600;list-style:none">▸ A woman asks for Canesten. List the reasons you refer instead of selling.</summary><div style="margin-top:7px;color:var(--muted);line-height:1.5">First-ever episode, four or more episodes a year, pregnancy, under 16, diabetes or immunosuppression, fever, abdominal or pelvic pain, foul-smelling or bloody discharge, possible STI exposure. Also mention that oil-based creams can weaken latex condoms.</div></details>`,
+  `<details><summary style="cursor:pointer;font-weight:600;list-style:none">▸ A patient wants Flufeme for thrush. Which medicines do you ask about?</summary><div style="margin-top:7px;color:var(--muted);line-height:1.5">Warfarin (INR rise), statins (myopathy risk), QT-prolonging medicines, and other drugs metabolised through CYP2C9/3A4. Not in pregnancy. Liver disease → refer.</div></details>`,
+  `<details><summary style="cursor:pointer;font-weight:600;list-style:none">▸ Hiprex — what is it for, and what must it not be taken with?</summary><div style="margin-top:7px;color:var(--muted);line-height:1.5">Methenamine hippurate: prevention of recurrent UTI, not treatment. Needs acidic urine — avoid urinary alkalinisers (citrate, bicarbonate). Avoid with sulfonamides (crystalluria). An active infection needs treatment first.</div></details>`,
+  `<details><summary style="cursor:pointer;font-weight:600;list-style:none">▸ What is OsteVit-D One-A-Week / Ostelin 7000 IU, and what's the near-miss?</summary><div style="margin-top:7px;color:var(--muted);line-height:1.5">Colecalciferol 175 mcg (7000 IU) taken once a WEEK. The near-miss is a patient taking it daily, or stacking it on another vitamin D or high-dose calcium. Kidney disease, hypercalcaemia or kidney stones → GP first.</div></details>`,
+  `<details><summary style="cursor:pointer;font-weight:600;list-style:none">▸ Pantoleze or Somac Heartburn Relief (pantoprazole 20 mg) — when do you refer?</summary><div style="margin-top:7px;color:var(--muted);line-height:1.5">Alarm features: trouble swallowing, unintentional weight loss, vomiting blood, black stools, anaemia, new symptoms in an older patient, or symptoms needing more than the labelled short course.</div></details>`,
+  `<details><summary style="cursor:pointer;font-weight:600;list-style:none">▸ Promethazine (Phenergan, Histoten) vs Polaramine — what's the common counselling theme?</summary><div style="margin-top:7px;color:var(--muted);line-height:1.5">Both are sedating antihistamines: drowsiness, no driving or alcohol, caution in the elderly (confusion, constipation, urinary retention), glaucoma and prostate enlargement. Promethazine is not for children under 2.</div></details>`,
+  `<details><summary style="cursor:pointer;font-weight:600;list-style:none">▸ Maxalt Migraine Relief — who can't you supply?</summary><div style="margin-top:7px;color:var(--muted);line-height:1.5">Anyone without a previously diagnosed migraine, or with heart disease, stroke/TIA, uncontrolled blood pressure, hemiplegic or basilar migraine, or on an MAO inhibitor. Check the propranolol warning and the pack's 24-hour maximum.</div></details>`,
+  `<details><summary style="cursor:pointer;font-weight:600;list-style:none">▸ Xenical — how is it taken, and which medicines do you ask about?</summary><div style="margin-top:7px;color:var(--muted);line-height:1.5">Orlistat 120 mg with each main meal that contains fat; skip the dose if you skip the meal. Ask about ciclosporin, warfarin, levothyroxine, anti-epileptics and amiodarone. Multivitamin at a different time of day. Oily spotting and urgency are expected with high-fat meals.</div></details>`,
+  `<details><summary style="cursor:pointer;font-weight:600;list-style:none">▸ Lomotil — when do you not supply it?</summary><div style="margin-top:7px;color:var(--muted);line-height:1.5">Diarrhoea with blood, fever, suspected infection or after recent antibiotics. It is an opioid-type antidiarrhoeal (diphenoxylate + atropine) so it sedates; keep fluids up; diarrhoea lasting more than a day or two → GP.</div></details>`,
+  `<details><summary style="cursor:pointer;font-weight:600;list-style:none">▸ Circadin on the S3 shelf — what interaction should you remember?</summary><div style="margin-top:7px;color:var(--muted);line-height:1.5">Melatonin modified-release: fluvoxamine strongly increases melatonin levels (CYP1A2 inhibition). Check the age and duration limits on the pack; avoid alcohol and driving if drowsy.</div></details>`,
+  `<details><summary style="cursor:pointer;font-weight:600;list-style:none">▸ Neutrafluor 5000 Plus and Kenalog in Orabase — a quick counselling line for each?</summary><div style="margin-top:7px;color:var(--muted);line-height:1.5">Neutrafluor: very-high-fluoride toothpaste (5000 ppm) for high decay risk — spit, don't rinse; check the age limit. Kenalog in Orabase: triamcinolone paste, dab (don't rub) on a mouth ulcer; an ulcer not healing in 2-3 weeks needs dental or GP review.</div></details>`
+ ],flag:"Don't miss: knowing the brand is the easy half. The skill is the question you ask BEFORE you sell it."},
+
+/* ---------- NEW: QUIZ — BOWEL PREP ---------- */
+{cat:"Quiz & Viva",quick:true,title:"Bowel prep (Glycoprep) check",scen:"Safety screen, medicines, mid-prep problems",
+ points:[
+  `<details><summary style="cursor:pointer;font-weight:600;list-style:none">▸ A customer hands you a colonoscopy prep script. What do you ask for first?</summary><div style="margin-top:7px;color:var(--muted);line-height:1.5">The endoscopy unit's instruction sheet. Timing, diet and the diabetes and blood-thinner instructions come from the unit, and they differ between hospitals. Then run the safety screen.</div></details>`,
+  `<details><summary style="cursor:pointer;font-weight:600;list-style:none">▸ What does Glycoprep-C contain, and how is it made up?</summary><div style="margin-top:7px;color:var(--muted);line-height:1.5">Macrogol 3350 (PEG) with sodium sulfate, sodium chloride, potassium chloride and ascorbic acid. Three 70 g sachets, each mixed into 1 litre of water — 3 litres in total. Follow the sheet for timing.</div></details>`,
+  `<details><summary style="cursor:pointer;font-weight:600;list-style:none">▸ List the situations where a bowel prep must not be supplied without checking with the doctor.</summary><div style="margin-top:7px;color:var(--muted);line-height:1.5">Bowel obstruction, ileus, gastric retention, perforation, toxic colitis or megacolon, severe dehydration, allergy to an ingredient, weight under 20 kg. Kidney disease or heart failure also needs a call to the proceduralist (the Kit leaflet says not to take it with kidney failure/disease).</div></details>`,
+  `<details><summary style="cursor:pointer;font-weight:600;list-style:none">▸ A patient on dapagliflozin is about to start bowel prep. What's the concern?</summary><div style="margin-top:7px;color:var(--muted);line-height:1.5">SGLT2 inhibitors plus fasting and dehydration risk euglycaemic ketoacidosis, and units typically hold them beforehand. Don't invent a timeframe — check the written plan or ring the unit.</div></details>`,
+  `<details><summary style="cursor:pointer;font-weight:600;list-style:none">▸ A patient on Ozempic or Mounjaro is booked for colonoscopy. Why does it matter?</summary><div style="margin-top:7px;color:var(--muted);line-height:1.5">GLP-1 and dual agonists slow gastric emptying — retained stomach contents, poorer prep and aspiration risk. The unit decides how to manage it, so make sure they know the patient takes one.</div></details>`,
+  `<details><summary style="cursor:pointer;font-weight:600;list-style:none">▸ Which other medicines should be flagged for a patient doing a bowel prep?</summary><div style="margin-top:7px;color:var(--muted);line-height:1.5">Diuretics, ACE-inhibitors/ARBs, NSAIDs, lithium, digoxin (dehydration and electrolyte effects); blood thinners and antiplatelets (unit plan); iron and fibre supplements (usually held); the oral contraceptive and time-critical oral medicines (absorption).</div></details>`,
+  `<details><summary style="cursor:pointer;font-weight:600;list-style:none">▸ A woman on the pill is doing a bowel prep. What do you advise?</summary><div style="margin-top:7px;color:var(--muted);line-height:1.5">Watery diarrhoea can reduce absorption, so treat it like severe diarrhoea or vomiting: backup contraception per the pill's own leaflet.</div></details>`,
+  `<details><summary style="cursor:pointer;font-weight:600;list-style:none">▸ Mid-prep, a patient has vomited twice and is bloated. What do you say, and what changes it to 'get help'?</summary><div style="margin-top:7px;color:var(--muted);line-height:1.5">Pause 30 to 60 minutes, restart with small cold sips through a straw. Stop and get urgent help for: constant severe pain, a hard swollen belly, repeated vomiting that won't stay down, faintness, or passing little urine.</div></details>`,
+  `<details><summary style="cursor:pointer;font-weight:600;list-style:none">▸ Who typically buys Glycoprep, and why does a poor prep matter?</summary><div style="margin-top:7px;color:var(--muted);line-height:1.5">Mostly colonoscopy patients: positive bowel-screening result (invited from 45 to 74), polyp or cancer surveillance, IBD surveillance, bleeding, bowel-habit change or iron-deficiency anaemia. A poor prep hides polyps and can mean repeating the procedure.</div></details>`
+ ],flag:"Don't miss: the medicine flags (SGLT2 inhibitors, GLP-1 injections, blood thinners) matter more than the sachet maths."},
+
 ];
 
 /* ---- render ---- */
@@ -1115,6 +1294,8 @@ const COLORS={
   "Leading the team":"var(--c-lead)","Tricky ones":"var(--c-tricky)",
   "Empathy":"#2A6F97",
   "Business & Regs":"#5C6B3F",
+  "S3 Shelf":"#2E6F8E",
+  "Bowel prep":"#9A5B7A",
   "Quiz & Viva":"#8A4B2A"
 };
 
