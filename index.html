@@ -204,6 +204,7 @@
   }
   .card:hover{box-shadow:0 6px 18px rgba(20,33,29,.07);border-color:#D7D3C8}
   .card.open{box-shadow:0 8px 24px rgba(20,33,29,.09)}
+  .card-head:focus-visible{outline:2px solid var(--c,var(--primary));outline-offset:-2px;border-radius:14px}
   .card-head{display:flex;gap:12px;align-items:flex-start;padding:15px 17px;cursor:pointer;user-select:none}
   .num{
     font-family:'Space Mono',monospace;font-weight:700;font-size:12.5px;
@@ -277,7 +278,7 @@
 <div class="controls">
   <div class="wrap">
     <div class="searchrow">
-      <input id="search" class="search" type="text" placeholder="Search a drug, scenario or phrase…" autocomplete="off">
+      <input id="search" class="search" type="text" aria-label="Search scripts" placeholder="Search a drug, scenario or phrase…" autocomplete="off">
       <span class="count" id="count"></span>
     </div>
     <div class="tabs" id="tabs" role="tablist"></div>
@@ -817,7 +818,7 @@ const DATA = [
   `Deleted items from 1 Feb 2026: <b>13144T</b> Molnupiravir 200mg cap ×40 (Lagevrio) and <b>13147Y</b> Nirmatrelvir 150mg + Ritonavir 100mg, 5×6 (Paxlovid).`,
   `PBAC's reasoning: the clinical landscape had evolved since they were added in late 2022, plus high cost and wastage — roughly $2,200 a course, with about $110m spent on Prescriber Bag dispensings in 2023/24.`,
   `<b>What it means at your counter:</b> GPs can no longer hand these out directly from the bag. Every eligible patient now comes to a pharmacy for them, so expect the scripts and keep an eye on your stock and eligibility criteria.`,
-  `It WAS reported — just in trade press, not mainstream news: <a href="https://www.ausdoc.com.au/news/remove-covid-19-antivirals-from-prescribers-bag-pbac/" target="_blank" style="color:var(--c);text-decoration:underline">AusDoc</a> · <a href="https://www.medicalrepublic.com.au/shake-up-for-the-doctors-bag/121313" target="_blank" style="color:var(--c);text-decoration:underline">Medical Republic</a> · <a href="https://www.ama.com.au/ama-rounds/31-october-2025/articles/prescriber-bag-review-outcomes" target="_blank" style="color:var(--c);text-decoration:underline">AMA</a>. Primary source: <a href="https://pbs.gov.au/reviews/review-of-pbs-prescriber-bag-schedule" target="_blank" style="color:var(--c);text-decoration:underline">PBS Prescriber Bag Review</a> · <a href="https://www.pbs.gov.au/changes" target="_blank" style="color:var(--c);text-decoration:underline">PBS monthly Summary of Changes</a>`,
+  `It WAS reported — just in trade press, not mainstream news: <a href="https://www.ausdoc.com.au/news/remove-covid-19-antivirals-from-prescribers-bag-pbac/" target="_blank" rel="noopener noreferrer" style="color:var(--c);text-decoration:underline">AusDoc</a> · <a href="https://www.medicalrepublic.com.au/shake-up-for-the-doctors-bag/121313" target="_blank" rel="noopener noreferrer" style="color:var(--c);text-decoration:underline">Medical Republic</a> · <a href="https://www.ama.com.au/ama-rounds/31-october-2025/articles/prescriber-bag-review-outcomes" target="_blank" rel="noopener noreferrer" style="color:var(--c);text-decoration:underline">AMA</a>. Primary source: <a href="https://pbs.gov.au/reviews/review-of-pbs-prescriber-bag-schedule" target="_blank" rel="noopener noreferrer" style="color:var(--c);text-decoration:underline">PBS Prescriber Bag Review</a> · <a href="https://www.pbs.gov.au/changes" target="_blank" rel="noopener noreferrer" style="color:var(--c);text-decoration:underline">PBS monthly Summary of Changes</a>`,
   `Same review: ceftriaxone 2g added for emergency sepsis, furosemide deferred pending a smaller pack size, and prescribing rights for benzathine benzylpenicillin and adrenaline extended to endorsed midwives.`
  ],flag:"Don't miss: PBS Prescriber Bag deletion, NOT a TGA action. Still registered, still PBS General Schedule — only the doctor's-bag route is gone."},
 
@@ -826,7 +827,7 @@ const DATA = [
   `General patient PBS co-payment dropped from $31.60 to <b>$25.00</b> — the first time in over 20 years PBS medicines cost no more than $25. Indexation resumes 2027 in line with CPI.`,
   `The optional $1 allowable discount continues its phase-out through 2026 — reduced each year by the same dollar amount CPI indexation would otherwise have added.`,
   `Expect the question "why is it cheaper now?" and "why can't you discount it anymore?" in the same shift. Both have clean one-line answers — practise them.`,
-  `Source: <a href="https://www.australianpharmacist.com.au/key-changes-coming-for-pharmacists-in-2026/" target="_blank" style="color:var(--c);text-decoration:underline">Australian Pharmacist — key changes for 2026</a>`
+  `Source: <a href="https://www.australianpharmacist.com.au/key-changes-coming-for-pharmacists-in-2026/" target="_blank" rel="noopener noreferrer" style="color:var(--c);text-decoration:underline">Australian Pharmacist — key changes for 2026</a>`
  ],flag:"Don't miss: $25 general co-payment; discount phase-out continues — two different questions, two different answers."},
 
 {cat:"Business & Regs",quick:true,title:"Registration, CPD & recency",scen:"Worth knowing before your students ask",
@@ -840,10 +841,10 @@ const DATA = [
 {cat:"Business & Regs",quick:true,title:"Sector pressure — the big picture",scen:"Useful context for an ownership conversation",
  points:[
   `60-day dispensing is now fully rolled out. In 2025 alone patients saved roughly $222m and government $252m — the counter-argument to it is about pharmacy revenue, not patient outcomes, and it's worth being able to argue both sides.`,
-  `Grattan Institute's <i>Future Pharmacy</i> report (2026) argues pharmacies profit as private businesses while shifting financial risk to taxpayers via Additional Community Supply Support payments. Whatever you think of it, it shapes the policy conversation: <a href="https://grattan.edu.au/report/future-pharmacy-a-better-deal-for-patients-and-taxpayers/" target="_blank" style="color:var(--c);text-decoration:underline">read it</a>`,
-  `From 1 Jul 2026 the PBS Community Service Obligation wholesaling arrangements changed — described as the most significant shift since the CSO began in 2006. Worth tracking if you're heading toward ownership: <a href="https://pharmadispatch.com/news/the-approaching-major-change-in-australias-pbs-wholesaling-arrangements" target="_blank" style="color:var(--c);text-decoration:underline">PharmaDispatch</a>`,
+  `Grattan Institute's <i>Future Pharmacy</i> report (2026) argues pharmacies profit as private businesses while shifting financial risk to taxpayers via Additional Community Supply Support payments. Whatever you think of it, it shapes the policy conversation: <a href="https://grattan.edu.au/report/future-pharmacy-a-better-deal-for-patients-and-taxpayers/" target="_blank" rel="noopener noreferrer" style="color:var(--c);text-decoration:underline">read it</a>`,
+  `From 1 Jul 2026 the PBS Community Service Obligation wholesaling arrangements changed — described as the most significant shift since the CSO began in 2006. Worth tracking if you're heading toward ownership: <a href="https://pharmadispatch.com/news/the-approaching-major-change-in-australias-pbs-wholesaling-arrangements" target="_blank" rel="noopener noreferrer" style="color:var(--c);text-decoration:underline">PharmaDispatch</a>`,
   `High-cost medicines keep growing as a share of PBS spend — in 2024-25, 10 medicines accounted for 30% of all over-co-payment PBS spending.`,
-  `Daily trade press worth a five-minute scan: <a href="https://pharmacydaily.com.au" target="_blank" style="color:var(--c);text-decoration:underline">Pharmacy Daily</a> · <a href="https://www.australianpharmacist.com.au" target="_blank" style="color:var(--c);text-decoration:underline">Australian Pharmacist</a> · <a href="https://www.ausdoc.com.au" target="_blank" style="color:var(--c);text-decoration:underline">AusDoc</a> · <a href="https://www.pbs.gov.au/changes" target="_blank" style="color:var(--c);text-decoration:underline">PBS changes (monthly)</a>`
+  `Daily trade press worth a five-minute scan: <a href="https://pharmacydaily.com.au" target="_blank" rel="noopener noreferrer" style="color:var(--c);text-decoration:underline">Pharmacy Daily</a> · <a href="https://www.australianpharmacist.com.au" target="_blank" rel="noopener noreferrer" style="color:var(--c);text-decoration:underline">Australian Pharmacist</a> · <a href="https://www.ausdoc.com.au" target="_blank" rel="noopener noreferrer" style="color:var(--c);text-decoration:underline">AusDoc</a> · <a href="https://www.pbs.gov.au/changes" target="_blank" rel="noopener noreferrer" style="color:var(--c);text-decoration:underline">PBS changes (monthly)</a>`
  ],flag:"Don't miss: read the PBS Summary of Changes on the 1st of each month — that's where things like the Prescriber Bag deletion actually appear first."},
 
 /* ---------- QUIZ & VIVA ---------- */
@@ -981,7 +982,7 @@ const DATA = [
   `The Handbook now advises <b>against SABA-only treatment</b> (salbutamol / Ventolin on its own) for adults and adolescents. SABA = short-acting beta-agonist, the "reliever" that relaxes the airway but does nothing for the inflammation underneath. SABA-only is linked with more severe exacerbations than regular inhaled steroid. Every adult and adolescent with asthma now needs an inhaled corticosteroid (ICS)–containing regimen.`,
   `<b>Recommended first step:</b> low-dose budesonide-formoterol taken <i>as needed</i> — an "anti-inflammatory reliever" (AIR). <b>Next step up:</b> MART (Maintenance And Reliever Therapy) — one ICS-formoterol inhaler used both daily and for symptoms. National Asthma Council material (Jun 2026) also lists beclometasone-formoterol as a MART option from age 12.`,
   `<b>At the counter:</b> a regular salbutamol buyer is now a conversation, not just a sale. Ask how often they use it, whether they have a preventer, and whether they have a written asthma action plan — then point them to a GP review. Children follow different pathways (the update adds more guidance for ages 1–5), so check the Handbook rather than extrapolating from the adult advice.`,
-  `Sources: <a href="https://www.asthmahandbook.org.au/management/adults/initial-treatment/relievers" target="_blank" style="color:var(--c);text-decoration:underline">Australian Asthma Handbook — relievers</a> · <a href="https://www.australianpharmacist.com.au/?p=30542" target="_blank" style="color:var(--c);text-decoration:underline">Australian Pharmacist</a> · <a href="https://www1.racgp.org.au/newsgp/clinical/major-change-of-practice-in-asthma-advice" target="_blank" style="color:var(--c);text-decoration:underline">RACGP newsGP</a>`
+  `Sources: <a href="https://www.asthmahandbook.org.au/management/adults/initial-treatment/relievers" target="_blank" rel="noopener noreferrer" style="color:var(--c);text-decoration:underline">Australian Asthma Handbook — relievers</a> · <a href="https://www.australianpharmacist.com.au/?p=30542" target="_blank" rel="noopener noreferrer" style="color:var(--c);text-decoration:underline">Australian Pharmacist</a> · <a href="https://www1.racgp.org.au/newsgp/clinical/major-change-of-practice-in-asthma-advice" target="_blank" rel="noopener noreferrer" style="color:var(--c);text-decoration:underline">RACGP newsGP</a>`
  ],flag:"Don't miss: SABA-only is no longer a recommended regimen — ICS-formoterol as needed (AIR) or MART replaces it for adults and adolescents."},
 
 /* ---------- NEW: QUIZ — CLINICAL REASONING ---------- */
@@ -1240,7 +1241,7 @@ const DATA = [
  ]},
 {cat:"Bowel prep",quick:true,title:"Glycoprep — sources and gaps",scen:"What this section is built on",
  points:[
-  `Consumer medicine information (NPS MedicineWise): <a href="https://www.nps.org.au/medicine-finder/glycoprep-c-powder-for-oral-solution" target="_blank" style="color:var(--c);text-decoration:underline">Glycoprep-C powder</a> · <a href="https://www.nps.org.au/medicine-finder/glycoprep-c-kit-combination-pack" target="_blank" style="color:var(--c);text-decoration:underline">Glycoprep-C Kit</a>. Manufacturer product information: Fresenius Kabi Australia (Glycoprep Orange PI).`,
+  `Consumer medicine information (NPS MedicineWise): <a href="https://www.nps.org.au/medicine-finder/glycoprep-c-powder-for-oral-solution" target="_blank" rel="noopener noreferrer" style="color:var(--c);text-decoration:underline">Glycoprep-C powder</a> · <a href="https://www.nps.org.au/medicine-finder/glycoprep-c-kit-combination-pack" target="_blank" rel="noopener noreferrer" style="color:var(--c);text-decoration:underline">Glycoprep-C Kit</a>. Manufacturer product information: Fresenius Kabi Australia (Glycoprep Orange PI).`,
   `<b>Confirmed from the leaflets/search summaries:</b> ingredients; 3 × 70 g sachets in 1 litre each; the indications; the contraindications and caution groups; the oral-contraceptive/antibiotic/diabetes-tablet absorption warning; the clear-fluid diet advice.`,
   `<b>Class knowledge, not sourced here:</b> the SGLT2 inhibitor, GLP-1 agonist, anticoagulant, iron and lithium/digoxin points, and the practical nausea advice. They are standard bowel-prep medicine-management issues, but each endoscopy unit has its own protocol.`,
   `<b>Not checked:</b> PBS listing, price, and the full current PI. I couldn't open the Fresenius, NPS or Medsafe documents from the build environment. Verify numbers and wording on the current PI before using any specific figure with a patient.`
@@ -1369,7 +1370,10 @@ function render(){
       head.innerHTML=`<div class="num">${String(shown).padStart(2,'0')}</div>
         <div class="card-head-text"><div class="card-title">${d.title}</div><div class="card-scen">${d.scen}</div></div>
         <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>`;
-      head.onclick=()=>card.classList.toggle('open');
+      head.setAttribute('role','button');head.tabIndex=0;head.setAttribute('aria-expanded','false');
+      const flip=()=>{head.setAttribute('aria-expanded',card.classList.toggle('open')?'true':'false');};
+      head.onclick=flip;
+      head.onkeydown=e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); flip(); } };
       let h='';
       if(d.quick){
         d.points.forEach(p=>{h+=`<div class="point">${p}</div>`;});
