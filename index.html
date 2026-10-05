@@ -1165,7 +1165,7 @@ const DATA = [
 /* ---------- NEW: S3 SHELF (from the Pharmacist Only bay photo) ---------- */
 {cat:"S3 Shelf",quick:true,title:"Shelf 1 · Salbutamol & NSAID pain relief",scen:"Top shelf, left to right",
  points:[
-  `<b>Ventolin CFC-free · Zempreon CFC-free</b> — salbutamol reliever inhalers. Ask how often they reach for it: needing a reliever more than about twice a week means asthma is not controlled — GP review, check technique, offer a spacer. Never-diagnosed wheeze or breathlessness → refer, don't sell.`,
+  `<b>Ventolin CFC-free · Zempreon CFC-free</b> — salbutamol 100 microgram reliever inhalers (Zempreon: 200 doses with a dose counter; same active as Ventolin). Ask how often they reach for it: needing a reliever more than about twice a week means asthma is not controlled — GP review, check technique, offer a spacer. Never-diagnosed wheeze or breathlessness → refer, don't sell.`,
   `<b>Nuromol</b> — ibuprofen + paracetamol in one tablet. Both actives are already inside — do not stack extra Panadol or Nurofen on top.`,
   `<b>Nurofen 12 Hour · Nurofen Double Strength</b> — ibuprofen (modified-release, and a higher-strength immediate-release). Full NSAID screen: ulcer/GI bleed, asthma triggered by NSAIDs, kidney disease, heart failure/uncontrolled BP, pregnancy, anticoagulants, ACE-I/ARB + diuretic ("triple whammy").`,
   `<b>Voltaren Rapid Extra Strength · Viclofen 25 mg</b> — diclofenac potassium 25 mg — same active, generic vs brand. Full NSAID screen PLUS cardiovascular risk: not for established heart disease, stroke or peripheral artery disease. Shortest time, lowest dose.`,
@@ -1189,7 +1189,7 @@ const DATA = [
  ],flag:"Don't miss: first-time, recurrent, pregnant, diabetic, fever or flank pain — that's a refer, not a sell."},
 {cat:"S3 Shelf",quick:true,title:"Shelf 4 · Nystatin, vitamin D, celecoxib, mild steroids",scen:"Second-last row, left to right",
  points:[
-  `<b>Fleurstat <span style="color:var(--seal);font-weight:600">(confirm)</span> · Decozol <span style="color:var(--seal);font-weight:600">(confirm)</span></b> — antifungal-type products at the far left; I couldn't read the actives from the photo. Treat as a "read the box first" item.`,
+  `<b>Fleurstat BVgel</b> — astodrimer sodium 1% vaginal gel (pharmacist-only), a non-antibiotic for bacterial vaginosis. One applicator at bedtime for 7 nights to treat; every second night to prevent recurrence. Different from thrush: thin grey discharge, fishy smell, little itch. See the Fleurstat BVgel cards. <b>Decozol</b> <span style="color:var(--seal);font-weight:600">(confirm)</span> — antifungal-type product beside it; I couldn't read the active from the photo.`,
   `<b>Nilstat Vaginal Cream · Nilstat Oral Drops</b> — nystatin. Vaginal cream: same thrush screen as clotrimazole. Oral drops: for oral thrush, usually held in the mouth then swallowed, after feeds in babies, and continued about 2 days after the patches clear.`,
   `<b>OsteVit-D One-A-Week · Ostelin Vitamin D 7000 IU</b> — colecalciferol 175 mcg (7000 IU) taken once a WEEK, not daily. Take with a meal containing some fat. Check they aren't doubling up with another vitamin D or high-dose calcium; kidney disease, sarcoidosis, hypercalcaemia or kidney stones → GP first.`,
   `<b>Celebrex Relief</b> — celecoxib (a COX-2 NSAID — same cautions as other NSAIDs for heart disease, kidney disease and blood thinners; lower GI-bleed risk is not zero). Confirm strength and pack on the box.`,
@@ -1339,6 +1339,236 @@ const DATA = [
   `<details><summary style="cursor:pointer;font-weight:600;list-style:none">▸ Mid-prep, a patient has vomited twice and is bloated. What do you say, and what changes it to 'get help'?</summary><div style="margin-top:7px;color:var(--muted);line-height:1.5">Pause 30 to 60 minutes, restart with small cold sips through a straw. Stop and get urgent help for: constant severe pain, a hard swollen belly, repeated vomiting that won't stay down, faintness, or passing little urine.</div></details>`,
   `<details><summary style="cursor:pointer;font-weight:600;list-style:none">▸ Who typically buys Glycoprep, and why does a poor prep matter?</summary><div style="margin-top:7px;color:var(--muted);line-height:1.5">Mostly colonoscopy patients: positive bowel-screening result (invited from 45 to 74), polyp or cancer surveillance, IBD surveillance, bleeding, bowel-habit change or iron-deficiency anaemia. A poor prep hides polyps and can mean repeating the procedure.</div></details>`
  ],flag:"Don't miss: the medicine flags (SGLT2 inhibitors, GLP-1 injections, blood thinners) matter more than the sachet maths."},
+
+
+/* ---------- NEW (5 Oct): ECP, iron, thrush, BV, reliever, cough aisle, saline ---------- */
+{cat:"Counselling",title:"Emergency contraception — the consult",scen:"Walk-in, anxious, asks for \"the morning-after pill\"",
+ lines:[
+  {r:"cust",rc:"r-cust",t:`Hi... um, I need the morning-after pill.`},
+  {r:"you",rc:"r-you",t:`Of course, no problem at all. Let's step into the consult room so we can talk privately. I'll ask a few quick questions so I can give you the right one.`},
+  {r:"you",rc:"r-you",t:`Roughly how many hours ago did it happen? And was it a condom that broke, a missed pill, or no contraception?`},
+  {r:"cust",rc:"r-cust",t:`About twenty hours ago. The condom broke.`},
+  {r:"you",rc:"r-you",t:`Thanks, that's well within the window, and the sooner the better. Has there been any other unprotected sex earlier this cycle? And was your last period normal — when did it start?`},
+  {r:"cust",rc:"r-cust",t:`No, just that once. Period was normal, about two weeks ago.`},
+  {r:"you",rc:"r-you",t:`Are you on any regular contraception? Any medicines like epilepsy tablets, rifampicin, or St John's wort? And are you breastfeeding?`},
+  {r:"cust",rc:"r-cust",t:`No to all of those.`},
+  {r:"you",rc:"r-you",t:`One more, and I ask everyone: roughly what's your weight? It matters because one of the two pills works better at higher weights.`},
+  {r:"cust",rc:"r-cust",t:`About 78 kilos.`},
+  {r:"you",rc:"r-you",t:`Thanks. At that weight I'd recommend ulipristal, the ellaOne pill. It works up to five days after and holds up better at your weight. The other option is levonorgestrel, which works up to three days and is a bit less reliable at higher weights. The most effective option of all is a copper IUD within five days — a GP or sexual health clinic can organise that if you'd like.`},
+  {r:"cust",rc:"r-cust",t:`I'll just take the pill.`},
+  {r:"you",rc:"r-you",t:`That's completely your choice. Take it now, with or without food. If you vomit within three hours, come straight back and I'll replace it. You might get nausea, a headache, tummy cramps, or a period that arrives a bit early or late.`},
+  {r:"you",rc:"r-you",t:`Do a pregnancy test if your period is more than a week late, or lighter or different from usual. If it hasn't come, test three weeks after the sex. The pill doesn't protect against STIs, so a sexual health check in a few weeks is worth it.`},
+  {r:"you",rc:"r-you",t:`For the rest of this cycle, use condoms. If you want to start or restart a hormonal pill, the timing depends on which emergency pill you take — I'll tell you exactly. And do book a chat with your GP about ongoing contraception. You did the right thing coming in.`}
+ ],
+ key:[
+  `OPEN: “Let's step into the consult room so we can talk privately.”`,
+  `ASK: how many hours · what happened · other sex this cycle · last period · regular contraception · enzyme-inducing medicines · breastfeeding · weight.`,
+  `CHOOSE: “Ulipristal works up to five days and holds up better at higher weights. Levonorgestrel works up to three days. A copper IUD is the most effective of all.”`,
+  `TAKE: “Take it now. If you vomit within three hours, come straight back.”`,
+  `WATCH: “Test if your period is more than a week late or different. This doesn't protect against STIs.”`,
+  `CLOSE: “Use condoms for the rest of this cycle, and book a chat with your GP about ongoing contraception.”`
+ ]},
+{cat:"Quick handover",quick:true,title:"Emergency contraception — the phrase ladder",scen:"OPEN → ASK → CHOOSE → TAKE → WATCH → CLOSE",
+ points:[
+  `<b>OPEN</b> — <i>“Let's step into the consult room so we can talk privately. I'll ask a few quick questions so I can give you the right one.”</i> Go private first, then ask. Never from across the counter.`,
+  `<b>ASK (the eight)</b> — hours since · what happened (condom broke, missed pill, none) · any other unprotected sex this cycle · last period · regular contraception · medicines (epilepsy tablets, rifampicin, St John's wort, HIV or TB medicines) · breastfeeding · weight. <i>“I ask everyone my weight. One of the two pills works better at higher weights.”</i>`,
+  `<b>CHOOSE</b> — <b>Ulipristal (ellaOne) 30 mg</b>: pharmacist-only since 1 Feb 2017, works up to <b>120 hours (5 days)</b>. <b>Levonorgestrel 1.5 mg</b>: up to <b>72 hours (3 days)</b>. Australian formulary guidance (as reported): over about 70 kg or BMI over 26 → ulipristal is the preferred first choice; over about 85 kg or BMI over 30 → effectiveness of either pill is uncertain, so a copper IUD is the best option. <i>“The most effective option of all is a copper IUD, within five days. A GP or sexual health clinic can organise it.”</i>`,
+  `<b>TAKE</b> — one tablet now, with or without food. <i>“If you vomit within three hours, come straight back and I'll replace it.”</i> (Levonorgestrel sources vary between two and three hours — check the leaflet in the box you hand over.)`,
+  `<b>WATCH</b> — nausea, headache, cramps, tender breasts, a period early or late. <i>“If your period is more than a week late, or lighter or different, do a pregnancy test. If it hasn't come, test three weeks after the sex.”</i> <i>“This pill doesn't end an existing pregnancy and it doesn't protect against STIs.”</i>`,
+  `<b>CLOSE</b> — <i>“Use condoms for the rest of this cycle. Book a chat with your GP about ongoing contraception. You did the right thing coming in.”</i>`,
+  `<b>Ulipristal only:</b> do not breastfeed for one week afterwards (Australian leaflet). Not recommended in severe asthma that is not controlled by oral steroids. It can make hormonal contraception less effective, so starting or restarting the pill is timed after it — and condoms until it's working.`,
+  `<b>Levonorgestrel only:</b> no breastfeeding break. A hormonal pill can usually be started straight away, with condoms for the first week.`
+ ],flag:"Don't miss: go private, ask the weight, say the IUD out loud, and give the vomit-in-three-hours rule every time."},
+{cat:"Quick handover",quick:true,title:"Emergency contraception — complicated situations",scen:"What to say when it isn't straightforward",
+ points:[
+  `<b>Epilepsy tablets, rifampicin, St John's wort, some HIV medicines (enzyme inducers):</b> <i>“Some medicines make the emergency pill work less well. The copper IUD isn't affected, so that's the best option.”</i> UK guidance (MHRA/FSRH) doubles the levonorgestrel dose to 3 mg when an enzyme inducer was taken in the previous 4 weeks; ulipristal may also be less effective. Check the Australian formulary and the leaflet, and involve the GP or a sexual health clinic.`,
+  `<b>Weight over about 85 kg / BMI over 30:</b> <i>“I'll be honest with you — neither pill is as reliable at your weight. The copper IUD is the one that isn't affected by weight, and it still works up to five days. I can help you book that today.”</i> If they decline, ulipristal is still the better pill, with a pregnancy test afterwards.`,
+  `<b>More than 72 or 120 hours:</b> <i>“The pill is less likely to work this far out, but it can still be worth taking. A copper IUD can still be fitted, so let's call a clinic now.”</i> Don't send them away without a next step.`,
+  `<b>Already had sex earlier in the cycle:</b> <i>“The pill only covers the most recent time. If you had unprotected sex earlier in the cycle, a pregnancy test at three weeks matters even more.”</i> The IUD is the better choice here.`,
+  `<b>Second time this cycle / "I use this a lot":</b> no judgement. <i>“It's fine to use again, but it's not designed as regular contraception and it's less reliable than the options a GP can set up. Can we talk about what would suit you long term?”</i>`,
+  `<b>Vomited within 3 hours:</b> <i>“That dose may not have stayed down, so I'll give you another one.”</i>`,
+  `<b>Sexual assault:</b> <i>“I'm really sorry this happened. There is no pressure to tell me anything. I can give you the emergency pill right now. If you'd like, there are confidential services — 1800RESPECT is 1800 737 732 and runs 24/7 — and a doctor can arrange tests and support whenever you're ready. Would you like a quiet room or a support person?”</i>`,
+  `<b>Young person:</b> <i>“Thank you for asking. This is confidential in the pharmacy.”</i> Check your pharmacy's protocol on age and capacity, and follow your safeguarding process if there are concerns about consent or coercion.`,
+  `<b>Partner or friend collecting on their behalf:</b> the person taking it should be assessed. <i>“I do need to ask her the questions myself. Could she call, or could I speak with her briefly?”</i>`
+ ],flag:"Don't miss: enzyme inducers, weight over 85 kg and 'too late for the pill' all point to the same answer — the copper IUD, and a next step before they leave."},
+{cat:"Counselling",title:"Ferro-Grad C — starting iron",scen:"Doctor says iron is low",
+ lines:[
+  {r:"cust",rc:"r-cust",t:`My doctor said my iron's low. Is Ferro-Grad C okay?`},
+  {r:"you",rc:"r-you",t:`Yes, it's an iron tablet with vitamin C added to help absorption, and it's slow-release, which is gentler on the stomach. Did the doctor say how long to take it, or what your levels were?`},
+  {r:"cust",rc:"r-cust",t:`Not really. Just that I'm anaemic.`},
+  {r:"you",rc:"r-you",t:`Okay. One tablet a day is the usual dose. Each tablet has 105 milligrams of elemental iron, so you don't double up. Swallow it whole with water — don't crush or chew it.`},
+  {r:"you",rc:"r-you",t:`Iron absorbs best on an empty stomach, an hour before food or two hours after. But if it upsets your stomach, take it with a small meal. Taking it with food is far better than not taking it at all.`},
+  {r:"cust",rc:"r-cust",t:`Any side effects?`},
+  {r:"you",rc:"r-you",t:`Dark or black stools are completely normal. Some people get constipation or an upset stomach — fluids, fibre and taking it with food help. If you get dark, sticky, tarry, foul-smelling stools with tummy pain, or you see red blood, that's different — see your doctor.`},
+  {r:"you",rc:"r-you",t:`Keep it about two hours away from antacids, calcium, dairy, tea and coffee, because they block absorption. Antibiotics like doxycycline and ciprofloxacin need a gap too, and thyroid tablets should be taken several hours apart. What other medicines are you on?`},
+  {r:"cust",rc:"r-cust",t:`Just the pill.`},
+  {r:"you",rc:"r-you",t:`That's fine. Give it a few weeks before you expect to feel better. Your doctor will usually recheck your blood in a month or two, and often continues for a few months after the numbers normalise to refill your stores. The label says not to take it for more than twelve months without medical advice.`},
+  {r:"you",rc:"r-you",t:`One safety point: iron is very dangerous for small children if they swallow it, so keep it locked away. Poisons Information is 13 11 26. And if you're ever booked for a colonoscopy, tell them you take iron — it's usually stopped beforehand.`}
+ ],
+ key:[
+  `“One tablet a day, swallowed whole. Best on an empty stomach, but with a little food is far better than skipping it.”`,
+  `“Dark stools are normal. Black, tarry, sticky and foul-smelling with pain is not — see the doctor.”`,
+  `“Keep it two hours away from antacids, calcium, dairy, tea and coffee.”`,
+  `“Lock it away — iron is dangerous for small children. Poisons Information is 13 11 26.”`,
+  `Always ask WHY the iron is low. Diagnosed by the GP, and in men or after menopause the cause needs investigating.`
+ ]},
+{cat:"Quick handover",quick:true,title:"Ferro-Grad C",scen:"Iron 105 mg (as dried ferrous sulfate 325 mg) + vitamin C 500 mg, modified-release",
+ points:[
+  `<b>What it is:</b> each tablet is dried ferrous sulfate 325 mg (= 105 mg elemental iron) plus sodium ascorbate equal to 500 mg vitamin C. Modified-release. Adult dose on the label: 1 tablet daily, or as directed; not more than 12 months without medical advice (retailer product listings — confirm against the box).`,
+  `<i>“It's an iron tablet with vitamin C to help your body absorb it. One a day, swallowed whole.”</i>`,
+  `<i>“Best on an empty stomach, but if it upsets you, take it with a little food. That's far better than stopping.”</i>`,
+  `<i>“Dark or black stools are normal. Constipation can happen — drink water, eat fibre.”</i>`,
+  `<i>“Keep it two hours away from antacids, calcium, dairy, tea and coffee, and away from doxycycline, ciprofloxacin and thyroid tablets.”</i>`,
+  `<i>“Keep it out of reach of children. Iron overdose is serious. Poisons Information is 13 11 26.”</i>`,
+  `<b>Ask first:</b> was the low iron diagnosed by a doctor? Heavy periods, vegetarian or vegan, coeliac disease, regular NSAIDs or aspirin, or dark tarry stools already? Men and post-menopausal women with low iron need the source found.`,
+  `<b>Bowel prep link:</b> iron is usually stopped in the days before a colonoscopy. <i>“If you've got a colonoscopy booked, ask the unit whether to pause your iron.”</i>`
+ ],flag:"Don't miss: confirm it's a diagnosed deficiency, and separate it from antacids, calcium, tea, dairy and doxycycline."},
+{cat:"Counselling",title:"Flufeme — the thrush consult",scen:"Single-dose fluconazole 150 mg",
+ lines:[
+  {r:"cust",rc:"r-cust",t:`Can I get that one-tablet thrush treatment?`},
+  {r:"you",rc:"r-you",t:`Flufeme, the single capsule — yes, I can help. First a few questions. Is this your first time with these symptoms, or have you had thrush before?`},
+  {r:"cust",rc:"r-cust",t:`I've had it a couple of times. It's itchy, and there's thick white discharge.`},
+  {r:"you",rc:"r-you",t:`That sounds like classic thrush — itchy, thick, no strong smell. Any fever, pelvic or tummy pain, blood in the discharge, or a strong fishy smell?`},
+  {r:"cust",rc:"r-cust",t:`No.`},
+  {r:"you",rc:"r-you",t:`Good. Is there any chance you're pregnant, or are you trying to conceive? And are you breastfeeding?`},
+  {r:"cust",rc:"r-cust",t:`No.`},
+  {r:"you",rc:"r-you",t:`Now medicines — blood thinners like warfarin, cholesterol tablets like simvastatin or atorvastatin, anything for your heart rhythm, diabetes tablets, or anti-rejection medicines? These can interact with fluconazole.`},
+  {r:"cust",rc:"r-cust",t:`I take the pill, nothing else.`},
+  {r:"you",rc:"r-you",t:`The pill is fine. Then it's one capsule, any time of day, with or without food. Itching and soreness should start easing in a day or two. It can take up to a week to settle fully.`},
+  {r:"you",rc:"r-you",t:`Side effects can include nausea, headache or a mild rash. If you get a blistering or peeling rash, or yellow skin or eyes, stop and get urgent help.`},
+  {r:"you",rc:"r-you",t:`If it hasn't improved after a week, or it comes back, or you've had four or more episodes in a year, see your GP — recurrent thrush needs a proper look. Would you also like a cream for the external itch while the capsule works?`}
+ ],
+ key:[
+  `“Is this your first time? Any fever, pelvic pain, blood or a fishy smell?” — if yes, refer.`,
+  `“Any chance you're pregnant? This capsule isn't for pregnancy.”`,
+  `“Warfarin, cholesterol tablets, heart-rhythm or diabetes tablets? They can interact.”`,
+  `“One capsule, any time. Relief starts in a day or two; it can take up to a week.”`,
+  `“Four or more in a year, or it comes straight back — see the GP.”`
+ ]},
+{cat:"Quick handover",quick:true,title:"Flufeme",scen:"Fluconazole 150 mg single capsule — pharmacist only",
+ points:[
+  `<i>“It's one capsule, taken once. With or without food.”</i>`,
+  `<i>“You should start to feel better in a day or two. It can take up to a week to settle completely.”</i>`,
+  `<i>“It's not for pregnancy or if you're trying to conceive. Are you pregnant or breastfeeding?”</i>`,
+  `<i>“Do you take warfarin, cholesterol tablets, diabetes tablets, or anything for your heart rhythm? They interact.”</i>`,
+  `<i>“Stop and get urgent help if you get a blistering or peeling rash, or your skin or eyes turn yellow.”</i>`,
+  `<i>“If it's not better in a week, comes back, or this is your fourth episode in a year, see your doctor.”</i>`,
+  `<b>Capsule vs cream:</b> <i>“The capsule is convenient and treats it from inside. A cream works right where it's itchy and suits you if you're pregnant. You can use both.”</i> <b>Refer instead:</b> first-ever episode, pregnancy, under the pack's age limit, fever, pelvic pain, blood, a fishy smell, diabetes that's poorly controlled, immune suppression, four or more episodes a year.`
+ ],flag:"Don't miss: pregnancy, the interaction screen (warfarin, statins, QT drugs, sulfonylureas), and the 4+ a year referral."},
+{cat:"Counselling",title:"Fleurstat BVgel — thrush or BV?",scen:"Unusual discharge, asking for a thrush treatment",
+ lines:[
+  {r:"cust",rc:"r-cust",t:`I've got a strange smell and discharge. Can I get a thrush treatment?`},
+  {r:"you",rc:"r-you",t:`Happy to help. Can I ask what the discharge looks like and whether there's itching? Thrush is usually thick and white with a lot of itch and no smell. Bacterial vaginosis, or BV, is usually thin and greyish-white with a fishy smell, often stronger after sex, and not very itchy.`},
+  {r:"cust",rc:"r-cust",t:`It's thin and grey, a fishy smell, hardly any itch.`},
+  {r:"you",rc:"r-you",t:`That fits BV more than thrush, so a thrush treatment won't help. Has a doctor ever diagnosed BV for you before?`},
+  {r:"cust",rc:"r-cust",t:`Yes, last year.`},
+  {r:"you",rc:"r-you",t:`Good. Any fever, pain in your pelvis or tummy, bleeding between periods, or any chance you're pregnant?`},
+  {r:"cust",rc:"r-cust",t:`No.`},
+  {r:"you",rc:"r-you",t:`Then I can offer Fleurstat BVgel. It's a non-antibiotic gel that treats BV symptoms — the odour and discharge — and helps restore the normal vaginal balance.`},
+  {r:"you",rc:"r-you",t:`You use one full applicator, about five grams, inside the vagina once a night at bedtime for seven nights. Finish all seven even if you feel better after two or three.`},
+  {r:"cust",rc:"r-cust",t:`What if it keeps coming back?`},
+  {r:"you",rc:"r-you",t:`If you've had three or more episodes in a year, you can use it every second night, preferably at bedtime, as a preventive. That's worth talking to your GP about too.`},
+  {r:"you",rc:"r-you",t:`If it's not better after the seven nights, or you get pelvic pain, fever or bleeding, see your GP. If this had been your first time with these symptoms, I'd have sent you to the GP for a swab first, because discharge can also be a sexually transmitted infection.`}
+ ],
+ key:[
+  `“Thrush is thick, white and itchy with no smell. BV is thin, grey, fishy-smelling and not very itchy.”`,
+  `“Has a doctor diagnosed BV before? If it's the first time, I'd like you to see the GP for a swab first.”`,
+  `“One full applicator at bedtime for seven nights — finish all seven.”`,
+  `“Three or more episodes in a year: use it every second night to help prevent it, and talk to your GP.”`,
+  `“Pelvic pain, fever, bleeding, pregnancy — see a doctor.”`
+ ]},
+{cat:"Quick handover",quick:true,title:"Fleurstat BVgel",scen:"Astodrimer sodium 1% vaginal gel (45 g) — pharmacist only, non-antibiotic",
+ points:[
+  `<b>What it is:</b> astodrimer sodium 10 mg/g (1% w/w) in a gel, for bacterial vaginosis. Pharmacist-only (S3). Not an antibiotic; it works as a barrier and helps normalise vaginal pH.`,
+  `<b>Treat an episode:</b> one applicator full (5 g) inside the vagina once daily, preferably at bedtime, for 7 days. <i>“Finish all seven even if you feel better.”</i>`,
+  `<b>Prevent recurrence:</b> one applicator (5 g) every second day, preferably at bedtime, for someone with recurrent BV (typically 3 or more episodes in 12 months), used when symptom-free.`,
+  `<b>How to tell it apart from thrush:</b> BV — thin, grey-white discharge, fishy odour, often worse after sex, little itch. Thrush — thick white, itchy, no odour. <i>“The treatments are different, so getting it right saves you buying the wrong one.”</i>`,
+  `<b>Refer, don't supply:</b> first episode never diagnosed by a doctor, pregnancy, fever, pelvic or lower-abdominal pain, bleeding, symptoms after a new partner or possible STI exposure, or no improvement after 7 days.`,
+  `<b>Shelf note:</b> Fleurstat BVgel is the pack at the far left of the second-last shelf in your photo — I had marked it "confirm", and it is now identified.`,
+  `<b>Not verified from here:</b> condom compatibility, use in pregnancy and breastfeeding, use during a period. Check the leaflet in the pack and say so honestly if asked.`
+ ],flag:"Don't miss: BV and thrush look similar to the patient but need different products — ask about smell, colour and itch every time."},
+{cat:"Counselling",title:"Zempreon — handing over a reliever",scen:"Salbutamol 100 mcg CFC-free inhaler with dose counter",
+ lines:[
+  {r:"cust",rc:"r-cust",t:`Do you have a Ventolin? I just need my puffer.`},
+  {r:"you",rc:"r-you",t:`I've got Zempreon, which is a salbutamol 100 microgram inhaler — the same medicine as Ventolin, just a different brand. It has a dose counter on top. Is it for you? Have you been diagnosed with asthma?`},
+  {r:"cust",rc:"r-cust",t:`Yes, since I was a kid. I use it when I wheeze.`},
+  {r:"you",rc:"r-you",t:`Good. How often have you needed it in the last few weeks?`},
+  {r:"cust",rc:"r-cust",t:`Maybe three or four times a week.`},
+  {r:"you",rc:"r-you",t:`Thanks for telling me. Needing it more than about twice a week means your asthma probably isn't well controlled, so it's worth a check with your GP about a preventer. Do you have an asthma action plan?`},
+  {r:"cust",rc:"r-cust",t:`No.`},
+  {r:"you",rc:"r-you",t:`Let's make sure you know the technique first. Shake it. Breathe out fully. Seal your lips around the mouthpiece, press down once and breathe in slowly and deeply, then hold your breath for about ten seconds. If you need a second puff, wait at least a minute and shake again. A spacer makes a real difference — would you like one?`},
+  {r:"cust",rc:"r-cust",t:`What do the counter numbers mean?`},
+  {r:"you",rc:"r-you",t:`It counts down the puffs left, starting from 200. When it gets low, get a new one before you run out. Clean the mouthpiece with a dry cloth every week.`},
+  {r:"cust",rc:"r-cust",t:`My hands get shaky sometimes.`},
+  {r:"you",rc:"r-you",t:`A little shakiness, a faster heartbeat or a headache can happen and usually settle. If you get a very fast or irregular heartbeat, or you're not getting relief, get urgent help.`},
+  {r:"you",rc:"r-you",t:`One last thing so you're prepared: if you're ever really struggling, sit upright, take four puffs one at a time with four breaths after each, wait four minutes, and if there's no improvement repeat, then call 000. Keep it with you and keep it out of the heat.`}
+ ],
+ key:[
+  `“How often have you needed it recently? More than about twice a week means your asthma probably isn't controlled.”`,
+  `“Shake. Breathe out. Press once and breathe in slowly. Hold for ten seconds. Wait a minute before a second puff.”`,
+  `“A spacer gets more medicine into your lungs.”`,
+  `“Four puffs, four breaths each, wait four minutes. Not better — call 000.”`,
+  `“Do you have an asthma action plan? Let's get you a GP review.”`
+ ]},
+{cat:"Quick handover",quick:true,title:"Zempreon",scen:"Salbutamol 100 mcg (as sulfate) CFC-free pMDI, 200 doses, dose counter — pharmacist only",
+ points:[
+  `<b>What it is:</b> a reliever (bronchodilator). Indicated for relief of bronchospasm in asthma or COPD, and before exercise for exercise-induced asthma. Same active and strength as Ventolin. 200 actuations with a dose counter. Also PBS-listed on prescription.`,
+  `<i>“It's your reliever, the blue-grey puffer for when you're wheezy or tight. It opens the airways within minutes.”</i>`,
+  `<i>“If you're needing it more than about twice a week, your asthma isn't controlled. Let's get you a review about a preventer.”</i>`,
+  `<i>“Shake, breathe out, press once and breathe in slowly, hold for ten seconds. Wait a minute before a second puff. Use a spacer if you can.”</i>`,
+  `<i>“The counter shows what's left. Replace it before it hits zero. Keep it away from heat and clean the mouthpiece weekly.”</i>`,
+  `<i>“A bit of shakiness, a faster heartbeat or a headache is common. A very fast or irregular heartbeat or worsening breathlessness means urgent help.”</i>`,
+  `<b>Asthma first aid (Asthma Australia):</b> sit upright · 4 puffs, one at a time, 4 breaths after each (use a spacer) · wait 4 minutes · not better → 4 more puffs · still not better or worsening → call <b>000</b>, and keep giving 4 puffs every 4 minutes until help arrives. If it looks severe (can\'t speak a full sentence, blue lips, struggling), call 000 straight away.`,
+  `<b>Say this on supply:</b> <i>“Do you have an asthma action plan, and when did you last see your GP about your asthma?”</i> <b>Priming:</b> follow the leaflet for the exact priming steps for a new inhaler or one not used for several days.`
+ ],flag:"Don't miss: how often they use it, and the 4-4-4 first-aid steps — most reliever buyers have never been told them."},
+{cat:"Quick handover",quick:true,title:"The cough aisle — dry vs chesty",scen:"Choosing between suppressants, expectorants and combinations",
+ points:[
+  `<b>Start with one question:</b> <i>“Is the cough bringing anything up, or is it dry and tickly?”</i>`,
+  `<b>Dry, tickly cough</b> — a suppressant such as <b>dextromethorphan</b> settles the cough reflex (your Counselling card explains how). Soothe with honey- or glycerol-based syrup and fluids. <i>“There's nothing to clear, so we're calming a reflex, not loosening anything.”</i>`,
+  `<b>Chesty, productive cough</b> — the cough is doing a job, so help it work. <b>Guaifenesin</b> (expectorant) thins mucus. <b>Bromhexine</b> (mucolytic) breaks it down. Chemists' Own Chesty Mucus Cough contains bromhexine and guaifenesin. Chemists' Own Chesty Cough adds <b>pseudoephedrine</b>, which makes it a pharmacist-only product with its own screening. Duro-Tuss and Robitussin chesty lines are the branded versions of the same idea — read the actives on each box.`,
+  `<b>Never pair a suppressant with a chesty-cough product.</b> <i>“Stopping the cough traps the mucus. Choose one or the other.”</i>`,
+  `<b>Pseudoephedrine screen:</b> high blood pressure, heart disease, overactive thyroid, diabetes, enlarged prostate or trouble passing urine, MAO inhibitors, pregnancy. Use your pharmacy's ID and tracking process every time.`,
+  `<b>Children:</b> cough and cold medicines are not for children under 6. For 6 to 11, only on a pharmacist's or doctor's advice. Honey, fluids and saline are the answer for little ones.`,
+  `<b>Refer:</b> cough longer than about 3 weeks, blood in the phlegm, fever with breathlessness, chest pain, wheeze, weight loss or night sweats, a smoker with a new cough, an ACE-inhibitor ("-pril") cough, or someone on several medicines.`,
+  `<b>Cross-check reflux, post-nasal drip and asthma:</b> a dry night-time cough is often one of those. <i>“Is it worse lying down, after meals, or at night with a blocked nose?”</i> A saline spray or wash can help a post-nasal-drip cough — see the Fess vs Flo card.`,
+  `<b>Not verified:</b> which dry-cough lines your Chemist Warehouse stocks under its own name. Tell me what is on your shelf and I will add them with their actives.`
+ ],flag:"Don't miss: dry → suppress; chesty → loosen; never both, and check the pseudoephedrine screen."},
+{cat:"Quick handover",quick:true,title:"Fess vs Flo",scen:"Saline nasal sprays and sinus washes",
+ points:[
+  `<b>One-line difference:</b> <b>Fess</b> is mostly a range of ready-to-use saline <i>sprays</i> (plus wash sachets); <b>Flo Sinus Care</b> is a <i>sachet-and-squeeze-bottle sinus wash</i> you make up fresh. Both are non-medicated saline. Neither treats an infection or an allergy — they clear and moisten.`,
+  `<b>Fess Original</b> — ready-to-use isotonic saline spray, buffered, with a preservative (benzalkonium chloride). Daily congestion from colds, hay fever, sinus symptoms. Fess also has a Children's spray (listed for ages 2 and over) and a Frequent Flyer spray.`,
+  `<b>Fess Sinu-Cleanse Congestion Relief mist</b> — <b>hypertonic</b> (sodium chloride 30 mg/mL, about 3%), preservative-free, nitrogen-propelled continuous mist. Draws fluid out of swollen tissue for stuffy sinuses. It can sting and dry the nose, so keep it short-term.`,
+  `<b>Fess Nasal & Sinus Wash sachets</b> — isotonic, preservative-free wash.`,
+  `<b>Flo Sinus Care</b> — preservative-free <b>isotonic</b> irrigation. Sachets contain sodium chloride, potassium chloride, sodium bicarbonate, glucose and calcium lactate, so the solution closely resembles the body's own fluid and is gentle. For sinusitis, chronic rhinosinusitis, hay fever, CPAP dryness and after nasal surgery.`,
+  `<b>How to choose:</b> <i>“For a quick daily squirt when you're blocked, a spray. For a deeper rinse — sinus pressure, hay fever season, post-op, CPAP — a wash. For really stuffy sinuses for a few days, the stronger salty mist.”</i> Tonicity is the real difference: isotonic = gentle, everyday, kids; hypertonic = decongesting, short-term.`,
+  `<b>Safety for sachet washes:</b> make them up with water that has been boiled and cooled, or sterile or distilled water — never straight from the tap. Wash and air-dry the bottle after each use and replace it regularly. Don't share bottles.`,
+  `<b>Not verified:</b> exact current Fess range and strengths on your shelves. The Fess and Flo product details above come from retailer listings, not the manufacturers' leaflets.`
+ ],flag:"Don't miss: spray vs wash, isotonic vs hypertonic — and only boiled-and-cooled or sterile water for a sachet wash."},
+{cat:"Quiz & Viva",quick:true,title:"Phrase drill: ECP, iron, thrush, reliever, cough",scen:"The lines you keep forgetting",
+ points:[
+  `<details><summary style="cursor:pointer;font-weight:600;list-style:none">▸ A woman asks for emergency contraception 20 hours after unprotected sex and weighs 78 kg. What do you recommend and why?</summary><div style="margin-top:7px;color:var(--muted);line-height:1.5">Ulipristal (ellaOne) 30 mg is the preferred first option as her weight is above about 70 kg. Mention that a copper IUD is the most effective choice. Take it now; vomiting within 3 hours means another dose; pregnancy test if the period is more than a week late; condoms for the rest of the cycle.</div></details>`,
+  `<details><summary style="cursor:pointer;font-weight:600;list-style:none">▸ How long does each emergency pill work for?</summary><div style="margin-top:7px;color:var(--muted);line-height:1.5">Levonorgestrel 1.5 mg: up to 72 hours (3 days). Ulipristal 30 mg: up to 120 hours (5 days). The sooner the better for both. A copper IUD works up to 5 days.</div></details>`,
+  `<details><summary style="cursor:pointer;font-weight:600;list-style:none">▸ A patient on carbamazepine needs emergency contraception. What changes?</summary><div style="margin-top:7px;color:var(--muted);line-height:1.5">Enzyme inducers lower levonorgestrel's effect. UK guidance doubles the dose to 3 mg if an inducer was taken in the previous 4 weeks, and ulipristal may also be less effective. The copper IUD is not affected and is the best option. Check the Australian formulary and involve the GP or a sexual health clinic.</div></details>`,
+  `<details><summary style="cursor:pointer;font-weight:600;list-style:none">▸ What do you tell a breastfeeding mother about emergency contraception?</summary><div style="margin-top:7px;color:var(--muted);line-height:1.5">Levonorgestrel: no break in breastfeeding needed. Ulipristal: do not breastfeed for one week afterwards (Australian leaflet).</div></details>`,
+  `<details><summary style="cursor:pointer;font-weight:600;list-style:none">▸ Name the six steps of the emergency contraception phrase ladder.</summary><div style="margin-top:7px;color:var(--muted);line-height:1.5">OPEN (go private) · ASK (hours, what happened, other sex this cycle, last period, contraception, enzyme-inducing medicines, breastfeeding, weight) · CHOOSE (ulipristal, levonorgestrel, copper IUD) · TAKE (now; vomit within 3 hours → return) · WATCH (test if period is late or different; no STI protection) · CLOSE (condoms, GP chat).</div></details>`,
+  `<details><summary style="cursor:pointer;font-weight:600;list-style:none">▸ A patient starts Ferro-Grad C. Give four counselling points.</summary><div style="margin-top:7px;color:var(--muted);line-height:1.5">One tablet daily, swallowed whole. Empty stomach is best but with food is better than skipping. Dark stools are normal. Separate from antacids, calcium, dairy, tea, coffee, doxycycline, ciprofloxacin and thyroid tablets. Keep away from children. Ask why the iron is low.</div></details>`,
+  `<details><summary style="cursor:pointer;font-weight:600;list-style:none">▸ What is in one Ferro-Grad C tablet?</summary><div style="margin-top:7px;color:var(--muted);line-height:1.5">Dried ferrous sulfate 325 mg (equal to 105 mg elemental iron) plus sodium ascorbate equal to 500 mg vitamin C, in a modified-release tablet (retailer listings — confirm on the box).</div></details>`,
+  `<details><summary style="cursor:pointer;font-weight:600;list-style:none">▸ When does a thrush request become a referral?</summary><div style="margin-top:7px;color:var(--muted);line-height:1.5">First-ever episode, pregnancy, fever, pelvic pain, blood, a fishy smell, immune suppression or poorly controlled diabetes, four or more episodes a year, or no improvement after about a week.</div></details>`,
+  `<details><summary style="cursor:pointer;font-weight:600;list-style:none">▸ How do you tell BV from thrush by asking?</summary><div style="margin-top:7px;color:var(--muted);line-height:1.5">BV: thin grey-white discharge, fishy smell, often worse after sex, little itch. Thrush: thick white discharge, itchy, no smell.</div></details>`,
+  `<details><summary style="cursor:pointer;font-weight:600;list-style:none">▸ How is Fleurstat BVgel used to treat BV, and how to prevent recurrence?</summary><div style="margin-top:7px;color:var(--muted);line-height:1.5">One applicator (5 g) vaginally once daily, preferably at bedtime, for 7 days. For recurrent BV (typically 3 or more episodes in 12 months): one applicator every second day at bedtime when symptom-free. Active: astodrimer sodium 1%.</div></details>`,
+  `<details><summary style="cursor:pointer;font-weight:600;list-style:none">▸ What is Zempreon, and what two questions do you ask on supply?</summary><div style="margin-top:7px;color:var(--muted);line-height:1.5">Salbutamol 100 microgram CFC-free reliever inhaler, 200 doses with a dose counter, same active as Ventolin. Ask how often they use it (more than about twice a week means poor control) and whether they have an asthma action plan and recent review.</div></details>`,
+  `<details><summary style="cursor:pointer;font-weight:600;list-style:none">▸ What are the Asthma Australia first-aid steps?</summary><div style="margin-top:7px;color:var(--muted);line-height:1.5">Sit upright. Four puffs one at a time, four breaths after each, preferably through a spacer. Wait four minutes. If no improvement, four more puffs. Still no better or worsening, call 000 and keep giving four puffs every four minutes.</div></details>`,
+  `<details><summary style="cursor:pointer;font-weight:600;list-style:none">▸ A customer wants something for a chesty cough and also grabs a cough suppressant. What do you say?</summary><div style="margin-top:7px;color:var(--muted);line-height:1.5">Don't combine them: suppressing a productive cough traps mucus. Pick a chesty-cough product (bromhexine and/or guaifenesin) and fluids, or a suppressant if the cough is dry. Check pseudoephedrine products with the full screen and ID process.</div></details>`,
+  `<details><summary style="cursor:pointer;font-weight:600;list-style:none">▸ Fess vs Flo — what is the key difference?</summary><div style="margin-top:7px;color:var(--muted);line-height:1.5">Fess is mainly ready-to-use saline sprays (isotonic, or a hypertonic congestion mist); Flo Sinus Care is a sachet sinus wash made up in a squeeze bottle, isotonic and preservative-free with extra electrolytes. Sachet washes need boiled-and-cooled or sterile water.</div></details>`
+ ],flag:"Don't miss: say the answer out loud as a sentence to a patient, not as a fact. That is what you are practising."},
+{cat:"Quick handover",quick:true,title:"Sources & gaps — products added 5 Oct",scen:"What these cards are built on",
+ points:[
+  `<b>Read in the Australian consumer leaflets / listings:</b> <a href="https://www.nps.org.au/medicine-finder/fleurstat-bvgel" target="_blank" rel="noopener noreferrer" style="color:var(--c);text-decoration:underline">Fleurstat BVgel (NPS)</a> · <a href="https://www.nps.org.au/medicine-finder/zempreon-cfc-free-inhaler-with-counter" target="_blank" rel="noopener noreferrer" style="color:var(--c);text-decoration:underline">Zempreon (NPS)</a> · <a href="https://www.safetyandquality.gov.au/medicine-finder/ellaone" target="_blank" rel="noopener noreferrer" style="color:var(--c);text-decoration:underline">ellaOne (ACSQHC medicine finder)</a>. Fleurstat BVgel dosing, Zempreon indication and side effects, ulipristal breastfeeding and asthma statements come from these.`,
+  `<b>Reported from search summaries (not the full document):</b> ulipristal became pharmacist-only on 1 Feb 2017; 120 h vs 72 h windows; the weight/BMI guidance attributed to the Australian Pharmaceutical Formulary; Ferro-Grad C composition and directions (retail listings); Fess and Flo ingredients (retailer listings).`,
+  `<b>UK guidance, not Australian:</b> doubling levonorgestrel with enzyme inducers (MHRA/FSRH). Check the Australian formulary before relying on it.`,
+  `<b>Class knowledge, not sourced here:</b> the pregnancy-test timing, the "wait 5 days to start hormonal contraception after ulipristal" advice, Asthma Australia first-aid steps, iron separation intervals, the sachet-wash water advice, and the cough-medicine age limits.`,
+  `<b>Not verified:</b> Flufeme's own leaflet wording (time to relief is from general fluconazole sources), the Fleurstat BVgel condom/pregnancy statements, which dry-cough lines your store stocks, and any PBS or price status.`
+ ],flag:"Don't miss: these are counselling aids. The leaflet in the box and your pharmacy's protocol win over any card."},
 
 ];
 
