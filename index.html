@@ -289,6 +289,228 @@
   @keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
   @keyframes pulse{0%,100%{opacity:1}50%{opacity:.55}}
   @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+  /* ================= FX LAYER: motion, infographics, interactivity ================= */
+  :root{--fx-ease:cubic-bezier(.2,.8,.2,1)}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+  /* scroll progress + back to top */
+  #fxBar{position:fixed;left:0;top:0;height:3px;width:100%;z-index:70;transform-origin:0 50%;transform:scaleX(0);
+    background:linear-gradient(90deg,var(--primary),var(--accent) 60%,var(--seal));pointer-events:none}
+  #fxTop{position:fixed;right:16px;bottom:78px;z-index:55;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);
+    background:var(--surface);color:var(--primary);cursor:pointer;display:flex;align-items:center;justify-content:center;
+    box-shadow:0 6px 18px rgba(0,0,0,.18);opacity:0;transform:translateY(12px) scale(.9);pointer-events:none;
+    transition:opacity .25s,transform .25s var(--fx-ease)}
+  #fxTop.on{opacity:1;transform:none;pointer-events:auto}
+  #fxTop:focus-visible{outline:2px solid var(--primary);outline-offset:2px}
+
+  /* hero: drifting capsules + word reveal */
+  .fx-caps{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+  .fx-caps i{position:absolute;display:block;width:var(--w,46px);height:calc(var(--w,46px)*.42);border-radius:999px;
+    background:linear-gradient(90deg,rgba(255,255,255,.20) 50%,rgba(255,255,255,.07) 50%);
+    border:1px solid rgba(255,255,255,.16);left:var(--x);top:var(--y);opacity:.55;
+    transform:rotate(var(--r));animation:fxDrift var(--d,14s) ease-in-out infinite alternate}
+  @keyframes fxDrift{from{transform:translate(0,0) rotate(var(--r))}to{transform:translate(var(--dx,18px),var(--dy,-26px)) rotate(calc(var(--r) + 24deg))}}
+  h1 .w{display:inline-block;animation:fxWord .7s var(--fx-ease) both;animation-delay:calc(.12s*var(--i))}
+  @keyframes fxWord{from{opacity:0;transform:translateY(.5em) rotate(2deg)}to{opacity:1;transform:none}}
+  .rx{animation:fxPulse 3.4s ease-in-out infinite}
+  @keyframes fxPulse{0%,100%{box-shadow:0 0 0 0 rgba(255,255,255,.28)}50%{box-shadow:0 0 0 9px rgba(255,255,255,0)}}
+
+  /* reveal on scroll (only when JS confirms IntersectionObserver) */
+  .js-rv .card.rv,.js-rv .sec-label.rv{opacity:0;transform:translateY(16px)}
+  .js-rv .card.rv.in,.js-rv .sec-label.rv.in{opacity:1;transform:none;transition:opacity .5s var(--fx-ease),transform .5s var(--fx-ease)}
+  #list.swap{animation:fxFade .28s ease both}
+  @keyframes fxFade{from{opacity:.0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  .tab{transition:background .2s,color .2s,transform .15s}
+  .tab[aria-selected="true"]{animation:fxPop .3s var(--fx-ease)}
+  @keyframes fxPop{0%{transform:scale(.9)}60%{transform:scale(1.06)}100%{transform:none}}
+  button:active,.card-head:active{transform:scale(.985)}
+  .chev{transition:transform .3s var(--fx-ease)}
+  .card.open .chev{transform:rotate(90deg)}
+
+  /* ---------- infographic container ---------- */
+  .viz{margin:2px 0 14px;padding:14px 13px 12px;border-radius:14px;border:1px solid var(--hairline);
+    background:color-mix(in srgb,var(--c,var(--primary)) 7%,var(--surface))}
+  .viz-in{display:grid;gap:11px}
+  .viz figcaption{margin-top:9px;font:11px 'Space Mono',monospace;color:var(--muted);line-height:1.45}
+  .viz-t{font:700 10.5px 'Space Grotesk',sans-serif;letter-spacing:.13em;text-transform:uppercase;color:var(--c,var(--primary))}
+  .viz button,.viz select,.viz input{font:inherit}
+  .viz .vb{cursor:pointer;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:7px 13px;
+    font:600 12.5px 'Space Grotesk',sans-serif;transition:background .2s,border-color .2s,transform .15s}
+  .viz .vb.on{background:var(--c,var(--primary));border-color:var(--c,var(--primary));color:#fff}
+  [data-theme="dark"] .viz .vb.on{color:#0F1512}
+  .viz .vb:focus-visible,.viz input:focus-visible,.viz select:focus-visible{outline:2px solid var(--c,var(--primary));outline-offset:2px}
+  .viz select{background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:9px;padding:7px 9px}
+  .viz .row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+  .viz output{font:600 12.5px 'Space Mono',monospace;color:var(--ink)}
+
+  /* ECP windows */
+  .ecp-rows{position:relative;display:grid;gap:10px}
+  .ecp-lab{font:600 12px 'Space Grotesk',sans-serif;margin-bottom:3px;display:flex;justify-content:space-between;gap:8px}
+  .ecp-lab em{font-style:normal;color:var(--muted);font-weight:500}
+  .ecp-track{height:14px;border-radius:7px;background:var(--hairline);overflow:hidden;position:relative}
+  .ecp-bar{position:absolute;left:0;top:0;bottom:0;width:var(--w);border-radius:7px;background:var(--bc);transition:opacity .3s,filter .3s}
+  .card.open .ecp-bar{animation:fxGrow 1s var(--fx-ease) both}
+  @keyframes fxGrow{from{width:0}to{width:var(--w)}}
+  .ecp-row.off .ecp-bar{opacity:.28;filter:grayscale(.8)}
+  .ecp-marker{position:absolute;top:-4px;bottom:-4px;width:2px;background:var(--seal);left:var(--mx);transition:left .12s linear;pointer-events:none}
+  .ecp-marker::after{content:attr(data-h);position:absolute;top:-17px;left:50%;transform:translateX(-50%);font:700 10.5px 'Space Mono',monospace;color:var(--seal);white-space:nowrap}
+  .ecp-axis{display:flex;justify-content:space-between;font:10px 'Space Mono',monospace;color:var(--muted)}
+  .ecp-res{padding:10px 12px;border-radius:11px;background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--primary);font-size:13.5px;line-height:1.45}
+  .ecp-res b{color:var(--primary)}
+  input[type=range]{accent-color:var(--c,var(--primary));width:100%}
+
+  /* stairs */
+  .stairs{display:flex;align-items:flex-end;gap:5px;height:150px}
+  .stair{flex:1;min-width:0;height:calc(40px + var(--i)*17px);border-radius:9px 9px 3px 3px;border:none;cursor:pointer;color:#fff;
+    background:color-mix(in srgb,var(--c) calc(48% + var(--i)*9%),var(--surface));font:700 10.5px 'Space Grotesk',sans-serif;letter-spacing:.06em;
+    display:flex;align-items:flex-start;justify-content:center;padding-top:8px;transition:transform .2s,filter .2s}
+  .stair.on{filter:brightness(1.12) saturate(1.2);transform:translateY(-4px);box-shadow:0 6px 14px rgba(0,0,0,.2)}
+  [data-theme="dark"] .stair{color:#0F1512}
+  .card.open .stair{animation:fxRise .6s var(--fx-ease) both;animation-delay:calc(var(--i)*.09s)}
+  @keyframes fxRise{from{height:12px;opacity:0}to{height:calc(40px + var(--i)*17px);opacity:1}}
+  .stair-say{min-height:3.2em;padding:10px 12px;border-radius:11px;background:var(--surface);border:1px solid var(--line);font-size:14px;line-height:1.45;font-style:italic}
+
+  /* timeline (MS-2 Step, general) */
+  .tl{position:relative;display:grid;gap:14px;padding-left:26px}
+  .tl::before{content:"";position:absolute;left:8px;top:6px;bottom:6px;width:3px;border-radius:2px;background:var(--hairline)}
+  .tl::after{content:"";position:absolute;left:8px;top:6px;bottom:6px;width:3px;border-radius:2px;background:var(--c);transform-origin:top;transform:scaleY(1)}
+  .card.open .tl::after{animation:fxLine 1.4s var(--fx-ease) both}
+  @keyframes fxLine{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+  .tl-n{position:relative}
+  .tl-n::before{content:"";position:absolute;left:-26px;top:3px;width:19px;height:19px;border-radius:50%;background:var(--surface);border:3px solid var(--c)}
+  .card.open .tl-n{animation:fxPopIn .5s var(--fx-ease) both;animation-delay:calc(var(--i)*.28s)}
+  @keyframes fxPopIn{from{opacity:0;transform:translateX(-8px)}to{opacity:1;transform:none}}
+  .tl-n b{display:block;font:700 13.5px 'Space Grotesk',sans-serif}
+  .tl-n span{font-size:13px;color:var(--muted);line-height:1.4}
+  .gauge{height:12px;border-radius:6px;background:var(--hairline);position:relative;overflow:hidden}
+  .gauge i{position:absolute;left:0;top:0;bottom:0;width:var(--w);background:var(--c);border-radius:6px}
+  .card.open .gauge i{animation:fxGrow 1.2s var(--fx-ease) both}
+
+  /* step flow */
+  .flow{display:grid;gap:8px;counter-reset:s}
+  .flow-s{display:flex;gap:11px;align-items:flex-start;padding:9px 11px;border-radius:11px;background:var(--surface);border:1px solid var(--hairline)}
+  .flow-s::before{counter-increment:s;content:counter(s);flex:0 0 26px;height:26px;border-radius:50%;background:var(--c);color:#fff;
+    display:flex;align-items:center;justify-content:center;font:700 13px 'Space Mono',monospace}
+  [data-theme="dark"] .flow-s::before{color:#0F1512}
+  .flow-s b{font:700 13.5px 'Space Grotesk',sans-serif;display:block}
+  .flow-s span{font-size:12.5px;color:var(--muted);line-height:1.4}
+  .card.open .flow-s{animation:fxPopIn .5s var(--fx-ease) both;animation-delay:calc(var(--i)*.18s)}
+  .flow-s.alert{border-color:var(--seal);background:var(--seal-soft)}
+  .dur{position:relative;height:46px;margin-top:4px}
+  .dur-a,.dur-b{position:absolute;left:0;height:17px;border-radius:5px;font:600 10px 'Space Mono',monospace;color:#fff;padding:0 7px;display:flex;align-items:center;white-space:nowrap}
+  .dur-a{top:0;width:var(--w);background:var(--c)}
+  .dur-b{top:23px;right:0;left:0;background:repeating-linear-gradient(135deg,var(--seal) 0 6px,color-mix(in srgb,var(--seal) 70%,var(--surface)) 6px 12px)}
+  .card.open .dur-a,.card.open .dur-b{animation:fxGrow 1.1s var(--fx-ease) both}
+  .dur-b{--w:100%}
+
+  /* timer ring */
+  .ring{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+  .ring svg{width:112px;height:112px;flex:0 0 auto}
+  .ring circle{fill:none;stroke-width:9}
+  .ring .bg{stroke:var(--hairline)}
+  .ring .fg{stroke:var(--c);stroke-linecap:round;transform:rotate(-90deg);transform-origin:50% 50%;transition:stroke-dashoffset 1s linear}
+  .ring text{font:700 20px 'Space Mono',monospace;fill:var(--ink)}
+  .dots{display:flex;gap:6px}
+  .dots i{width:13px;height:13px;border-radius:50%;background:var(--c);opacity:.25;transition:opacity .2s,transform .2s}
+  .dots i.on{opacity:1;transform:scale(1.15)}
+
+  /* decision cards */
+  .pick{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .pick .vb{border-radius:12px;padding:11px 8px;text-align:center}
+  .path{padding:11px 13px;border-radius:12px;background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--c);font-size:13.5px;line-height:1.5;animation:fxFade .3s ease both}
+  .path b{color:var(--c)}
+  .path ul{margin:6px 0 0 18px}
+  .redflag{padding:9px 12px;border-radius:11px;background:var(--seal-soft);border:1px solid var(--seal);font-size:12.5px;line-height:1.45}
+
+  /* tonicity scale */
+  .scale{position:relative;height:62px;margin:10px 4px 0}
+  .scale-bar{position:absolute;left:0;right:0;top:22px;height:10px;border-radius:5px;background:linear-gradient(90deg,#6FA8DC,#B8D8C8 30%,#E8C26A 70%,#D9714A)}
+  .scale-m{position:absolute;top:0;left:var(--p);transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;border:none;background:none;cursor:pointer;color:var(--ink);padding:0}
+  .scale-m::after{content:"";width:2px;height:20px;background:var(--ink);opacity:.7}
+  .scale-m span{font:700 10.5px 'Space Grotesk',sans-serif;background:var(--surface);border:1px solid var(--line);border-radius:7px;padding:2px 6px;white-space:nowrap}
+  .scale-m.on span{background:var(--c);color:#fff;border-color:var(--c)}
+  [data-theme="dark"] .scale-m.on span{color:#0F1512}
+  .scale-m:nth-of-type(2){top:0}
+  .scale-ticks{position:absolute;left:0;right:0;top:40px;display:flex;justify-content:space-between;font:10px 'Space Mono',monospace;color:var(--muted)}
+  .card.open .scale-m{animation:fxDrop .6s var(--fx-ease) both;animation-delay:calc(var(--i)*.15s)}
+  @keyframes fxDrop{from{opacity:0;transform:translate(-50%,-14px)}to{opacity:1;transform:translateX(-50%)}}
+
+  /* tally */
+  .slots{display:flex;gap:6px;flex-wrap:wrap}
+  .slot{width:34px;height:46px;border-radius:9px;border:2px solid var(--line);background:var(--surface);transition:background .25s,border-color .25s,transform .25s var(--fx-ease)}
+  .slot.on{background:var(--c);border-color:var(--c);transform:translateY(-3px)}
+  .slot.hot{background:var(--seal);border-color:var(--seal)}
+  .tally-msg{font-size:13.5px;min-height:2.6em;line-height:1.45}
+
+  /* split (NDSS vs PBS) and jugs */
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+  .split>div{padding:10px 11px;border-radius:12px;background:var(--surface);border:1px solid var(--line)}
+  .split h4{font:700 11px 'Space Grotesk',sans-serif;letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px}
+  .split .l h4{color:var(--c)}.split .r h4{color:var(--seal)}
+  .split li{list-style:none;font-size:12.5px;padding:3px 0;border-bottom:1px dashed var(--hairline)}
+  .card.open .split li{animation:fxPopIn .45s var(--fx-ease) both;animation-delay:calc(var(--i)*.1s)}
+  .quizq{padding:12px;border-radius:12px;background:var(--surface);border:1px dashed var(--c);text-align:center}
+  .quizq b{display:block;font:700 16px 'Space Grotesk',sans-serif;margin:3px 0 10px}
+  .quizq .ok{color:var(--primary);font-weight:700}.quizq .no{color:var(--seal);font-weight:700}
+  .jugs{display:flex;gap:12px;justify-content:center}
+  .jug{width:70px;text-align:center;font:600 11px 'Space Grotesk',sans-serif}
+  .jug-b{height:84px;border:3px solid var(--c);border-top:none;border-radius:4px 4px 14px 14px;position:relative;overflow:hidden;background:var(--surface);margin-bottom:5px}
+  .jug-w{position:absolute;left:0;right:0;bottom:0;height:88%;background:linear-gradient(180deg,color-mix(in srgb,var(--c) 45%,#fff),var(--c))}
+  .card.open .jug-w{animation:fxFill 1.2s var(--fx-ease) both;animation-delay:calc(var(--i)*.5s)}
+  @keyframes fxFill{from{height:0}to{height:88%}}
+
+  /* BV vs thrush sorter */
+  .sorter{display:grid;gap:9px}
+  .sorter .q{display:grid;grid-template-columns:78px 1fr 1fr;gap:6px;align-items:center;font-size:12.5px}
+  .verdict{padding:10px 12px;border-radius:11px;font-size:13.5px;line-height:1.45;border:1px solid var(--line);background:var(--surface);transition:background .3s,border-color .3s}
+  .verdict.t{border-color:var(--accent);background:var(--accent-soft)}
+  .verdict.b{border-color:var(--c);background:color-mix(in srgb,var(--c) 12%,var(--surface))}
+
+  /* ---------- progress dashboard (Today) ---------- */
+  .prog{margin:0 0 14px;padding:14px;border-radius:15px;border:1px solid var(--hairline);background:var(--bg);display:grid;gap:14px}
+  .prog-top{display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:center}
+  @media(max-width:420px){.prog-top{grid-template-columns:1fr;justify-items:center}}
+  .donut{position:relative;width:132px;height:132px}
+  .donut svg{width:100%;height:100%;transform:rotate(-90deg)}
+  .donut circle{fill:none;stroke-width:4.2}
+  .donut .seg{transition:stroke-dasharray 1.1s var(--fx-ease),stroke-dashoffset 1.1s var(--fx-ease)}
+  .donut-c{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+  .donut-c b{font:700 28px 'Space Grotesk',sans-serif;line-height:1}
+  .donut-c>span{font:600 9.5px 'Space Grotesk',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:3px}
+  .legend{display:grid;gap:4px;font-size:12px;width:100%}
+  .legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:7px;vertical-align:-1px}
+  .legend div{display:flex;justify-content:space-between;gap:10px}
+  .legend b{font-family:'Space Mono',monospace}
+  .bars{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;align-items:end;height:92px}
+  .bar{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;font:600 10px 'Space Mono',monospace;color:var(--muted)}
+  .bar i{display:block;width:100%;border-radius:6px 6px 2px 2px;background:var(--bc);transform-origin:bottom;transition:transform .9s var(--fx-ease),height .9s var(--fx-ease);min-height:3px}
+  .bar b{color:var(--ink);font-size:12px;margin-bottom:3px}
+  .prog h5{font:700 10.5px 'Space Grotesk',sans-serif;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);margin-bottom:7px}
+  .heat{display:grid;grid-template-columns:repeat(7,1fr);gap:5px}
+  .heat i{aspect-ratio:1;border-radius:5px;background:var(--hairline);display:block}
+  .heat i.d{background:var(--primary)}
+  .heat i.t{outline:2px solid var(--accent);outline-offset:1px}
+  .heat-h{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;font:9.5px 'Space Mono',monospace;color:var(--muted);text-align:center;margin-bottom:4px}
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+  .stat{padding:10px 8px;border-radius:12px;background:var(--surface);border:1px solid var(--hairline);text-align:center}
+  .stat b{display:block;font:700 22px 'Space Grotesk',sans-serif;line-height:1.1}
+  .stat>span{font:600 9.5px 'Space Grotesk',sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+  .flame{display:inline-block;transform-origin:50% 90%;animation:fxFlame 1.6s ease-in-out infinite}
+  @keyframes fxFlame{0%,100%{transform:scale(1) rotate(-2deg)}50%{transform:scale(1.14) rotate(3deg)}}
+  .prog-hint{font-size:12.5px;color:var(--muted)}
+  #fxConf{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:90}
+
+  .ecp-rows{margin-top:16px}
+  .bars{height:auto;align-items:end}
+  .bar{height:80px}
+  .bl{font:600 9.5px 'Space Mono',monospace;text-align:center;color:var(--muted);margin-top:4px}
+  .ton.on{outline:2px solid var(--c)}
+  .vb:disabled{opacity:.4;cursor:not-allowed}
+  .viz label{font-size:13px}
+  .viz input[type=checkbox]{accent-color:var(--c,var(--primary));width:16px;height:16px}
+  .viz .row label.row{gap:7px}
 </style>
 </head>
 <body>
@@ -1888,11 +2110,12 @@ function openSettings(){
   let pending=null;
   function readState(){ try{ return JSON.parse(localStorage.getItem(STATE_KEY)||'null'); }catch(e){ return null; } }
   function cleanState(r){
-    const out={streak:0,best:0,last:'',box:{}};
+    const out={streak:0,best:0,last:'',box:{},days:[]};
     if(!r||typeof r!=='object') return out;
     const n=v=>(Number.isFinite(v)&&v>=0)?Math.floor(v):0;
     out.streak=n(r.streak); out.best=n(r.best);
     out.last=/^\d{4}-\d{2}-\d{2}$/.test(r.last||'')?r.last:'';
+    out.days=(Array.isArray(r.days)?r.days:[]).filter(function(x){ return /^\d{4}-\d{2}-\d{2}$/.test(x); }).slice(-120);
     if(r.box&&typeof r.box==='object') Object.keys(r.box).slice(0,5000).forEach(k=>{
       const x=r.box[k]; if(x&&Number.isInteger(x.b)&&x.b>=0&&x.b<10&&Number.isFinite(x.due)) out.box[String(k).slice(0,40)]={b:x.b,due:x.due};
     });
@@ -1950,6 +2173,223 @@ CATS.forEach((c,i)=>{
   tabsEl.appendChild(b);
 });
 
+/* ================= infographics + interactive study aids (keyed by card title) ================= */
+const FX_RED=!!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches);
+const FX_IO=(!FX_RED&&'IntersectionObserver' in window)?new IntersectionObserver(function(es){ es.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); FX_IO.unobserve(en.target); } }); },{threshold:.04,rootMargin:'0px 0px -4% 0px'}):null;
+if(FX_IO) document.documentElement.classList.add('js-rv');
+function fxReveal(el){ if(!FX_IO) return; el.classList.add('rv'); FX_IO.observe(el); }
+
+const VIZ={};
+function vz(inner,cap){ return '<figure class="viz"><div class="viz-in">'+inner+'</div>'+(cap?'<figcaption>'+cap+'</figcaption>':'')+'</figure>'; }
+
+/* ---- ECP time windows + explorer ---- */
+function ecpResult(h,w,e){
+  var t;
+  if(e) t='<b>Offer a copper IUD.</b> Ulipristal is not advised with an enzyme inducer taken in the last 28 days. If an IUD is unsuitable and it is within 72 h, levonorgestrel 3 mg (two tablets) can be used, but how well it works is not known.';
+  else if(h>120) t='<b>Past the pill windows.</b> The pill is less likely to work this far out. The copper IUD is the option to chase today: call a clinic now.';
+  else if(w==='gt85') t='<b>Neither pill is as reliable at this weight.</b> The copper IUD is the best option. If she declines it, ulipristal is the better pill'+(h>72?' (and the only pill still in its window)':'')+'.';
+  else if(h>72) t='<b>Only ulipristal (or a copper IUD) still covers this.</b> Levonorgestrel is past 72 h.';
+  else if(w==='mid') t='<b>Ulipristal is the preferred pill</b> above about 70 kg. Levonorgestrel is less reliable at higher weights. The copper IUD is the most effective of all.';
+  else t='<b>Either pill is in its window.</b> Ulipristal works for longer and holds up better; the copper IUD is the most effective of all.';
+  return t;
+}
+function ecpUpdate(root){
+  var h=+root.querySelector('[data-ecp=h]').value, w=root.querySelector('[data-ecp=w]').value, e=root.querySelector('[data-ecp=e]').checked;
+  root.querySelector('output').textContent=h+' h';
+  var m=root.querySelector('.ecp-marker'); m.style.setProperty('--mx',(h/144*100)+'%'); m.setAttribute('data-h',h+' h');
+  root.querySelector('[data-o=lng]').classList.toggle('off',h>72);
+  root.querySelector('[data-o=upa]').classList.toggle('off',h>120||e);
+  root.querySelector('[data-o=iud]').classList.toggle('off',h>120);
+  root.querySelector('.ecp-res').innerHTML=ecpResult(h,w,e);
+}
+VIZ['Emergency contraception — complicated situations']=function(){
+  function row(k,name,note,hrs,col){ return '<div class="ecp-row" data-o="'+k+'"><div class="ecp-lab"><span>'+name+'</span><em>'+note+'</em></div><div class="ecp-track"><i class="ecp-bar" style="--w:'+(hrs/144*100).toFixed(1)+'%;--bc:'+col+'"></i></div></div>'; }
+  return vz('<div class="viz-t">Study aid · time windows</div><div data-viz="ecp"><div class="ecp-rows">'+
+    row('lng','Levonorgestrel 1.5 mg','up to 72 h',72,'var(--accent)')+row('upa','Ulipristal 30 mg','up to 120 h',120,'var(--primary)')+row('iud','Copper IUD','up to 120 h',120,'var(--c)')+
+    '<div class="ecp-marker" data-h="20 h" style="--mx:13.9%"></div></div>'+
+    '<div class="ecp-axis">'+[0,24,48,72,96,120,144].map(function(t){return '<span>'+t+'</span>';}).join('')+'</div>'+
+    '<div class="row" style="margin-top:8px"><label for="ecpH">Hours since unprotected sex</label><output>20 h</output></div>'+
+    '<input id="ecpH" type="range" min="0" max="144" value="20" step="1" data-ecp="h">'+
+    '<div class="row" style="margin:8px 0"><label>Weight <select data-ecp="w"><option value="lt70">under 70 kg</option><option value="mid">70 to 85 kg</option><option value="gt85">over 85 kg</option></select></label>'+
+    '<label class="row"><input type="checkbox" data-ecp="e"> enzyme-inducing medicine in the last 28 days</label></div>'+
+    '<div class="ecp-res" aria-live="polite">'+ecpResult(20,'lt70',false)+'</div></div>',
+    'Study aid built from the cards, not a clinical decision tool. Follow the leaflet, the Australian Pharmaceutical Formulary and your pharmacy protocol.');
+};
+
+/* ---- ECP phrase ladder as stairs ---- */
+const STAIRS=[['OPEN','“Let\'s step into the consult room so we can talk privately.”'],
+ ['ASK','Hours since · what happened · other sex this cycle · last period · contraception · enzyme-inducing medicines · breastfeeding · weight.'],
+ ['CHOOSE','“Ulipristal works up to five days and holds up better at higher weights. Levonorgestrel works up to three days. A copper IUD is the most effective of all.”'],
+ ['TAKE','“Take it now. If you vomit within three hours, come straight back.”'],
+ ['WATCH','“Do a pregnancy test if your period is more than a week late or different. This doesn\'t protect against STIs.”'],
+ ['CLOSE','“Use condoms for the rest of this cycle, and book a chat with your GP about ongoing contraception.”']];
+VIZ['Emergency contraception — the phrase ladder']=function(){
+  return vz('<div class="viz-t">Tap a step to hear the line</div><div data-viz="stairs"><div class="stairs">'+
+    STAIRS.map(function(s,i){return '<button class="stair" style="--i:'+i+'" data-stair="'+i+'">'+s[0]+'</button>';}).join('')+
+    '</div><div class="stair-say" aria-live="polite" style="margin-top:10px">Climb from OPEN to CLOSE. Say each line out loud.</div></div>');
+};
+
+/* ---- MS-2 Step timeline ---- */
+VIZ['MS-2 Step — the facts']=function(){
+  return vz('<div class="viz-t">Study aid · the timeline</div><div class="tl">'+
+   '<div class="tl-n" style="--i:0"><b>Day 0 · Step 1</b><span>Mifepristone 200 mg, one tablet by mouth.</span></div>'+
+   '<div class="tl-n" style="--i:1"><b>36 to 48 hours later · Step 2</b><span>Misoprostol 800 mcg (4 tablets) held between cheek and gum for 30 minutes, then the rest swallowed.</span></div>'+
+   '<div class="tl-n" style="--i:2"><b>Within hours of Step 2</b><span>Cramping and bleeding heavier than a period are expected. Prolonged heavy bleeding, infection or ongoing pain: contact the prescriber or go to Emergency.</span></div>'+
+   '<div class="tl-n" style="--i:3"><b>14 to 21 days · follow-up</b><span>A check with a healthcare practitioner, preferably the prescriber, is required even if all went well.</span></div></div>'+
+   '<div><div class="viz-t" style="margin-bottom:5px">Gestation limit</div><div class="gauge"><i style="--w:100%"></i></div><div class="ecp-axis" style="margin-top:3px"><span>0</span><span>3 wk</span><span>6 wk</span><span>9 wk · 63 days</span></div></div>',
+   'From the product information and consumer leaflet. The prescriber confirms gestation.');
+};
+
+/* ---- naloxone sequence + duration ---- */
+VIZ['Take Home Naloxone — Nyxoid on supply']=function(){
+  function st(i,t,s,a){ return '<div class="flow-s'+(a?' alert':'')+'" style="--i:'+i+'"><div><b>'+t+'</b><span>'+s+'</span></div></div>'; }
+  return vz('<div class="viz-t">Study aid · the sequence</div><div class="flow">'+
+   st(0,'Call 000','Before the spray, not instead of it.',1)+st(1,'On their back, nose clear','Stay with them.')+
+   st(2,'One nostril, press until it clicks','Single dose: do not prime or test.')+
+   st(3,'No response in 2 to 3 minutes?','Second device in the other nostril. Repeat every 2 to 3 minutes with a new device.')+
+   st(4,'Breathing again? Recovery position','Stay until the ambulance arrives.')+'</div>'+
+   '<div><div class="viz-t" style="margin-bottom:6px">Why the ambulance still comes</div><div class="dur"><div class="dur-a" style="--w:50%">naloxone: about 30–90 min</div><div class="dur-b">the opioid can last longer, so the overdose can return</div></div>'+
+   '<div class="ecp-axis"><span>0</span><span>30</span><span>60</span><span>90</span><span>120</span><span>150</span><span>180 min</span></div></div>',
+   'Timing from NSW Health: starts working within minutes and lasts about 30 to 90 minutes.');
+};
+
+/* ---- asthma 4-4-4 timer ---- */
+VIZ['Zempreon']=function(){
+  var C=314.16;
+  return vz('<div class="viz-t">Study aid · 4 puffs · 4 breaths · 4 minutes</div><div class="ring" data-viz="ring"><svg viewBox="0 0 120 120" role="img" aria-label="Four minute timer"><circle class="bg" cx="60" cy="60" r="50"/><circle class="fg" cx="60" cy="60" r="50" stroke-dasharray="'+C+'" stroke-dashoffset="0"/><text x="60" y="67" text-anchor="middle">4:00</text></svg>'+
+   '<div style="flex:1;min-width:190px;display:grid;gap:9px"><div><b>4 puffs</b>, one at a time, via a spacer <span class="dots" data-dots>'+'<i></i><i></i><i></i><i></i>'+'</span></div>'+
+   '<div><b>4 breaths</b> after each puff <span class="dots" data-dots><i></i><i></i><i></i><i></i></span></div>'+
+   '<div class="row"><button class="vb" data-ring="start">Start 4-minute timer</button><button class="vb" data-ring="reset">Reset</button></div>'+
+   '<div class="path" data-ring-msg>Sit upright. Severe (can\'t speak a full sentence, blue lips)? Call 000 straight away.</div></div></div>',
+   'Teaching timer based on Asthma Australia first aid. In a real emergency, call 000.');
+};
+
+/* ---- cough decision ---- */
+const COUGH={dry:'<b>Dry cough: suppress and soothe.</b><ul><li>Suppressant: dextromethorphan</li><li>Soothe with a honey- or glycerol-based syrup and fluids</li><li>Think: ACE-inhibitor cough, asthma, reflux, post-nasal drip (saline helps)</li><li>Never combine with a chesty-cough product</li></ul>',
+ chesty:'<b>Chesty cough: loosen, don\'t silence.</b><ul><li>Guaifenesin thins mucus (expectorant); bromhexine breaks it down (mucolytic)</li><li>Pseudoephedrine products are pharmacist-only: screen blood pressure, heart, thyroid, prostate, MAO inhibitors, pregnancy</li><li>Fluids help both work</li><li>Never pair with a suppressant</li></ul>'};
+VIZ['The cough aisle — dry vs chesty']=function(){
+  return vz('<div class="viz-t">Study aid · pick a path</div><div data-viz="cough"><div class="pick"><button class="vb" data-cough="dry">Dry, tickly</button><button class="vb" data-cough="chesty">Chesty, bringing up phlegm</button></div>'+
+   '<div class="path" data-cough-out style="margin-top:9px">Ask first: “Is the cough bringing anything up?” Then tap a path.</div></div>'+
+   '<div class="redflag"><b>Refer if:</b> longer than about 3 weeks · blood in the phlegm · fever with breathlessness · chest pain · wheeze · weight loss or night sweats · new cough in a smoker · an ACE-inhibitor (“-pril”) cough · a child under 6.</div>',
+   'Built from the cough aisle card.');
+};
+
+/* ---- Fess vs Flo tonicity ---- */
+const TONE=[['Fess Original spray','isotonic',0.9,'Ready-to-use, buffered, with a preservative (benzalkonium chloride). Everyday congestion.','var(--primary)'],
+ ['Flo Sinus Care sachet wash','isotonic',0.9,'Preservative-free; you make it up in a squeeze bottle. Extra electrolytes (potassium, bicarbonate, glucose, calcium lactate). Use boiled-and-cooled or sterile water.','var(--c-lead)'],
+ ['Fess Sinu-Cleanse congestion mist','hypertonic · NaCl 30 mg/mL',3,'Stronger salt (about 3%). Draws fluid from swollen tissue for a short-term stuffy nose. Can sting and dry.','var(--accent)']];
+VIZ['Fess vs Flo']=function(){
+  return vz('<div class="viz-t">Study aid · saltiness scale (% sodium chloride)</div><div data-viz="tone">'+
+   TONE.map(function(t,i){ return '<button class="vb ton" data-tone="'+i+'" style="width:100%;text-align:left;border-radius:12px;margin-bottom:7px"><div class="ecp-lab"><span>'+t[0]+'</span><em>'+t[1]+'</em></div><div class="ecp-track"><i class="ecp-bar" style="--w:'+(t[2]/3*100)+'%;--bc:'+t[4]+'"></i><i style="position:absolute;left:30%;top:0;bottom:0;width:2px;background:var(--ink);opacity:.55"></i></div></button>'; }).join('')+
+   '<div class="ecp-axis"><span>0%</span><span>0.9% isotonic</span><span>3%</span></div>'+
+   '<div class="path" data-tone-out style="margin-top:9px">Tap a product. The dark line marks isotonic (0.9%).</div></div>',
+   'Product details are from retailer listings, not the manufacturers\' leaflets. Isotonic = gentle everyday use; hypertonic = decongesting, short-term.');
+};
+
+/* ---- paracetamol tally ---- */
+function tallyDraw(root){
+  var p=root.querySelector('[data-tally=p]').value.split('|'), max=+p[0], mg=+p[1];
+  var n=Math.min(+root.dataset.n||0,max);
+  root.querySelector('.slots').innerHTML=Array.apply(null,Array(max)).map(function(_,i){ return '<span class="slot'+(i<n?' on':'')+(n>=max?' hot':'')+'"></span>'; }).join('');
+  var g=(n*mg/1000), msg;
+  if(!n) msg='Nothing logged. Ask first: what ELSE have you taken today (cold and flu, night-time products, combination pain relief)?';
+  else if(n<max) msg='<b>'+n+' of '+max+' tablets</b> ('+g.toFixed(2)+' g). '+(max-n)+' left today, at least 4 hours apart.';
+  else msg='<b>Daily maximum reached ('+g.toFixed(2)+' g).</b> No more paracetamol until tomorrow, and check for hidden paracetamol in other products.';
+  root.querySelector('.tally-msg').innerHTML=msg;
+  root.querySelector('[data-tally=add]').disabled=n>=max;
+}
+VIZ['Shelf 2 · Paracetamol line-up']=function(){
+  return vz('<div class="viz-t">Study aid · daily paracetamol tally</div><div data-viz="tally" data-n="0"><label class="row">Product <select data-tally="p"><option value="8|500">Paracetamol 500 mg · max 8 tablets (4 g)</option><option value="6|665">Osteo 665 mg MR · max 6 tablets (3.99 g)</option></select></label>'+
+   '<div class="slots" aria-hidden="true" style="margin:10px 0"></div><div class="row"><button class="vb" data-tally="add">+ 1 tablet taken</button><button class="vb" data-tally="reset">Reset</button></div><div class="tally-msg" aria-live="polite" style="margin-top:8px">Nothing logged. Ask first: what ELSE have you taken today?</div></div>',
+   'Teaching aid from the maximums on this card. Always ask what else contains paracetamol.');
+};
+
+/* ---- NDSS vs PBS ---- */
+const NDSS=['Blood glucose test strips','Pen needles and syringes','Urine ketone strips','Insulin pump consumables','CGM sensors (type 1)'];
+const PBSI=['Insulin (e.g. Lantus)','Metformin and other tablets','Gliclazide','Other diabetes medicines by script'];
+const SCHQ=[['Blood glucose test strips','NDSS'],['Lantus insulin pen','PBS'],['Pen needles','NDSS'],['Metformin','PBS'],['CGM sensors (type 1)','NDSS'],['Urine ketone strips','NDSS'],['Insulin pump infusion sets','NDSS'],['Gliclazide','PBS']];
+VIZ['NDSS — the 60-second version']=function(){
+  var q=SCHQ[Math.floor(Math.random()*SCHQ.length)];
+  return vz('<div class="viz-t">Study aid · which scheme?</div><div class="split"><div class="l"><h4>NDSS</h4><ul style="padding:0">'+NDSS.map(function(t,i){return '<li style="--i:'+i+'">'+t+'</li>';}).join('')+'</ul></div>'+
+   '<div class="r"><h4>PBS script</h4><ul style="padding:0">'+PBSI.map(function(t,i){return '<li style="--i:'+i+'">'+t+'</li>';}).join('')+'</ul></div></div>'+
+   '<div class="quizq" data-viz="scheme" data-a="'+q[1]+'" data-score="0" data-n="0"><span class="viz-t">Quick test · score <span data-sc>0/0</span></span><b data-q>'+q[0]+'</b><div class="row" style="justify-content:center"><button class="vb" data-scheme="NDSS">NDSS</button><button class="vb" data-scheme="PBS">PBS</button></div><div data-fb style="min-height:1.5em;margin-top:8px;font-size:13px"></div></div>');
+};
+
+/* ---- Glycoprep jugs ---- */
+VIZ['Glycoprep — who is actually buying it']=function(){
+  return vz('<div class="viz-t">Study aid · what three sachets make</div><div class="jugs">'+[1,2,3].map(function(i){return '<div class="jug" style="--i:'+(i-1)+'"><div class="jug-b"><div class="jug-w"></div></div>Sachet '+i+'<br><span style="color:var(--muted);font-weight:500">70 g → 1 L</span></div>';}).join('')+'</div>',
+   '3 × 70 g sachets, each into 1 litre of water, is 3 litres. Follow the unit\'s sheet for timing and diet.');
+};
+
+/* ---- BV vs thrush sorter ---- */
+const SORT=[['Discharge','Thick, white','Thin, grey-white'],['Smell','None','Fishy'],['Itch','Marked','Little']];
+function sortUpdate(root){
+  var c={t:0,b:0}, k;
+  for(k=0;k<3;k++){ var v=root.dataset['s'+k]; if(v) c[v]++; }
+  var el=root.querySelector('.verdict'), n=c.t+c.b;
+  el.className='verdict'+(n===3&&c.t===3?' t':(n===3&&c.b===3?' b':''));
+  if(n<3) el.innerHTML='Choose one for each row.';
+  else if(c.t===3) el.innerHTML='<b>The pattern fits thrush.</b> Check for pregnancy, first episode, fever or pelvic pain before treating.';
+  else if(c.b===3) el.innerHTML='<b>The pattern fits BV.</b> If a doctor has diagnosed BV before, Fleurstat BVgel is an option. A first episode needs the GP.';
+  else el.innerHTML='<b>Mixed pattern.</b> Ask more questions. A swab at the GP may be the right next step.';
+}
+VIZ['Fleurstat BVgel']=function(){
+  return vz('<div class="viz-t">Study aid · thrush or BV?</div><div data-viz="sorter" class="sorter">'+SORT.map(function(r,i){return '<div class="q"><b>'+r[0]+'</b><button class="vb" data-sort="'+i+':t">'+r[1]+'</button><button class="vb" data-sort="'+i+':b">'+r[2]+'</button></div>';}).join('')+
+   '<div class="verdict" aria-live="polite">Choose one for each row.</div></div>','Pattern recognition only. A first episode, pregnancy, fever, pelvic pain or bleeding goes to the GP.');
+};
+
+/* ---- one delegated handler for all interactive study aids ---- */
+(function wireViz(){
+  var ringT=null;
+  function fmt(s){ return Math.floor(s/60)+':'+String(s%60).padStart(2,'0'); }
+  list.addEventListener('input',function(e){ var r=e.target.closest('[data-viz=ecp]'); if(r) ecpUpdate(r); });
+  list.addEventListener('change',function(e){
+    var r=e.target.closest('[data-viz=ecp]'); if(r){ ecpUpdate(r); return; }
+    var t=e.target.closest('[data-viz=tally]'); if(t){ t.dataset.n='0'; tallyDraw(t); }
+  });
+  list.addEventListener('click',function(e){
+    var b;
+    if((b=e.target.closest('[data-stair]'))){
+      var root=b.closest('[data-viz=stairs]'); var i=+b.getAttribute('data-stair');
+      root.querySelectorAll('.stair').forEach(function(x,j){ x.classList.toggle('on',j===i); });
+      root.querySelector('.stair-say').textContent=STAIRS[i][1];
+    } else if((b=e.target.closest('[data-cough]'))){
+      var cr=b.closest('[data-viz=cough]'); cr.querySelectorAll('[data-cough]').forEach(function(x){ x.classList.toggle('on',x===b); });
+      var out=cr.querySelector('[data-cough-out]'); out.innerHTML=COUGH[b.getAttribute('data-cough')]; out.style.animation='none'; void out.offsetWidth; out.style.animation='';
+    } else if((b=e.target.closest('[data-tone]'))){
+      var tr=b.closest('[data-viz=tone]'); var t=TONE[+b.getAttribute('data-tone')];
+      tr.querySelectorAll('.ton').forEach(function(x){ x.classList.toggle('on',x===b); });
+      tr.querySelector('[data-tone-out]').innerHTML='<b>'+t[0]+'</b> · '+t[1]+'<br>'+t[3];
+    } else if((b=e.target.closest('[data-tally]'))&&b.tagName==='BUTTON'){
+      var ty=b.closest('[data-viz=tally]'); var k=b.getAttribute('data-tally');
+      ty.dataset.n=(k==='reset')?'0':String((+ty.dataset.n||0)+1); tallyDraw(ty);
+    } else if((b=e.target.closest('[data-scheme]'))){
+      var qz=b.closest('[data-viz=scheme]'); var ok=b.getAttribute('data-scheme')===qz.dataset.a;
+      qz.dataset.n=String(+qz.dataset.n+1); if(ok) qz.dataset.score=String(+qz.dataset.score+1);
+      qz.querySelector('[data-sc]').textContent=qz.dataset.score+'/'+qz.dataset.n;
+      qz.querySelector('[data-fb]').innerHTML=ok?'<span class="ok">Correct</span>':'<span class="no">Not quite: that one is '+qz.dataset.a+'</span>';
+      var q=SCHQ[Math.floor(Math.random()*SCHQ.length)]; qz.dataset.a=q[1]; qz.querySelector('[data-q]').textContent=q[0];
+    } else if((b=e.target.closest('[data-sort]'))){
+      var sr=b.closest('[data-viz=sorter]'); var p=b.getAttribute('data-sort').split(':');
+      sr.dataset['s'+p[0]]=p[1];
+      sr.querySelectorAll('[data-sort^="'+p[0]+':"]').forEach(function(x){ x.classList.toggle('on',x===b); });
+      sortUpdate(sr);
+    } else if((b=e.target.closest('[data-ring]'))){
+      var rr=b.closest('[data-viz=ring]'); var fg=rr.querySelector('.fg'), tx=rr.querySelector('text'), msg=rr.querySelector('[data-ring-msg]');
+      clearInterval(ringT);
+      if(b.getAttribute('data-ring')==='reset'){ fg.style.strokeDashoffset='0'; tx.textContent='4:00'; msg.textContent='Sit upright. Severe (can\'t speak a full sentence, blue lips)? Call 000 straight away.'; return; }
+      var rem=240; msg.textContent='Wait and watch. Keep them upright and calm.'; fg.style.strokeDashoffset='0'; tx.textContent=fmt(rem);
+      ringT=setInterval(function(){
+        if(!document.body.contains(rr)){ clearInterval(ringT); return; }
+        rem--; tx.textContent=fmt(rem); fg.style.strokeDashoffset=(314.16*(1-rem/240)).toFixed(1);
+        if(rem<=0){ clearInterval(ringT); msg.innerHTML='<b>4 minutes up.</b> Not better? Give 4 more puffs. Still not better or getting worse? Call 000 and keep giving 4 puffs every 4 minutes.'; try{ if(navigator.vibrate) navigator.vibrate(200); }catch(_){} }
+      },1000);
+    }
+  });
+  list.addEventListener('click',function(e){ var d=e.target.closest('.dots i'); if(d) d.classList.toggle('on'); });
+})();
+
+
 function matchesQ(d){
   if(!q)return true;
   const body=d.quick ? (d.points.join(' ')+' '+d.flag) : (d.lines.map(l=>l.t).join(' ')+' '+d.key.join(' '));
@@ -1959,6 +2399,7 @@ function matchesQ(d){
 
 function render(){
   list.innerHTML='';
+  list.classList.remove('swap');void list.offsetWidth;list.classList.add('swap');
   const groups=CATS.slice(1);
   let shown=0;
   groups.forEach(g=>{
@@ -1969,7 +2410,7 @@ function render(){
     const lab=document.createElement('div');lab.className='sec-label';
     lab.style.setProperty('--c',col);
     lab.innerHTML=`<span class="sdot"></span>${g}<span class="scount">${items.length}</span>`;
-    list.appendChild(lab);
+    list.appendChild(lab);fxReveal(lab);
     items.forEach(d=>{
       shown++;
       const card=document.createElement('div');
@@ -1997,9 +2438,9 @@ function render(){
         h+=`</div>`;
       }
       const body=document.createElement('div');body.className='card-body';
-      body.innerHTML=`<div class="cb-pad">${h}</div>`;
+      body.innerHTML=`<div class="cb-pad">${(VIZ[d.title]?VIZ[d.title]():'')}${h}</div>`;
       card.appendChild(head);card.appendChild(body);
-      list.appendChild(card);
+      list.appendChild(card);fxReveal(card);
     });
   });
   countEl.textContent = shown ? shown+' scripts' : '';
@@ -2669,8 +3110,10 @@ try{
     ST.streak=(ST.last===ds(y))?(ST.streak||0)+1:1;
     ST.best=Math.max(ST.best||0,ST.streak);
     ST.last=t;
+    ST.days=(ST.days||[]).filter(function(x){ return x!==t; }).concat(t).slice(-120);
     store.set('sd-state',ST);
     refreshTools();
+    if(window.fxConfetti) fxConfetti();
   }
   function refreshTools(){
     const el=document.getElementById('sdTools'); if(!el) return;
@@ -2684,6 +3127,60 @@ try{
       '<button class="t-tool" data-sd="calc">🧮 Calculators</button>'+
       '<span class="t-streak">'+(ls?('🔥 '+ls+'-day streak'+((ST.best>ls)?(' · best '+ST.best):'')):'🔥 no streak yet')+'</span>'+
       '<button class="t-done'+(doneToday?' ok':'')+'" data-sd="done">'+(doneToday?'✓ Warm-up done':'Mark warm-up done')+'</button>';
+    renderProgress();
+  }
+
+  /* ---------- progress dashboard (Today) ---------- */
+  function countUp(el,to){
+    if(FX_RED||!to){ el.textContent=to; return; }
+    var t0=performance.now();
+    (function f(t){ var p=Math.min(1,(t-t0)/700); el.textContent=Math.round(to*(1-Math.pow(1-p,3))); if(p<1) requestAnimationFrame(f); })(t0);
+  }
+  var progSig='';
+  function renderProgress(){
+    var el=document.getElementById('progPanel'); if(!el) return;
+    var total=BANKQ.length, n=Date.now(), c=[0,0,0,0,0,0], due=0;
+    Object.keys(ST.box||{}).forEach(function(k){ var r=ST.box[k]; if(r&&r.b>=1&&r.b<=5){ c[r.b]++; if(r.due<=n) due++; } });
+    var seen=c[1]+c[2]+c[3]+c[4]+c[5]; c[0]=Math.max(0,total-seen);
+    var learning=c[1]+c[2], solid=c[3]+c[4], master=c[5];
+    var secure=total?Math.round((solid+master)/total*100):0;
+    var ls=liveStreak();
+    var done={}; (ST.days||[]).forEach(function(d){ done[d]=1; });
+    if(ST.last){ var base=new Date(ST.last+'T12:00:00'); for(var s=0;s<(ST.streak||1);s++){ var dd=new Date(base); dd.setDate(base.getDate()-s); done[ds(dd)]=1; } }
+    var sig=[c.join(','),due,ls,ST.best||0,Object.keys(done).length,ds(new Date())].join('|');
+    if(sig===progSig) return; progSig=sig;
+
+    var segs=[[master,'var(--primary)','Mastered · box 5'],[solid,'var(--c-lead)','Solid · boxes 3–4'],[learning,'var(--accent)','Learning · boxes 1–2'],[c[0],'var(--line)','Not seen yet']];
+    var cum=0;
+    var circles='<circle cx="21" cy="21" r="15.9155" stroke="var(--hairline)"/>'+segs.map(function(s){
+      var pct=total?s[0]/total*100:0;
+      var o='<circle class="seg" cx="21" cy="21" r="15.9155" stroke="'+s[1]+'" data-da="'+pct.toFixed(2)+' '+(100-pct).toFixed(2)+'" style="stroke-dasharray:0 100;stroke-dashoffset:'+(-cum).toFixed(2)+'"/>';
+      cum+=pct; return o;
+    }).join('');
+    var legend=segs.map(function(s){ return '<div><span><i style="background:'+s[1]+'"></i>'+s[2]+'</span><b>'+s[0]+'</b></div>'; }).join('');
+    var ivl=['1d','3d','7d','14d','30d'], bc=['var(--seal)','var(--accent)','#C9A23A','var(--c-lead)','var(--primary)'];
+    var mx=Math.max(1,c[1],c[2],c[3],c[4],c[5]);
+    var bars=[1,2,3,4,5].map(function(b){
+      var px=c[b]?Math.round(c[b]/mx*52)+6:3;
+      return '<div><div class="bar"><b data-cu="'+c[b]+'">0</b><i style="--bc:'+bc[b-1]+';height:3px" data-h="'+px+'"></i></div><div class="bl">'+ivl[b-1]+'</div></div>';
+    }).join('');
+    var today=new Date(), mon=new Date(today); mon.setDate(today.getDate()-((today.getDay()+6)%7)-28);
+    var cells='', anyDone=false;
+    for(var i=0;i<35;i++){
+      var d=new Date(mon); d.setDate(mon.getDate()+i); var key=ds(d), isT=key===ds(today), fut=d>today&&!isT;
+      if(done[key]) anyDone=true;
+      cells+='<i class="'+(done[key]?'d':'')+(isT?' t':'')+'"'+(fut?' style="opacity:.35"':'')+' title="'+key+'"></i>';
+    }
+    el.innerHTML=
+      '<div class="prog-top"><div class="donut"><svg viewBox="0 0 42 42" role="img" aria-label="'+secure+' percent of questions secure">'+circles+'</svg><div class="donut-c"><b><span data-cu="'+secure+'">0</span>%</b><span>secure</span></div></div><div class="legend">'+legend+'</div></div>'+
+      '<div class="stats"><div class="stat"><b>'+(ls?'<span class="flame" aria-hidden="true">🔥</span> ':'')+'<span data-cu="'+ls+'">0</span></b><span>day streak</span></div><div class="stat"><b data-cu="'+(ST.best||0)+'">0</b><span>best</span></div><div class="stat"><b data-cu="'+due+'">0</b><span>reviews due</span></div></div>'+
+      '<div><h5>Review boxes · when each returns</h5><div class="bars">'+bars+'</div></div>'+
+      '<div><h5>Warm-ups · last 5 weeks</h5><div class="heat-h"><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span></div><div class="heat">'+cells+'</div>'+(anyDone?'':'<p class="prog-hint" style="margin-top:8px">Mark a warm-up done to start your map.</p>')+'</div>';
+    requestAnimationFrame(function(){ requestAnimationFrame(function(){
+      el.querySelectorAll('.seg').forEach(function(s){ s.style.strokeDasharray=s.getAttribute('data-da'); });
+      el.querySelectorAll('.bar i').forEach(function(b){ b.style.height=b.getAttribute('data-h')+'px'; });
+      el.querySelectorAll('[data-cu]').forEach(function(x){ countUp(x,+x.getAttribute('data-cu')); });
+    }); });
   }
 
   /* ================= CALCULATORS ================= */
@@ -2782,6 +3279,8 @@ try{
   const tools=document.createElement('div'); tools.id='sdTools'; tools.className='t-tools';
   const head=todayEl.querySelector('.t-head');
   if(head&&head.parentNode){ head.parentNode.insertBefore(tools,head.nextSibling); } else { todayEl.appendChild(tools); }
+  const prog=document.createElement('section'); prog.id='progPanel'; prog.className='prog'; prog.setAttribute('aria-label','Your progress');
+  tools.parentNode.insertBefore(prog,tools.nextSibling);
 
   /* case of the day tile */
   const tgrid=todayEl.querySelector('.t-grid');
@@ -2835,6 +3334,55 @@ try{
   }
   btn.addEventListener('click',()=>{dark=!dark;apply();});
   apply();
+})();
+</script>
+<script>
+/* ================= motion layer: scroll bar, back-to-top, hero, confetti ================= */
+(function fxGlobal(){
+  var bar=document.createElement('div'); bar.id='fxBar'; bar.setAttribute('aria-hidden','true'); document.body.appendChild(bar);
+  var top=document.createElement('button'); top.id='fxTop'; top.type='button'; top.setAttribute('aria-label','Back to top');
+  top.innerHTML='<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>';
+  document.body.appendChild(top);
+  top.onclick=function(){ window.scrollTo({top:0,behavior:FX_RED?'auto':'smooth'}); };
+  var tick=false;
+  function onScroll(){
+    if(tick) return; tick=true;
+    requestAnimationFrame(function(){
+      var h=document.documentElement.scrollHeight-innerHeight, p=h>0?scrollY/h:0;
+      bar.style.transform='scaleX('+Math.min(1,Math.max(0,p)).toFixed(4)+')';
+      top.classList.toggle('on',scrollY>700); tick=false;
+    });
+  }
+  addEventListener('scroll',onScroll,{passive:true}); onScroll();
+
+  var hd=document.querySelector('header');
+  if(hd){
+    var caps=document.createElement('div'); caps.className='fx-caps'; caps.setAttribute('aria-hidden','true');
+    [['72%','10%',54,'-28deg','13s','-16px','22px'],['86%','56%',40,'32deg','17s','-10px','-18px'],['58%','72%',30,'12deg','15s','14px','-20px'],
+     ['5%','78%',36,'-40deg','19s','18px','-14px'],['38%','4%',28,'50deg','16s','-12px','16px']].forEach(function(c){
+      var i=document.createElement('i'); i.style.cssText='--x:'+c[0]+';--y:'+c[1]+';--w:'+c[2]+'px;--r:'+c[3]+';--d:'+c[4]+';--dx:'+c[5]+';--dy:'+c[6]; caps.appendChild(i);
+    });
+    hd.insertBefore(caps,hd.firstChild);
+  }
+  var h1=document.querySelector('h1');
+  if(h1){
+    var txt=h1.textContent; h1.setAttribute('aria-label',txt);
+    h1.innerHTML=txt.split(' ').map(function(w,i){ return '<span class="w" style="--i:'+i+'" aria-hidden="true">'+w+'</span>'; }).join(' ');
+  }
+
+  window.fxConfetti=function(){
+    if(FX_RED) return;
+    var c=document.createElement('canvas'); c.id='fxConf'; c.width=innerWidth; c.height=innerHeight; c.setAttribute('aria-hidden','true'); document.body.appendChild(c);
+    var g=c.getContext('2d'), cols=['#0E5249','#C0712A','#A93827','#3E5A86','#1C7C7A','#E8C26A'];
+    var ps=[]; for(var k=0;k<90;k++) ps.push({x:innerWidth/2+(Math.random()-.5)*120,y:innerHeight*.62,vx:(Math.random()-.5)*11,vy:-Math.random()*13-5,r:Math.random()*5+3,c:cols[(Math.random()*cols.length)|0],a:Math.random()*6.28,va:(Math.random()-.5)*.4});
+    var t0=performance.now();
+    (function frame(t){
+      var dt=t-t0; g.clearRect(0,0,c.width,c.height);
+      ps.forEach(function(p){ p.vy+=.32; p.x+=p.vx; p.y+=p.vy; p.a+=p.va; g.save(); g.translate(p.x,p.y); g.rotate(p.a); g.globalAlpha=Math.max(0,1-dt/2300); g.fillStyle=p.c; g.fillRect(-p.r,-p.r/2,p.r*2,p.r); g.restore(); });
+      if(dt<2400) requestAnimationFrame(frame); else c.remove();
+    })(t0);
+    try{ if(navigator.vibrate) navigator.vibrate([30,40,30]); }catch(e){}
+  };
 })();
 </script>
 <script>
