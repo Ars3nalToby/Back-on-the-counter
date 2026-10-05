@@ -21,16 +21,22 @@ It is per device/browser and is not synced.
 
 (The service worker only registers over `http://localhost` or `https`, not `file://`.)
 
+## Your details
+
+Nothing personal is stored in the code. Your roster and workplace name are set in the app (**⚙ Settings**) and
+kept in your browser's `localStorage` (`botc:settings`), along with your streak and review boxes (`botc:sd-state`).
+Use **Settings → Export progress** to back them up or move them to another device.
+
 ## Deploy
 
-1. Merge to `main`.
-2. Repo **Settings → Pages → Source: GitHub Actions** (one-off).
-3. The app is served at `https://<user>.github.io/Back-on-the-counter/`.
-4. On your phone: open the URL, then **Share → Add to Home Screen** (iOS) or **Install app** (Android/Chrome).
+1. Push to `main`. The workflow in `.github/workflows/pages.yml` publishes the site.
+2. One-off, in the repo: **Settings → Pages → Build and deployment → Source: GitHub Actions**.
+3. Optional but recommended: **Settings → Branches → default branch → `main`**, so the Pages environment accepts deploys from `main`.
+4. The app is served at `https://<user>.github.io/Back-on-the-counter/`.
+5. On your phone: open the URL, then **Share → Add to Home Screen** (iOS) or **Install app** (Android/Chrome).
 
-Note: GitHub Pages on a free plan needs a public repo. The content is generic counselling scripts, but check
-you're comfortable with it being public (the footer and roster name a store location, "CW Sunnybank Plaza"), or
-host privately (Cloudflare Pages + Access, Netlify password, etc.).
+The repo is public (free GitHub Pages needs that). Early commits contained a roster and a store name before
+those moved into Settings; they remain in git history unless it is rewritten.
 
 ## Disclaimer
 

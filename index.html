@@ -134,7 +134,7 @@
 
   /* Roster strip — the signature */
   .roster{
-    display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:20px;
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(76px,1fr));gap:8px;margin-top:20px;
     animation:rise .5s .15s ease both;
   }
   .day{
@@ -159,6 +159,33 @@
     margin-top:16px;font-family:'Space Mono',monospace;font-size:11px;color:#86B5AA;
     display:flex;gap:8px;align-items:center;flex-wrap:wrap;animation:rise .5s .2s ease both;
   }
+
+  .day.add{grid-column:1/-1;cursor:pointer;color:#DCEAE5;font:600 13px 'Space Grotesk',sans-serif;border-style:dashed;text-align:center;padding:14px 8px}
+  .day.add .dh{display:block;font-weight:400}
+  .linkbtn{font:inherit;color:#CFE3DD;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:3px 11px;cursor:pointer}
+  .linkbtn:hover,.day.add:hover{background:rgba(255,255,255,.15)}
+  .linkbtn:focus-visible,.day.add:focus-visible,.themetog:focus-visible{outline:2px solid #fff;outline-offset:2px}
+  .setdlg{border:none;border-radius:16px;padding:0;width:min(480px,calc(100vw - 24px));background:var(--surface);color:var(--ink);box-shadow:0 20px 60px rgba(0,0,0,.35)}
+  .setdlg::backdrop{background:rgba(8,16,14,.55)}
+  .setdlg form{padding:20px 18px 18px;display:grid;gap:12px;max-height:calc(100vh - 32px);max-height:calc(100dvh - 32px);overflow:auto}
+  .setdlg h2{font:700 20px 'Space Grotesk',sans-serif;letter-spacing:-.01em}
+  .setdlg h3{font:600 12px 'Space Grotesk',sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+  .setdlg p.hint{font-size:13px;color:var(--muted);line-height:1.45}
+  .setdlg input[type=text],.setdlg input[type=time]{font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:9px;padding:8px 10px;min-width:0}
+  .setdlg input:focus-visible,.setdlg button:focus-visible{outline:2px solid var(--primary);outline-offset:1px}
+  .srow{display:grid;grid-template-columns:auto 44px 1fr 1fr;gap:8px;align-items:center}
+  .srow input[type=checkbox]{width:18px;height:18px;accent-color:var(--primary)}
+  .srow input:disabled{opacity:.4}
+  .sbtns{display:flex;gap:8px;flex-wrap:wrap}
+  .sb{font:600 13.5px 'Space Grotesk',sans-serif;border-radius:999px;padding:9px 16px;cursor:pointer;border:1px solid var(--line);background:var(--surface);color:var(--ink)}
+  .sb.pri{background:var(--primary);color:#fff;border-color:var(--primary)}
+  [data-theme="dark"] .sb.pri{color:#0F1512}
+  .sb.warn{color:var(--seal);border-color:var(--seal)}
+  #setErr,#setMsg{font-size:13px;min-height:1.2em}
+  #setErr{color:var(--seal)}
+  #setMsg{color:var(--primary)}
+  .toast{position:fixed;left:12px;right:12px;bottom:12px;z-index:60;max-width:460px;margin:0 auto;background:var(--primary-deep);color:#fff;border-radius:12px;padding:11px 14px;display:flex;gap:12px;align-items:center;justify-content:space-between;font-size:13.5px;box-shadow:0 8px 28px rgba(0,0,0,.35)}
+  .toast button{font:600 13px 'Space Grotesk',sans-serif;border:1px solid rgba(255,255,255,.4);background:transparent;color:#fff;border-radius:999px;padding:6px 14px;cursor:pointer}
   .hero-foot .dot{width:3px;height:3px;border-radius:50%;background:#6FA89C}
 
   /* ---------- Sticky controls ---------- */
@@ -286,7 +313,40 @@
 </div>
 
 <main class="wrap" id="list"></main>
-<footer>Reference scripts for your own use — clinical judgement and current protocols always override. Built for JingLiang.</footer>
+<footer>Reference scripts for your own use — clinical judgement and current protocols always override.</footer>
+
+<dialog class="setdlg" id="setDlg" aria-labelledby="setTitle">
+  <form id="setForm" method="dialog" novalidate>
+    <h2 id="setTitle">Settings</h2>
+    <p class="hint">Stored only in this browser. Nothing is uploaded.</p>
+    <h3>Workplace</h3>
+    <label for="setSite" class="hint">Shown under the roster (optional)</label>
+    <input type="text" id="setSite" maxlength="40" autocomplete="off" placeholder="e.g. your pharmacy name">
+    <h3>Roster</h3>
+    <p class="hint">Tick the days you work. Times use your 24-hour clock input.</p>
+    <div id="setRows" style="display:grid;gap:8px"></div>
+    <div id="setErr" role="alert"></div>
+    <div class="sbtns">
+      <button type="submit" class="sb pri" id="setSave">Save</button>
+      <button type="button" class="sb" id="setCancel">Cancel</button>
+      <button type="button" class="sb warn" id="setClear">Clear roster</button>
+    </div>
+    <h3>Backup &amp; restore</h3>
+    <p class="hint">Your streak and review boxes live in this browser only. Export a file to move them to another device or keep a backup.</p>
+    <div class="sbtns">
+      <button type="button" class="sb" id="bkExport">Export progress</button>
+      <button type="button" class="sb" id="bkImport">Import…</button>
+      <button type="button" class="sb warn" id="bkReset">Reset progress</button>
+    </div>
+    <input type="file" id="bkFile" accept="application/json,.json" hidden>
+    <div id="bkConfirm" class="sbtns" hidden>
+      <span id="bkConfirmText" class="hint" style="flex:1 1 100%"></span>
+      <button type="button" class="sb warn" id="bkYes">Yes, replace</button>
+      <button type="button" class="sb" id="bkNo">Cancel</button>
+    </div>
+    <div id="setMsg" role="status"></div>
+  </form>
+</dialog>
 
 <script>
 const CATS = ["All","Counselling","Back counter & flow","Quick handover","中文 Bilingual","Leading the team","Tricky ones","Empathy","Business & Regs","S3 Shelf","Bowel prep","Quiz & Viva"];
@@ -1300,36 +1360,172 @@ const COLORS={
   "Quiz & Viva":"#8A4B2A"
 };
 
-/* ---- live roster (signature) ---- */
-const ROSTER=[
-  {key:6,dn:"Sat",dh:"9:00am–7pm",  s:9,    e:19},
-  {key:0,dn:"Sun",dh:"10am–10pm",   s:10,   e:22},
-  {key:1,dn:"Mon",dh:"12pm–10pm",   s:12,   e:22},
-  {key:2,dn:"Tue",dh:"1:30–10pm",   s:13.5, e:22}
-];
-(function roster(){
+/* ---- settings + live roster (signature) — stored on this device only ---- */
+const SETTINGS_KEY='botc:settings';
+const DAYN=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+const DAYFULL=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+const DAYORDER=[1,2,3,4,5,6,0];
+const TIME_RE=/^([01]\d|2[0-3]):[0-5]\d$/;
+function hm(t){ const a=t.split(':'); return (+a[0])+(+a[1])/60; }
+function fmtT(t){ const a=t.split(':'), h=+a[0], m=+a[1]; const ap=h>=12?'pm':'am'; const h12=((h+11)%12)+1; return h12+(m?':'+a[1]:'')+ap; }
+function fmtRange(r){ return fmtT(r.s)+'–'+fmtT(r.e); }
+function cleanSettings(r){
+  const out={site:'',roster:[]};
+  if(!r||typeof r!=='object') return out;
+  out.site=String(r.site||'').slice(0,40);
+  const seen={};
+  (Array.isArray(r.roster)?r.roster:[]).forEach(x=>{
+    if(!x||!Number.isInteger(x.d)||x.d<0||x.d>6||seen[x.d]) return;
+    if(!TIME_RE.test(x.s||'')||!TIME_RE.test(x.e||'')||hm(x.e)<=hm(x.s)) return;
+    seen[x.d]=1; out.roster.push({d:x.d,s:x.s,e:x.e});
+  });
+  return out;
+}
+function loadSettings(){ try{ return cleanSettings(JSON.parse(localStorage.getItem(SETTINGS_KEY)||'null')); }catch(e){ return cleanSettings(null); } }
+function saveSettings(v){ try{ localStorage.setItem(SETTINGS_KEY,JSON.stringify(v)); return true; }catch(e){ return false; } }
+let SETTINGS=loadSettings();
+function escH(t){ return String(t).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+
+function renderRoster(){
   const now=new Date();
   const today=now.getDay();
   const hourNow=now.getHours()+now.getMinutes()/60;
   const el=document.getElementById('roster');
-  let onToday=null;
-  el.innerHTML=ROSTER.map(r=>{
-    const isToday=r.key===today;
-    let tag="";
-    if(isToday){
-      onToday=r;
-      const on=hourNow>=r.s && hourNow<r.e;
-      tag=`<span class="tag ${on?'on':''}">${on?'ON NOW':'TODAY'}</span>`;
-    }
-    return `<div class="day${isToday?' today':''}">${tag}<div class="dn">${r.dn}</div><div class="dh">${r.dh}</div></div>`;
-  }).join('');
-  const foot=document.getElementById('heroFoot');
+  const byDay={}; SETTINGS.roster.forEach(r=>{ byDay[r.d]=r; });
+  const days=DAYORDER.filter(d=>byDay[d]);
+  if(!days.length){
+    el.innerHTML='<button type="button" class="day add" data-open-settings="1">＋ Add your roster<span class="dh">Shifts stay on this device</span></button>';
+  } else {
+    el.innerHTML=days.map(d=>{
+      const r=byDay[d], isToday=d===today;
+      let tag='';
+      if(isToday){
+        const on=hourNow>=hm(r.s)&&hourNow<hm(r.e);
+        tag=`<span class="tag ${on?'on':''}">${on?'ON NOW':'TODAY'}</span>`;
+      }
+      return `<div class="day${isToday?' today':''}">${tag}<div class="dn">${DAYN[d]}</div><div class="dh">${fmtRange(r)}</div></div>`;
+    }).join('');
+  }
   let lead;
-  if(onToday){
-    const on=hourNow>=onToday.s && hourNow<onToday.e;
-    lead= on ? `You're on — ${onToday.dn} ${onToday.dh}` : `Today ${onToday.dn} · ${onToday.dh}`;
-  } else { lead="Rest day — next on Saturday"; }
-  foot.innerHTML=`<span>${lead}</span><span class="dot"></span><span>CW Sunnybank Plaza</span><span class="dot"></span><span>${DATA.length} scripts · EN+中文</span>`;
+  if(!days.length){ lead='Add your roster to see your shifts'; }
+  else if(byDay[today]){
+    const r=byDay[today];
+    if(hourNow>=hm(r.s)&&hourNow<hm(r.e)) lead=`You're on — ${DAYN[today]} ${fmtRange(r)}`;
+    else if(hourNow<hm(r.s)) lead=`Today ${DAYN[today]} · ${fmtRange(r)}`;
+    else lead='Finished for today';
+  } else {
+    let nx=null; for(let i=1;i<=7&&nx===null;i++){ const d=(today+i)%7; if(byDay[d]) nx=d; }
+    lead=`Rest day — next on ${DAYFULL[nx]}`;
+  }
+  const site=SETTINGS.site?`<span class="dot"></span><span>${escH(SETTINGS.site)}</span>`:'';
+  document.getElementById('heroFoot').innerHTML=`<span>${escH(lead)}</span>${site}<span class="dot"></span><span>${DATA.length} scripts · EN+中文</span><button type="button" class="linkbtn" data-open-settings="1">⚙ Settings</button>`;
+}
+renderRoster();
+document.addEventListener('click',e=>{ if(e.target.closest('[data-open-settings]')) openSettings(); });
+
+
+/* ---- settings dialog: roster, workplace, backup & restore ---- */
+const STATE_KEY='botc:sd-state';
+function openSettings(){
+  const dlg=document.getElementById('setDlg');
+  if(!dlg||dlg.open) return;
+  document.getElementById('setSite').value=SETTINGS.site;
+  const byDay={}; SETTINGS.roster.forEach(r=>{ byDay[r.d]=r; });
+  document.getElementById('setRows').innerHTML=DAYORDER.map(d=>{
+    const r=byDay[d];
+    return `<div class="srow"><input type="checkbox" id="on${d}" data-d="${d}" aria-label="Work ${DAYFULL[d]}"${r?' checked':''}><label for="on${d}">${DAYN[d]}</label><input type="time" id="st${d}" value="${r?r.s:'09:00'}" aria-label="${DAYFULL[d]} start"${r?'':' disabled'}><input type="time" id="en${d}" value="${r?r.e:'17:00'}" aria-label="${DAYFULL[d]} end"${r?'':' disabled'}></div>`;
+  }).join('');
+  document.getElementById('setErr').textContent='';
+  document.getElementById('setMsg').textContent='';
+  document.getElementById('bkConfirm').hidden=true;
+  dlg.showModal();
+}
+(function settingsInit(){
+  const dlg=document.getElementById('setDlg'); if(!dlg) return;
+  const $=id=>document.getElementById(id);
+  if(typeof dlg.showModal!=='function'){ document.querySelectorAll('[data-open-settings]').forEach(b=>b.hidden=true); return; }
+  $('setRows').addEventListener('change',e=>{
+    const cb=e.target.closest('input[type=checkbox]'); if(!cb) return;
+    const d=cb.getAttribute('data-d');
+    $('st'+d).disabled=!cb.checked; $('en'+d).disabled=!cb.checked;
+  });
+  $('setCancel').onclick=()=>dlg.close();
+  dlg.addEventListener('click',e=>{ if(e.target===dlg) dlg.close(); });
+  $('setForm').addEventListener('submit',e=>{
+    e.preventDefault();
+    const roster=[]; let err='';
+    DAYORDER.forEach(d=>{
+      if(!$('on'+d).checked) return;
+      const st=$('st'+d).value, en=$('en'+d).value;
+      if(!TIME_RE.test(st)||!TIME_RE.test(en)){ err=err||`${DAYFULL[d]}: enter a start and end time.`; return; }
+      if(hm(en)<=hm(st)){ err=err||`${DAYFULL[d]}: finish time must be after the start.`; return; }
+      roster.push({d:d,s:st,e:en});
+    });
+    if(err){ $('setErr').textContent=err; return; }
+    SETTINGS=cleanSettings({site:$('setSite').value.trim(),roster:roster});
+    if(!saveSettings(SETTINGS)){ $('setErr').textContent='Could not save: this browser is blocking local storage.'; return; }
+    renderRoster(); dlg.close();
+  });
+  $('setClear').onclick=()=>{
+    SETTINGS=cleanSettings({site:SETTINGS.site,roster:[]}); saveSettings(SETTINGS); renderRoster();
+    DAYORDER.forEach(d=>{ $('on'+d).checked=false; $('st'+d).disabled=true; $('en'+d).disabled=true; });
+    $('setMsg').textContent='Roster cleared.';
+  };
+  /* --- backup / restore --- */
+  let pending=null;
+  function readState(){ try{ return JSON.parse(localStorage.getItem(STATE_KEY)||'null'); }catch(e){ return null; } }
+  function cleanState(r){
+    const out={streak:0,best:0,last:'',box:{}};
+    if(!r||typeof r!=='object') return out;
+    const n=v=>(Number.isFinite(v)&&v>=0)?Math.floor(v):0;
+    out.streak=n(r.streak); out.best=n(r.best);
+    out.last=/^\d{4}-\d{2}-\d{2}$/.test(r.last||'')?r.last:'';
+    if(r.box&&typeof r.box==='object') Object.keys(r.box).slice(0,5000).forEach(k=>{
+      const x=r.box[k]; if(x&&Number.isInteger(x.b)&&x.b>=0&&x.b<10&&Number.isFinite(x.due)) out.box[String(k).slice(0,40)]={b:x.b,due:x.due};
+    });
+    return out;
+  }
+  $('bkExport').onclick=()=>{
+    const payload={app:'back-on-the-counter',v:1,exported:new Date().toISOString(),settings:SETTINGS,state:cleanState(readState())};
+    try{
+      const url=URL.createObjectURL(new Blob([JSON.stringify(payload,null,1)],{type:'application/json'}));
+      const a=document.createElement('a'); a.href=url; a.download='back-on-the-counter-progress.json';
+      document.body.appendChild(a); a.click(); a.remove(); setTimeout(()=>URL.revokeObjectURL(url),2000);
+      $('setMsg').textContent='Exported. Keep the file somewhere safe.';
+    }catch(e){ $('setMsg').textContent='Export is not available in this browser.'; }
+  };
+  $('bkImport').onclick=()=>{ $('bkFile').value=''; $('bkFile').click(); };
+  $('bkFile').onchange=()=>{
+    const f=$('bkFile').files[0]; if(!f) return;
+    if(f.size>2e6){ $('setMsg').textContent='That file is too large to be a progress backup.'; return; }
+    const fr=new FileReader();
+    fr.onload=()=>{
+      try{
+        const j=JSON.parse(fr.result);
+        if(!j||j.app!=='back-on-the-counter') throw new Error('x');
+        pending={kind:'import',settings:cleanSettings(j.settings),state:cleanState(j.state)};
+        const nb=Object.keys(pending.state.box).length;
+        $('bkConfirmText').textContent=`Replace this device's roster and progress with the backup? It holds ${nb} review box${nb===1?'':'es'} and a ${pending.state.streak}-day streak.`;
+        $('bkYes').textContent='Yes, replace'; $('bkConfirm').hidden=false; $('setMsg').textContent='';
+      }catch(e){ $('setMsg').textContent='That file is not a Back on the Counter backup.'; }
+    };
+    fr.onerror=()=>{ $('setMsg').textContent='Could not read that file.'; };
+    fr.readAsText(f);
+  };
+  $('bkReset').onclick=()=>{
+    pending={kind:'reset'};
+    $('bkConfirmText').textContent='Reset your streak and all review boxes on this device? This cannot be undone. Export first if unsure.';
+    $('bkYes').textContent='Yes, reset'; $('bkConfirm').hidden=false;
+  };
+  $('bkNo').onclick=()=>{ pending=null; $('bkConfirm').hidden=true; };
+  $('bkYes').onclick=()=>{
+    if(!pending) return;
+    try{
+      if(pending.kind==='import'){ localStorage.setItem(SETTINGS_KEY,JSON.stringify(pending.settings)); localStorage.setItem(STATE_KEY,JSON.stringify(pending.state)); }
+      else { localStorage.removeItem(STATE_KEY); }
+      location.reload();
+    }catch(e){ $('setMsg').textContent='This browser is blocking local storage, so nothing was changed.'; $('bkConfirm').hidden=true; pending=null; }
+  };
 })();
 
 CATS.forEach((c,i)=>{
@@ -1707,15 +1903,27 @@ try{
   const ov=document.createElement('div');
   ov.id='sdOverlay';
   ov.innerHTML='<div class="ov-card"><div class="ov-top"><div class="ov-title" id="ovTitle"></div><button class="ov-x" id="ovX" aria-label="Close">✕</button></div><div id="ovBody"></div></div>';
+  ov.setAttribute('role','dialog'); ov.setAttribute('aria-modal','true'); ov.setAttribute('aria-labelledby','ovTitle');
   document.body.appendChild(ov);
-  let tmr=null;
+  let tmr=null, lastFocus=null;
   const V={cfg:{n:5,sec:180,rp:true,name:''},st:[],i:0,sc:[],left:0,run:false};
   function stopTimer(){ if(tmr){ clearInterval(tmr); tmr=null; } V.run=false; }
-  function openOv(title){ document.getElementById('ovTitle').textContent=title; ov.classList.add('on'); document.body.style.overflow='hidden'; }
-  function closeOv(){ stopTimer(); ov.classList.remove('on'); document.body.style.overflow=''; }
+  function openOv(title){ document.getElementById('ovTitle').textContent=title; if(!ov.classList.contains('on')) lastFocus=document.activeElement; ov.classList.add('on'); document.body.style.overflow='hidden'; document.getElementById('ovX').focus(); }
+  function closeOv(){ const was=ov.classList.contains('on'); stopTimer(); ov.classList.remove('on'); document.body.style.overflow=''; if(was&&lastFocus&&lastFocus.focus&&document.contains(lastFocus)){ try{ lastFocus.focus(); }catch(e){} } }
   document.getElementById('ovX').addEventListener('click',closeOv);
   ov.addEventListener('click',function(e){ if(e.target===ov) closeOv(); });
-  document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeOv(); });
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape') closeOv();
+    if(e.key==='Tab'&&ov.classList.contains('on')){
+      const f=ov.querySelectorAll('button,[href],input,select,textarea,summary,[tabindex]:not([tabindex="-1"])');
+      const vis=Array.prototype.filter.call(f,function(x){ return x.offsetParent!==null; });
+      if(!vis.length) return;
+      const first=vis[0], last=vis[vis.length-1];
+      if(!ov.contains(document.activeElement)){ e.preventDefault(); first.focus(); }
+      else if(e.shiftKey&&document.activeElement===first){ e.preventDefault(); last.focus(); }
+      else if(!e.shiftKey&&document.activeElement===last){ e.preventDefault(); first.focus(); }
+    }
+  });
 
   /* ---------- question bank (parsed from the quiz cards) ---------- */
   function allQs(){
@@ -2218,7 +2426,17 @@ try{
 </script>
 <script>
 if('serviceWorker' in navigator && location.protocol!=='file:'){
-  window.addEventListener('load',function(){ navigator.serviceWorker.register('sw.js').catch(function(){}); });
+  window.addEventListener('load',function(){
+    var had=!!navigator.serviceWorker.controller;
+    navigator.serviceWorker.register('sw.js').catch(function(){});
+    navigator.serviceWorker.addEventListener('controllerchange',function(){
+      if(!had||document.getElementById('updToast')) return;
+      var t=document.createElement('div'); t.id='updToast'; t.className='toast'; t.setAttribute('role','status');
+      t.innerHTML='<span>A new version is ready.</span><button type="button">Reload</button>';
+      t.querySelector('button').onclick=function(){ location.reload(); };
+      document.body.appendChild(t);
+    });
+  });
 }
 </script>
 </body>
