@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-AU">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -349,7 +349,7 @@
 </dialog>
 
 <script>
-const CATS = ["All","Counselling","Back counter & flow","Quick handover","中文 Bilingual","Leading the team","Tricky ones","Empathy","Business & Regs","S3 Shelf","Bowel prep","Quiz & Viva"];
+const CATS = ["All","Counselling","Back counter & flow","Quick handover","中文 Bilingual","Leading the team","Tricky ones","Empathy","Business & Regs","S3 Shelf","Bowel prep","AU Schemes","Quiz & Viva"];
 
 const DATA = [
 /* ---------- COUNSELLING ---------- */
@@ -1381,7 +1381,7 @@ const DATA = [
  ],flag:"Don't miss: go private, ask the weight, say the IUD out loud, and give the vomit-in-three-hours rule every time."},
 {cat:"Quick handover",quick:true,title:"Emergency contraception — complicated situations",scen:"What to say when it isn't straightforward",
  points:[
-  `<b>Epilepsy tablets, rifampicin, St John's wort, some HIV medicines (enzyme inducers):</b> <i>“Some medicines make the emergency pill work less well. The copper IUD isn't affected, so that's the best option.”</i> UK guidance (MHRA/FSRH) doubles the levonorgestrel dose to 3 mg when an enzyme inducer was taken in the previous 4 weeks; ulipristal may also be less effective. Check the Australian formulary and the leaflet, and involve the GP or a sexual health clinic.`,
+  `<b>Epilepsy tablets, rifampicin, St John's wort, some HIV medicines (enzyme inducers):</b> <i>“Some medicines make the emergency pill work less well. The copper IUD isn't affected, so that's the best option.”</i> Australian guidance (RACGP, <i>Australian Family Physician</i>): offer a copper IUD. <b>Ulipristal is not advised</b> if an enzyme inducer is being taken or was taken in the last 28 days. If an IUD is unacceptable or unsuitable, a <b>double dose of levonorgestrel (3 mg, two 1.5 mg tablets) within 72 hours</b> can be used, but how well it works in this situation is not known. Involve the GP or a sexual health clinic.`,
   `<b>Weight over about 85 kg / BMI over 30:</b> <i>“I'll be honest with you — neither pill is as reliable at your weight. The copper IUD is the one that isn't affected by weight, and it still works up to five days. I can help you book that today.”</i> If they decline, ulipristal is still the better pill, with a pregnancy test afterwards.`,
   `<b>More than 72 or 120 hours:</b> <i>“The pill is less likely to work this far out, but it can still be worth taking. A copper IUD can still be fitted, so let's call a clinic now.”</i> Don't send them away without a next step.`,
   `<b>Already had sex earlier in the cycle:</b> <i>“The pill only covers the most recent time. If you had unprotected sex earlier in the cycle, a pregnancy test at three weeks matters even more.”</i> The IUD is the better choice here.`,
@@ -1548,7 +1548,7 @@ const DATA = [
  points:[
   `<details><summary style="cursor:pointer;font-weight:600;list-style:none">▸ A woman asks for emergency contraception 20 hours after unprotected sex and weighs 78 kg. What do you recommend and why?</summary><div style="margin-top:7px;color:var(--muted);line-height:1.5">Ulipristal (ellaOne) 30 mg is the preferred first option as her weight is above about 70 kg. Mention that a copper IUD is the most effective choice. Take it now; vomiting within 3 hours means another dose; pregnancy test if the period is more than a week late; condoms for the rest of the cycle.</div></details>`,
   `<details><summary style="cursor:pointer;font-weight:600;list-style:none">▸ How long does each emergency pill work for?</summary><div style="margin-top:7px;color:var(--muted);line-height:1.5">Levonorgestrel 1.5 mg: up to 72 hours (3 days). Ulipristal 30 mg: up to 120 hours (5 days). The sooner the better for both. A copper IUD works up to 5 days.</div></details>`,
-  `<details><summary style="cursor:pointer;font-weight:600;list-style:none">▸ A patient on carbamazepine needs emergency contraception. What changes?</summary><div style="margin-top:7px;color:var(--muted);line-height:1.5">Enzyme inducers lower levonorgestrel's effect. UK guidance doubles the dose to 3 mg if an inducer was taken in the previous 4 weeks, and ulipristal may also be less effective. The copper IUD is not affected and is the best option. Check the Australian formulary and involve the GP or a sexual health clinic.</div></details>`,
+  `<details><summary style="cursor:pointer;font-weight:600;list-style:none">▸ A patient on carbamazepine needs emergency contraception. What changes?</summary><div style="margin-top:7px;color:var(--muted);line-height:1.5">Enzyme inducers (carbamazepine, phenytoin, rifampicin, St John's wort and others) lower the effect of the emergency pill. Australian guidance (RACGP): offer a copper IUD. Ulipristal is not advised if an enzyme inducer is being taken or was taken in the last 28 days. If an IUD is not suitable, levonorgestrel 3 mg (two tablets) within 72 hours can be used, though how well it works is not known. Involve the GP or a sexual health clinic.</div></details>`,
   `<details><summary style="cursor:pointer;font-weight:600;list-style:none">▸ What do you tell a breastfeeding mother about emergency contraception?</summary><div style="margin-top:7px;color:var(--muted);line-height:1.5">Levonorgestrel: no break in breastfeeding needed. Ulipristal: do not breastfeed for one week afterwards (Australian leaflet).</div></details>`,
   `<details><summary style="cursor:pointer;font-weight:600;list-style:none">▸ Name the six steps of the emergency contraception phrase ladder.</summary><div style="margin-top:7px;color:var(--muted);line-height:1.5">OPEN (go private) · ASK (hours, what happened, other sex this cycle, last period, contraception, enzyme-inducing medicines, breastfeeding, weight) · CHOOSE (ulipristal, levonorgestrel, copper IUD) · TAKE (now; vomit within 3 hours → return) · WATCH (test if period is late or different; no STI protection) · CLOSE (condoms, GP chat).</div></details>`,
   `<details><summary style="cursor:pointer;font-weight:600;list-style:none">▸ A patient starts Ferro-Grad C. Give four counselling points.</summary><div style="margin-top:7px;color:var(--muted);line-height:1.5">One tablet daily, swallowed whole. Empty stomach is best but with food is better than skipping. Dark stools are normal. Separate from antacids, calcium, dairy, tea, coffee, doxycycline, ciprofloxacin and thyroid tablets. Keep away from children. Ask why the iron is low.</div></details>`,
@@ -1565,10 +1565,192 @@ const DATA = [
  points:[
   `<b>Read in the Australian consumer leaflets / listings:</b> <a href="https://www.nps.org.au/medicine-finder/fleurstat-bvgel" target="_blank" rel="noopener noreferrer" style="color:var(--c);text-decoration:underline">Fleurstat BVgel (NPS)</a> · <a href="https://www.nps.org.au/medicine-finder/zempreon-cfc-free-inhaler-with-counter" target="_blank" rel="noopener noreferrer" style="color:var(--c);text-decoration:underline">Zempreon (NPS)</a> · <a href="https://www.safetyandquality.gov.au/medicine-finder/ellaone" target="_blank" rel="noopener noreferrer" style="color:var(--c);text-decoration:underline">ellaOne (ACSQHC medicine finder)</a>. Fleurstat BVgel dosing, Zempreon indication and side effects, ulipristal breastfeeding and asthma statements come from these.`,
   `<b>Reported from search summaries (not the full document):</b> ulipristal became pharmacist-only on 1 Feb 2017; 120 h vs 72 h windows; the weight/BMI guidance attributed to the Australian Pharmaceutical Formulary; Ferro-Grad C composition and directions (retail listings); Fess and Flo ingredients (retailer listings).`,
-  `<b>UK guidance, not Australian:</b> doubling levonorgestrel with enzyme inducers (MHRA/FSRH). Check the Australian formulary before relying on it.`,
+  `<b>Australian guidance (search summary of a 2017 article):</b> enzyme inducers — offer copper IUD, ulipristal not advised, levonorgestrel 3 mg only if an IUD is unsuitable (<a href="https://www.racgp.org.au/afp/2017/october/emergency-contraception-oral-and-intrauterine-opti" target="_blank" rel="noopener noreferrer" style="color:var(--c);text-decoration:underline">RACGP, Australian Family Physician</a>). The guidance may have been updated since 2017 — check the current Australian Pharmaceutical Formulary.`,
   `<b>Class knowledge, not sourced here:</b> the pregnancy-test timing, the "wait 5 days to start hormonal contraception after ulipristal" advice, Asthma Australia first-aid steps, iron separation intervals, the sachet-wash water advice, and the cough-medicine age limits.`,
   `<b>Not verified:</b> Flufeme's own leaflet wording (time to relief is from general fluconazole sources), the Fleurstat BVgel condom/pregnancy statements, which dry-cough lines your store stocks, and any PBS or price status.`
  ],flag:"Don't miss: these are counselling aids. The leaflet in the box and your pharmacy's protocol win over any card."},
+
+
+/* ---------- NEW (5 Oct): AUSTRALIAN SCHEMES — NDSS, Take Home Naloxone (Nyxoid), MS-2 Step ---------- */
+{cat:"AU Schemes",quick:true,title:"NDSS — the 60-second version",scen:"National Diabetes Services Scheme",
+ points:[
+  `<b>What it is.</b> The National Diabetes Services Scheme is an Australian Government initiative, administered by Diabetes Australia, that gives registered people subsidised diabetes products. Many community pharmacies are NDSS <b>Access Points</b>, which is how people collect their supplies. The NDSS Helpline is <b>1800 637 700</b> — the number on the poster above your shelf.`,
+  `<b>Who can register.</b> Anyone with diagnosed diabetes (including gestational) who holds, or is eligible for, a Medicare card and lives in Australia. Registration is certified by a medical practitioner, nurse practitioner or credentialled diabetes educator; practice nurses can complete some NDSS forms. It can be done online through the NDSS Health Professional Portal or on a printed form. The person then gets an <b>NDSS registration number</b> by SMS and email and an NDSS card in the mail.`,
+  `<b>What is subsidised.</b> Syringes and pen needles · blood glucose test strips · urine (ketone) test strips · insulin pump consumables · continuous glucose monitoring (see the CGM card). Concession card holders receive a greater subsidy.`,
+  `<b>What is NOT NDSS.</b> Insulin and diabetes tablets are PBS medicines on a prescription. Meters and most devices are not NDSS items. <span style="color:var(--seal);font-weight:600">(check)</span>`,
+  `<b>Checking a customer.</b> Ask for the NDSS card or number. They can also show their Medicare card and confirm their date of birth and address.`,
+  `<i>“Are you registered with the NDSS? If you have your number or card I can supply your strips and needles at the subsidised price.”</i>`,
+  `<i>“Insulin and tablets are on the PBS, so that's a separate script. The NDSS covers the strips, needles and pump supplies.”</i>`,
+  `<i>“To register, your doctor, nurse practitioner or diabetes educator fills in a short form, online or on paper. You'll get your number by SMS and email, and your card in the mail.”</i>`,
+  `<b>Gaps:</b> exact co-payment amounts, ordering limits and your pharmacy's Access Point agreement — see the NDSS Access Point guidelines and your pharmacy's own process.`
+ ],flag:"Don't miss: NDSS = the strips, needles, pump supplies and CGM. PBS = the insulin and tablets. Different schemes, different cards."},
+{cat:"AU Schemes",title:"NDSS — strips and needles",scen:"Registered customer, regular supply",
+ lines:[
+  {r:"cust",rc:"r-cust",t:`Hi, can I get my test strips and pen needles?`},
+  {r:"you",rc:"r-you",t:`Of course. Are you registered with the NDSS? If you have your card or number handy I'll pull your details up.`},
+  {r:"cust",rc:"r-cust",t:`Yeah, here's my card.`},
+  {r:"you",rc:"r-you",t:`Thanks. Can you confirm your date of birth and address for me? ... Perfect. Which meter are you using, so I get the right strips?`},
+  {r:"cust",rc:"r-cust",t:`The Accu-Chek one.`},
+  {r:"you",rc:"r-you",t:`Got it. And are the pen needles for your Lantus pen or your mealtime one? Different pens take different needles, so I want to match it.`},
+  {r:"cust",rc:"r-cust",t:`Both, same pen needle.`},
+  {r:"you",rc:"r-you",t:`Great. Do you hold a concession card? That changes what you pay.`},
+  {r:"cust",rc:"r-cust",t:`Yes, Seniors Health Card.`},
+  {r:"you",rc:"r-you",t:`Thanks. While you're here, how is your insulin supply at home, and is your script up to date? That one's separate — the NDSS only covers the strips and needles.`},
+  {r:"you",rc:"r-you",t:`One last thing: if your readings have been all over the place, or you've had a few lows, it's worth a chat with your doctor or credentialled diabetes educator, and I'm happy to book a time if that helps. You can also call the NDSS Helpline on 1800 637 700 for anything about your supplies.`}
+ ],
+ key:[
+  `“Are you registered with the NDSS? Can I see your card or number?”`,
+  `“Confirm your date of birth and address for me.”`,
+  `“Insulin and tablets are PBS scripts. The NDSS covers strips, needles and pump supplies.”`,
+  `“Do you hold a concession card? It changes what you pay.”`,
+  `“The NDSS Helpline is 1800 637 700.”`
+ ]},
+{cat:"AU Schemes",title:"NDSS — newly diagnosed, not registered",scen:"Person just told they have diabetes",
+ lines:[
+  {r:"cust",rc:"r-cust",t:`The doctor just told me I've got type 2 diabetes. She gave me a meter. Where do I get strips?`},
+  {r:"you",rc:"r-you",t:`That's a lot to take in — I'm sorry, and well done for getting it sorted. Strips and needles can be subsidised through the NDSS, but you need to be registered first. Did the doctor mention it?`},
+  {r:"cust",rc:"r-cust",t:`No.`},
+  {r:"you",rc:"r-you",t:`No worries. Registration is quick. Your doctor, a nurse practitioner or a credentialled diabetes educator completes it, usually online. You'll get your NDSS number by SMS and email, and a card in the mail.`},
+  {r:"you",rc:"r-you",t:`You'll need to hold, or be eligible for, a Medicare card. Do you have one?`},
+  {r:"cust",rc:"r-cust",t:`Yes.`},
+  {r:"you",rc:"r-you",t:`Perfect. I'd ring the surgery and ask them to register you with the NDSS. Once you have your number, bring it in and I can supply your strips at the subsidised price.`},
+  {r:"cust",rc:"r-cust",t:`Can I buy a pack today?`},
+  {r:"you",rc:"r-you",t:`Yes, you can buy a pack today at the normal price so you're not waiting. Are you on any tablets yet? Let me check how they work with your meals, and what to do if you feel shaky or sweaty.`},
+  {r:"you",rc:"r-you",t:`The NDSS Helpline is 1800 637 700 if you have questions, and Diabetes Queensland (or your state diabetes organisation) runs education programs. Would you like me to pass on some information?`}
+ ],
+ key:[
+  `“Strips and needles can be subsidised through the NDSS, but you need to be registered first.”`,
+  `“Your doctor, nurse practitioner or credentialled diabetes educator registers you — usually online.”`,
+  `“You'll need a Medicare card, or be eligible for one.”`,
+  `“Bring your NDSS number back and I'll supply at the subsidised price. You can buy a pack today in the meantime.”`
+ ]},
+{cat:"AU Schemes",quick:true,title:"NDSS — continuous glucose monitoring (CGM)",scen:"Dexcom G7 and FreeStyle Libre",
+ points:[
+  `<b>Who is eligible.</b> The NDSS says all people with <b>type 1 diabetes</b> can apply for subsidised CGM, and some people under 21 with rare conditions similar to type 1 who use insulin. <b>Type 2 diabetes is not currently eligible</b> for the subsidy.`,
+  `<b>Cost.</b> No co-payment for concession card holders or registrants under 21. Others pay a per-sensor co-payment — reported in manufacturer information as <b>about $11.60 per Dexcom G7 sensor and $17.90 per FreeStyle Libre 2 Plus sensor</b>. Amounts change with indexation, so check ndss.com.au for the current figure.`,
+  `<b>Subsidised devices (as reported).</b> Dexcom G7 from 1 March 2025 · FreeStyle Libre 2 Plus from 1 April 2025 · FreeStyle Libre 3 Plus from December 2025. The older FreeStyle Libre 2 sensor has been delisted — check which product the person actually uses.`,
+  `<b>Ordering.</b> The NDSS publishes a separate CGM consumables order form. Check how your pharmacy handles CGM supply, because it is not the same as strips and needles. <span style="color:var(--seal);font-weight:600">(check)</span>`,
+  `<i>“Is it for type 1? Type 1 can get the subsidy. Type 2 isn't subsidised at the moment.”</i>`,
+  `<i>“If you have a concession card, or you're under 21, there's no co-payment. Otherwise it's a set amount per sensor.”</i>`,
+  `<i>“Which sensor are you using? Some older ones are no longer on the scheme, so let's check before I order.”</i>`,
+  `<b>Gaps:</b> the exact current co-payment, how your pharmacy orders CGM, and whether eligibility has widened since these sources.`
+ ],flag:"Don't miss: CGM = type 1 only (for now), with a co-payment unless concession card or under 21 — and check which sensor."},
+{cat:"AU Schemes",quick:true,title:"Take Home Naloxone — Nyxoid on supply",scen:"Free, no prescription, PBS",
+ points:[
+  `<b>The program.</b> Take Home Naloxone lets naloxone be supplied on the PBS <b>free of charge, without a prescription</b>, to people at risk of opioid overdose and to people likely to assist them. It runs through participating pharmacies, needle and syringe programs and other authorised services. <b>Nyxoid 1.8 mg nasal spray</b> (2 single-dose devices per pack) is one of the brands supplied; it was added to help with shortages of other naloxone nasal sprays.`,
+  `<b>Who to offer it to.</b> Anyone on long-term or high-dose opioids (oxycodone, morphine, fentanyl patches, methadone, buprenorphine) · anyone who has had an overdose · people using heroin or other opioids · people recently out of hospital, detox or prison, where tolerance has dropped · people mixing opioids with alcohol, benzodiazepines or gabapentinoids · and the family or friends who live with them. Offer it; don't wait to be asked. <span style="color:var(--seal);font-weight:600">(check)</span>`,
+  `<i>“Do you keep naloxone at home? It's a nasal spray that can reverse an opioid overdose. It's free through the Take Home Naloxone program and you don't need a prescription.”</i>`,
+  `<i>“It's for you, but it's just as important for anyone who lives with you or might find you.”</i>`,
+  `<b>How to use it (consumer leaflet).</b> <b>Call 000 first.</b> Lie the person on their back and check the nose is clear. The device is a single dose — <b>do not prime or test it</b>. Put the nozzle in one nostril and press until it clicks. If there is no response after <b>2 to 3 minutes</b>, use the <b>second device in the other nostril</b>, and repeat every 2 to 3 minutes with a new device until they respond or the ambulance arrives. When breathing returns, put them in the <b>recovery position</b> and stay with them.`,
+  `<b>After the spray.</b> Naloxone takes a few minutes to work and lasts about <b>30 to 90 minutes</b>, which is often shorter than the opioid. The overdose can return, so the ambulance must still come and the person must be watched. People who are dependent on opioids may wake up in <b>withdrawal</b> — aches, nausea, vomiting, diarrhoea, sweating, agitation. That is expected and is not an emergency in itself.`,
+  `<b>Where it comes from.</b> In Queensland, participating pharmacies (listed by the Pharmacy Guild of Australia, Qld) and the <b>Adis postal Take Home Naloxone program</b> run by Queensland Health. In NSW, the NUAA postal program.`,
+  `<b>Say on supply:</b> <i>“Two sprays in the pack. Call 000 first, spray into one nostril, no testing. If there's no response in two or three minutes, use the second spray in the other nostril. Roll them on their side once they're breathing, and stay until the ambulance arrives.”</i>`,
+  `<b>Keep going:</b> check the expiry date on the pack and the storage instructions in the leaflet. Show the person (and a family member if possible) the device and let them handle it.`
+ ],flag:"Don't miss: 000 first, no priming, one nostril per device, second device after 2–3 minutes, recovery position, and stay until the ambulance arrives."},
+{cat:"AU Schemes",title:"Take Home Naloxone — the supply conversation",scen:"Family member of someone on strong opioids",
+ lines:[
+  {r:"cust",rc:"r-cust",t:`My dad's on oxycodone for his back. Someone mentioned a nasal spray in case he overdoses?`},
+  {r:"you",rc:"r-you",t:`That's Nyxoid — naloxone. It's a really good idea to have it at home. It reverses an opioid overdose, and in Australia it's free through the Take Home Naloxone program. You don't need a prescription.`},
+  {r:"cust",rc:"r-cust",t:`Is he going to be offended?`},
+  {r:"you",rc:"r-you",t:`Lots of families have that worry. A way to put it: it's like a smoke alarm or a first aid kit — you hope you never use it. Opioid doses build up, especially if he's also taking sleeping tablets, anxiety medicine, or having a drink.`},
+  {r:"cust",rc:"r-cust",t:`What do I actually do if I find him unresponsive?`},
+  {r:"you",rc:"r-you",t:`Four steps. First, call 000. Second, lie him on his back and make sure his nose is clear. Third, put the nozzle in one nostril and press the plunger until it clicks — there's no testing or priming, the whole dose is in the device. Fourth, if he doesn't respond in two or three minutes, use the second spray in the other nostril.`},
+  {r:"cust",rc:"r-cust",t:`And then?`},
+  {r:"you",rc:"r-you",t:`Once he's breathing, roll him onto his side in the recovery position and stay with him until the ambulance arrives. Naloxone wears off in about half an hour to an hour and a half, often before the opioid does, so he can slip back. That's why the ambulance still has to come.`},
+  {r:"cust",rc:"r-cust",t:`Could it hurt him?`},
+  {r:"you",rc:"r-you",t:`If he's not actually overdosing, it won't harm him. If he's dependent on opioids, he might wake up feeling sick and agitated from withdrawal. That's uncomfortable, but it's safe.`},
+  {r:"you",rc:"r-you",t:`I'll show you the device now, so it's not the first time you've held it. Keep it somewhere easy to reach — not locked away, and check the expiry date. Do you want me to run through it again?`}
+ ],
+ key:[
+  `“It reverses an opioid overdose, and it's free through Take Home Naloxone — no prescription.”`,
+  `“Like a smoke alarm or a first aid kit. You hope you never use it.”`,
+  `“Call 000. On his back. One nostril, press until it clicks — no testing. No response in two or three minutes, use the second one in the other nostril.”`,
+  `“Recovery position, stay until the ambulance arrives. It wears off before most opioids do.”`,
+  `“It won't hurt him if he isn't overdosing.”`
+ ]},
+{cat:"AU Schemes",quick:true,title:"MS-2 Step — the facts",scen:"Mifepristone + misoprostol composite pack",
+ points:[
+  `<b>What it is.</b> A composite pack for medical termination of a developing intrauterine pregnancy <b>up to 63 days (9 weeks) of gestation</b>. Step 1: <b>mifepristone 200 mg</b> (one tablet). Step 2: <b>misoprostol 800 micrograms</b> (4 × 200 mcg GyMiso tablets). Prescription-only (S4). PBS-listed; the combination pack has been listed since 2015.`,
+  `<b>Regulatory change.</b> From <b>1 August 2023</b> the TGA removed the special prescriber and dispenser certification. <b>Any pharmacist can dispense</b> MS-2 Step, and any appropriately qualified health practitioner, including nurse practitioners, can prescribe it. Before that, only a small proportion of pharmacists were registered to dispense.`,
+  `<b>How it is taken (product information, as reported).</b> Mifepristone 200 mg orally. Then <b>36 to 48 hours later</b>, misoprostol 800 mcg <b>buccally</b> (tablets held between the cheek and gum for 30 minutes, then the remainder swallowed).`,
+  `<b>How it works (leaflet).</b> Mifepristone blocks progesterone, which the pregnancy needs. Misoprostol makes the uterus contract and softens the cervix so the contents are passed.`,
+  `<b>Follow-up is required.</b> The leaflet says every patient needs a check with a healthcare practitioner, preferably the prescriber, <b>14 to 21 days</b> after taking it, even if nothing has gone wrong.`,
+  `<b>Serious problems (leaflet):</b> prolonged heavy vaginal bleeding · infection, which can be life-threatening · ongoing abdominal pain · serious skin reactions.`,
+  `<b>Your role.</b> Check the prescription is valid and covers the full pack. Dispense privately and without questions about the decision or the gestation — that is the prescriber's assessment. Counsel on the two steps, what to expect, when to get help and the follow-up. Make sure she has the prescriber's contact and an after-hours plan.`,
+  `<b>Not in scope:</b> don't reassess the decision or the dates. Do ask, and escalate to the prescriber, if she describes severe one-sided pain, bleeding before taking it, or symptoms that might point to something else. <span style="color:var(--seal);font-weight:600">(check)</span>`
+ ],flag:"Don't miss: any pharmacist can dispense it since Aug 2023 — and the 14–21 day follow-up is part of the safe use, so check she has one booked."},
+{cat:"AU Schemes",title:"MS-2 Step — the dispensing conversation",scen:"Private, calm, non-judgemental",
+ lines:[
+  {r:"you",rc:"r-you",t:`Thanks for waiting. Let's go into the consult room so we can talk privately. I'm just going to go through how to take this and what to expect, and then you can ask me anything.`},
+  {r:"cust",rc:"r-cust",t:`Okay.`},
+  {r:"you",rc:"r-you",t:`There are two steps. The first is one tablet, mifepristone, which blocks the hormone the pregnancy needs. Then thirty-six to forty-eight hours later you take the second step: four misoprostol tablets, which you hold between your cheek and gum for thirty minutes, then swallow whatever is left. Your prescriber will have told you when to take the first one.`},
+  {r:"cust",rc:"r-cust",t:`What's going to happen?`},
+  {r:"you",rc:"r-you",t:`The second step causes cramping and bleeding, usually heavier than a period, often with clots. It starts within a few hours for most people. Some people also get nausea, diarrhoea, chills or a mild fever for a short time. Ibuprofen and paracetamol usually help, but your prescriber's advice comes first. A heat pack helps too, and it's a good idea to have a support person or a quiet day planned.`},
+  {r:"cust",rc:"r-cust",t:`When should I worry?`},
+  {r:"you",rc:"r-you",t:`Call your prescriber, or go to Emergency, if you're soaking two or more pads an hour for two hours in a row, if you have severe pain that painkillers don't touch, if you have a fever or feel unwell after the first day, or if there's a foul-smelling discharge. The leaflet lists prolonged heavy bleeding, infection and ongoing abdominal pain as the serious problems. If you're not sure, ring — nobody will mind.`},
+  {r:"cust",rc:"r-cust",t:`What if nothing happens?`},
+  {r:"you",rc:"r-you",t:`Contact your prescriber. You also need a check-up between fourteen and twenty-one days after, even if everything goes well. Do you have that booked, and do you have a number to ring after hours?`},
+  {r:"cust",rc:"r-cust",t:`I think so.`},
+  {r:"you",rc:"r-you",t:`Let's make sure. I can write the number on the bag. One more thing: you can fall pregnant again very quickly afterwards, so when you're ready, your prescriber can talk to you about contraception. You've done nothing wrong coming in here. Is there anything else you'd like to ask?`}
+ ],
+ key:[
+  `“Let's go somewhere private. I'll go through how to take this and what to expect.”`,
+  `“Two steps: one tablet now as your prescriber told you; four tablets 36 to 48 hours later, held between cheek and gum for 30 minutes.”`,
+  `“Expect cramping and bleeding heavier than a period. Ibuprofen and paracetamol usually help — your prescriber's advice comes first.”`,
+  `“Call or go to Emergency if you're soaking two pads an hour for two hours, have severe pain, fever after the first day, or foul-smelling discharge.”`,
+  `“You need a check-up 14 to 21 days after, even if everything goes well. Do you have an after-hours number?”`
+ ]},
+{cat:"AU Schemes",quick:true,title:"If you can't dispense it yourself",scen:"Conscientious objection — the professional rule",
+ points:[
+  `<b>The rule.</b> The PSA Code of Ethics (Care Principle 2) says a pharmacist who declines to provide a form of care on conscientious grounds must <b>tell the patient</b> and <b>appropriately facilitate continuity of care</b>. The AHPRA code of conduct allows personal views but expects you to identify another pharmacy or source. Check the Pharmacy Board of Australia's current guidance too.`,
+  `<b>What it means at the counter.</b> She must not be left stranded, shamed or delayed. Don't question her decision or lecture her.`,
+  `<i>“I'm not able to provide this myself, but I'll make sure you get it. Let me get a colleague to help you now.”</i>`,
+  `<i>“If we don't have a colleague available, I'll ring [nearby pharmacy] right now to confirm they have it and tell them you're coming.”</i>`,
+  `<i>“You haven't done anything wrong. I'd just like to make sure you're looked after.”</i>`,
+  `<b>Team plan.</b> Know in advance, as a pharmacy, who on the roster will dispense and which nearby pharmacies hold stock, so no one is turned away. Queensland has decriminalised termination of pregnancy (Termination of Pregnancy Act 2018). <span style="color:var(--seal);font-weight:600">(check)</span>`,
+  `<b>Support she can use.</b> The 1800 My Options service gives information on pregnancy options and contraception — look up the number at 1800myoptions.org.au rather than relying on me for it.`
+ ],flag:"Don't miss: decline if you must, but never without telling her and getting her to someone who will — in the same visit."},
+{cat:"AU Schemes",quick:true,title:"Australian helplines at the counter",scen:"Numbers you will actually need",
+ points:[
+  `<b>000</b> — Triple Zero: overdose, severe asthma, anaphylaxis, chest pain, stroke.`,
+  `<b>13 11 26</b> — Poisons Information Centre (24/7): overdoses, child ingestions, iron tablets, wrong doses.`,
+  `<b>1800 637 700</b> — NDSS Helpline.`,
+  `<b>13 11 14</b> — Lifeline (24/7 crisis support).`,
+  `<b>1300 22 4636</b> — Beyond Blue.`,
+  `<b>1800 737 732</b> — 1800RESPECT (sexual assault and family violence, 24/7).`,
+  `<b>13 7848</b> — Quitline.`,
+  `<b>1800 250 015</b> — National Alcohol and Other Drug Hotline.`,
+  `<b>1800 177 833</b> — Adis (Queensland alcohol and drug information service; also the Take Home Naloxone postal program). <span style="color:var(--seal);font-weight:600">(check)</span>`,
+  `<b>13 92 76</b> — 13YARN (Aboriginal and Torres Strait Islander crisis support).`,
+  `<b>1800 55 1800</b> — Kids Helpline.`,
+  `<b>Where to read the official versions:</b> <a href="https://www.safetyandquality.gov.au/medicine-finder" target="_blank" rel="noopener noreferrer" style="color:var(--c);text-decoration:underline">ACSQHC Medicine Finder</a> (leaflets), the TGA, the PBS website, and the Pharmacy Board of Australia / PSA.`
+ ],flag:"Don't miss: verify any number you give a patient on the day — they change. 000 first for anything life-threatening."},
+{cat:"Quiz & Viva",quick:true,title:"Australian schemes drill: NDSS, naloxone, MS-2 Step",scen:"Know it cold",
+ points:[
+  `<details><summary style="cursor:pointer;font-weight:600;list-style:none">▸ What is the NDSS, and who can register?</summary><div style="margin-top:7px;color:var(--muted);line-height:1.5">The National Diabetes Services Scheme is an Australian Government initiative administered by Diabetes Australia. Anyone with diagnosed diabetes (including gestational) who holds or is eligible for a Medicare card and lives in Australia. A medical practitioner, nurse practitioner or credentialled diabetes educator certifies the registration (practice nurses can complete some forms).</div></details>`,
+  `<details><summary style="cursor:pointer;font-weight:600;list-style:none">▸ A customer asks for Lantus and test strips. Which is NDSS and which is PBS?</summary><div style="margin-top:7px;color:var(--muted);line-height:1.5">Test strips (and pen needles, urine ketone strips, pump consumables, CGM) are NDSS. Lantus (insulin) is a PBS medicine on a prescription. Different schemes.</div></details>`,
+  `<details><summary style="cursor:pointer;font-weight:600;list-style:none">▸ What does a registered customer need to show to get NDSS supplies?</summary><div style="margin-top:7px;color:var(--muted);line-height:1.5">Their NDSS card or number. They can also show their Medicare card and confirm their date of birth and address.</div></details>`,
+  `<details><summary style="cursor:pointer;font-weight:600;list-style:none">▸ Who is eligible for the NDSS CGM subsidy?</summary><div style="margin-top:7px;color:var(--muted);line-height:1.5">All people with type 1 diabetes (plus some people under 21 with rare insulin-treated conditions). Type 2 diabetes is not currently eligible. Concession card holders and registrants under 21 pay no co-payment; others pay a per-sensor co-payment.</div></details>`,
+  `<details><summary style="cursor:pointer;font-weight:600;list-style:none">▸ What is the NDSS Helpline number?</summary><div style="margin-top:7px;color:var(--muted);line-height:1.5">1800 637 700.</div></details>`,
+  `<details><summary style="cursor:pointer;font-weight:600;list-style:none">▸ What is the Take Home Naloxone program?</summary><div style="margin-top:7px;color:var(--muted);line-height:1.5">A PBS program that supplies naloxone free of charge and without a prescription to people at risk of opioid overdose and people likely to assist them, through participating pharmacies, needle and syringe programs and other authorised services.</div></details>`,
+  `<details><summary style="cursor:pointer;font-weight:600;list-style:none">▸ Give the Nyxoid steps in an overdose.</summary><div style="margin-top:7px;color:var(--muted);line-height:1.5">Call 000 first. Lie the person on their back and check the nose is clear. Don't prime or test — it's a single dose. Insert the nozzle in one nostril and press until it clicks. No response in 2 to 3 minutes: use a second device in the other nostril, repeating every 2–3 minutes. Recovery position once breathing, and stay until the ambulance arrives.</div></details>`,
+  `<details><summary style="cursor:pointer;font-weight:600;list-style:none">▸ Why must the ambulance still come after naloxone?</summary><div style="margin-top:7px;color:var(--muted);line-height:1.5">Naloxone lasts about 30 to 90 minutes, often less than the opioid, so the overdose can return.</div></details>`,
+  `<details><summary style="cursor:pointer;font-weight:600;list-style:none">▸ A dependent opioid user wakes up after Nyxoid feeling terrible. What is that?</summary><div style="margin-top:7px;color:var(--muted);line-height:1.5">Acute opioid withdrawal — aches, nausea, vomiting, diarrhoea, sweating, agitation. Uncomfortable but expected; keep them observed and make sure help arrives.</div></details>`,
+  `<details><summary style="cursor:pointer;font-weight:600;list-style:none">▸ What is MS-2 Step and how far into pregnancy can it be used?</summary><div style="margin-top:7px;color:var(--muted);line-height:1.5">A composite pack of mifepristone 200 mg and misoprostol 800 micrograms (4 × 200 mcg GyMiso) for medical termination of a developing intrauterine pregnancy up to 63 days (9 weeks) of gestation.</div></details>`,
+  `<details><summary style="cursor:pointer;font-weight:600;list-style:none">▸ What changed on 1 August 2023 for MS-2 Step?</summary><div style="margin-top:7px;color:var(--muted);line-height:1.5">The TGA removed the special prescriber and dispenser certification. Any pharmacist can dispense it, and any appropriately qualified health practitioner, including nurse practitioners, can prescribe it.</div></details>`,
+  `<details><summary style="cursor:pointer;font-weight:600;list-style:none">▸ How are the two steps of MS-2 Step taken?</summary><div style="margin-top:7px;color:var(--muted);line-height:1.5">Mifepristone 200 mg orally; then 36 to 48 hours later, misoprostol 800 mcg buccally — held between the cheek and gum for 30 minutes, then the remainder swallowed.</div></details>`,
+  `<details><summary style="cursor:pointer;font-weight:600;list-style:none">▸ What follow-up does the MS-2 Step leaflet require?</summary><div style="margin-top:7px;color:var(--muted);line-height:1.5">A check with a healthcare practitioner, preferably the prescriber, 14 to 21 days after taking it, even if there were no problems.</div></details>`,
+  `<details><summary style="cursor:pointer;font-weight:600;list-style:none">▸ What are the serious problems the MS-2 Step leaflet lists?</summary><div style="margin-top:7px;color:var(--muted);line-height:1.5">Prolonged heavy vaginal bleeding, infection (potentially life-threatening), ongoing abdominal pain and serious skin reactions.</div></details>`,
+  `<details><summary style="cursor:pointer;font-weight:600;list-style:none">▸ What does the PSA Code of Ethics say about conscientious objection?</summary><div style="margin-top:7px;color:var(--muted);line-height:1.5">Care Principle 2: a pharmacist informs the patient when declining care on conscientious grounds and appropriately facilitates continuity of care for the patient.</div></details>`,
+  `<details><summary style="cursor:pointer;font-weight:600;list-style:none">▸ Who do you call in Australia for an iron overdose in a child, and what is the number?</summary><div style="margin-top:7px;color:var(--muted);line-height:1.5">The Poisons Information Centre on 13 11 26 (24/7). Call 000 if the child is unwell.</div></details>`
+ ],flag:"Don't miss: the answer is a sentence you could say to a patient, not a fact in your head."},
+{cat:"AU Schemes",quick:true,title:"Sources & gaps — Australian schemes",scen:"What these cards are built on",
+ points:[
+  `<b>Read in Australian sources:</b> <a href="https://www.ndss.com.au/about-the-ndss/registration/" target="_blank" rel="noopener noreferrer" style="color:var(--c);text-decoration:underline">NDSS registration</a> · <a href="https://www.ndss.com.au/products/access-points/" target="_blank" rel="noopener noreferrer" style="color:var(--c);text-decoration:underline">NDSS Access Points</a> · <a href="https://www.ndss.com.au/products/continuous-glucose-monitoring/" target="_blank" rel="noopener noreferrer" style="color:var(--c);text-decoration:underline">NDSS CGM</a> · <a href="https://www.nps.org.au/medicine-finder/nyxoid" target="_blank" rel="noopener noreferrer" style="color:var(--c);text-decoration:underline">Nyxoid consumer leaflet</a> · <a href="https://www.health.nsw.gov.au/aod/programs/Pages/naloxone-factsheet-nyxoid.aspx" target="_blank" rel="noopener noreferrer" style="color:var(--c);text-decoration:underline">NSW Health Nyxoid factsheet</a> · <a href="https://adis.health.qld.gov.au/naloxone" target="_blank" rel="noopener noreferrer" style="color:var(--c);text-decoration:underline">Queensland Adis postal naloxone</a> · <a href="https://www.nps.org.au/medicine-finder/ms-2-step-mifepristone-linepharma-200-mg-tablet-pack" target="_blank" rel="noopener noreferrer" style="color:var(--c);text-decoration:underline">MS-2 Step leaflet</a> · <a href="https://www.psa.org.au/nation-wide-access-to-medical-terminations/" target="_blank" rel="noopener noreferrer" style="color:var(--c);text-decoration:underline">PSA on MS-2 Step access</a> · <a href="https://www.australianpharmacist.com.au/pharmacy-and-medical-termination-of-pregnancy/" target="_blank" rel="noopener noreferrer" style="color:var(--c);text-decoration:underline">Australian Pharmacist on MS-2 Step and conscience</a>.`,
+  `<b>From search summaries (not the full documents):</b> NDSS eligibility and certifier list; CGM eligibility and co-payment figures (manufacturer pages — they change); naloxone timing from the NSW factsheet; the 1 August 2023 TGA change; the PBS history of MS-2 Step.`,
+  `<b>Marked "(check)" — class knowledge, not sourced here:</b> who to offer naloxone to; pain relief and bleeding advice for MS-2 Step; Queensland's termination law; the helpline numbers other than 000, 13 11 26, 1800 637 700 and 1800RESPECT; and that meters are not NDSS items.`,
+  `<b>Not verified:</b> Access Point supply rules, current NDSS co-payments, your pharmacy's protocols (QCPP), and the Pharmacy Board's current wording on conscientious objection. The leaflet in the box and your pharmacy's protocol win over any card.`
+ ],flag:"Don't miss: Australian sources first. If a card says (check), confirm it on the day."},
 
 ];
 
@@ -1587,6 +1769,7 @@ const COLORS={
   "Business & Regs":"#5C6B3F",
   "S3 Shelf":"#2E6F8E",
   "Bowel prep":"#9A5B7A",
+  "AU Schemes":"#7A6A1F",
   "Quiz & Viva":"#8A4B2A"
 };
 
